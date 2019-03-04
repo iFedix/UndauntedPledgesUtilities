@@ -1,0 +1,24 @@
+## Title: Undaunted Pledges Utilities
+## Description: This addon manages daily Undaunted Pledges
+## Version: 1.3
+## Author: |@iFedix|r
+## APIVersion: 100026
+## SavedVariables: UndauntedPledgesUtilities_SavedVariables
+## OptionalDependsOn: LibAddonMenu-2.0
+## DependsOn: LibAddonMenu-2.0 LibStub LibSlashCommander
+
+Language/en.lua
+Language/$(language).lua
+UPU.xml
+UPU_Data.lua
+UPU.lua
+UPU_Settings.lua
+Bindings.xml
+
+; This Add-on is not created by, affiliated with or sponsored by ZeniMax
+; Media Inc. or its affiliates. The Elder Scrolls® and related logos are
+; registered trademarks or trademarks of ZeniMax Media Inc. in the United
+; States and/or other countries. All rights reserved.
+;
+; You can read the full terms at:
+; https://account.elderscrollsonline.com/add-on-terms

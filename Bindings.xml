@@ -1,0 +1,12 @@
+<Bindings>
+	<Layer name="SI_KEYBINDINGS_LAYER_GENERAL">
+		<Category name="UndauntedPledgesUtilities">
+			<Action name="ABANDON_PLEDGES">
+				<Down>UPU.AbandonPledges()</Down>
+			</Action>
+			<Action name="POST_TO_CHAT">
+				<Down>UPU.PostToChat()</Down>
+			</Action>
+		</Category>
+	</Layer>
+</Bindings>

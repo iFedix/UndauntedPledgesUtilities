@@ -1,0 +1,31 @@
+<GuiXml>
+	<Controls>
+		<TopLevelControl name="UPU_CHEST_HELPER" mouseEnabled="false" movable="false" clampedToScreen="true" hidden="true">
+			<Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="CENTER" offsetX="100" offsetY="100"/>
+			<Dimensions x="420" y="120"/>
+			<Controls>
+				<Texture name="$(parent)_TEXTURE" textureFile="esoui/art/tutorial/smithing_rightarrow_up.dds">
+					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="15" offsetY="14"/>
+					<Dimensions x="30" y="30"/>
+				</Texture>
+				<Label name="$(parent)_LABEL1" text="Blabla" verticalAlignment="TOP" horizontalAlignment="LEFT" color="INTERFACE_COLOR_TYPE_TEXT_COLORS:INTERFACE_TEXT_COLOR_NORMAL" font="ZoFontHeader3">
+					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="49" offsetY = "12"/>
+					<Dimensions x="300" y="30"/>
+				</Label>
+				<Label name="$(parent)_LABEL2" text="Blublu" verticalAlignment="TOP" horizontalAlignment="LEFT" color="INTERFACE_COLOR_TYPE_TEXT_COLORS:INTERFACE_TEXT_COLOR_NORMAL" font="$(MEDIUM_FONT)|$(KB_16)|soft-shadow-thin">
+					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="49" offsetY = "42"/>
+					<Dimensions x="420" y="90"/>
+				</Label>
+			</Controls>
+		</TopLevelControl>
+		<TopLevelControl name="UPU_Button" hidden="true">
+			<Controls>
+				<Button name="$(parent)_Button" inheritAlpha="true" clickSound="Click">
+					<Anchor point="BOTTOMRIGHT" relativeTo="ZO_MainMenuSceneGroupBarLabel" relativePoint="BOTTOMLEFT" offsetX="-15" offsetY="7" />
+					<Dimensions x="60" y="60" />
+					<Textures normal="esoui/art/help/help_tabicon_tutorial_up.dds" pressed="esoui/art/help/help_tabicon_tutorial_down.dds" mouseOver="esoui/art/help/help_tabicon_tutorial_over.dds" />
+				</Button> 
+			</Controls>			
+		</TopLevelControl>
+	</Controls>
+</GuiXml> 
