@@ -29,7 +29,7 @@ do
 	Add("UPU_MENU_SHOW_ACH_ON_AW",		"Afficher les succès obtenus")
 	Add("UPU_MENU_SHOW_ACH_ON_AW_TT",	"Afficher les succès restant à obtenir")
 	Add("UPU_MENU_CMDS",				"INFORMATION SUR LES COMMANDES") 
-	Add("UPU_MENU_CMD_DESCRIPTION",		"|c2020F0/pledges|r: poste les serments du jour. Utilisation:\n/pledges x:  obtenir les serments du x ieme jour en partant d’aujourd’hui (e.g.: /pledges -1 pour les serments d’hier, /pledges 1 pour les serments de demain, /pledges 5 pour les serments dans 5 jours, etc). Note: fonctionne pour un max de 30 jours.\n/pledges week: obtenir les serments de la semaine\n|c2020F0/upuday|r: obtenir le prochain jour d’apparition d’un donjon en serment via son acronyme (e.g.: /upuday rom pour obtenir le prochain jour pour les Ruines de Mazzatun).\n|c2020F0/upudayhelp|r: obtenir la liste des acronymes utilisés par /upuday")
+	Add("UPU_MENU_CMD_DESCRIPTION",		"|cFFD300/pledges|r: poste les serments du jour. Utilisation:\n/pledges x:  obtenir les serments du x ieme jour en partant d’aujourd’hui (e.g.: /pledges -1 pour les serments d’hier, /pledges 1 pour les serments de demain, /pledges 5 pour les serments dans 5 jours, etc). Note: fonctionne pour un max de 30 jours.\n/pledges week: obtenir les serments de la semaine\n|cFFD300/upuday|r: obtenir le prochain jour d’apparition d’un donjon en serment via son acronyme (e.g.: /upuday rom pour obtenir le prochain jour pour les Ruines de Mazzatun).\n|cFFD300/upudayhelp|r: obtenir la liste des acronymes utilisés par /upuday")
 	
 	--Chat
 	Add("UPU_PLEDGE",            		"SERMENT")

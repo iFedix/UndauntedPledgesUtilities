@@ -13,7 +13,7 @@ UPU = UndauntedPledgesUtilities
 
 UPU.AddonName        	= "UndauntedPledgesUtilities"
 UPU.AddonNameSpaces 	= "Undaunted Pledges Utilities"
-UPU.AddonVersion    	= "1.4"
+UPU.AddonVersion    	= "1.4.1"
 UPU.Author 				= "iFedix"
 UPU.WebSite 		    = "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html"
 

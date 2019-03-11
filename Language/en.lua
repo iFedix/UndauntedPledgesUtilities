@@ -29,7 +29,7 @@ do
 	Add("UPU_MENU_SHOW_ACH_ON_AW",		"Show on Achiev Awarded")
 	Add("UPU_MENU_SHOW_ACH_ON_AW_TT",	"Show remaining achievements on achievement awarded")
 	Add("UPU_MENU_CMDS",				"COMMANDS INFO")
-	Add("UPU_MENU_CMD_DESCRIPTION",		" |c2020F0/pledges|r: post dailies. Usage:\n/pledges x: get the dailies on the x day starting from today (e.g.: /pledges -1 for yesteday pledges, /pledges 1 for tomorrow pledges, /pledges 5 for pledges in 5 days). Note: max 30 days allowed.\n/pledges week: get pledges for the week\n|c2020F0/upuday|r: get the next pledge day of a specific dungeon given an acronym (e.g.: /upuday rom to get next pledge day for Ruins of Mazzatun).\n|c2020F0/upudayhelp|r: get a list of used acronyms by /upuday")
+	Add("UPU_MENU_CMD_DESCRIPTION",		" |cFFD300/pledges|r: post dailies. Usage:\n/pledges x: get the dailies on the x day starting from today (e.g.: /pledges -1 for yesteday pledges, /pledges 1 for tomorrow pledges, /pledges 5 for pledges in 5 days). Note: max 30 days allowed\n/pledges week: get pledges for the week\n|cFFD300/upuday|r: get the next pledge day of a specific dungeon given an acronym (e.g.: /upuday rom to get next pledge day for Ruins of Mazzatun)\n|cFFD300/upudayhelp|r: get a list of used acronyms by /upuday")
 	
 	--Chat
 	Add("UPU_PLEDGE",		       		"PLEDGE")

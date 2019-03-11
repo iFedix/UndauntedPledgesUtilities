@@ -29,7 +29,7 @@ do
 	Add("UPU_MENU_SHOW_ACH_ON_AW",		"Beim Abschließen von Err. anzeigen")
 	Add("UPU_MENU_SHOW_ACH_ON_AW_TT",	"Zeige übrige Errungenschaften beim Abschließen einer Errungenschaft an.")
 	Add("UPU_MENU_CMDS",				"BEFEHLSINFO") 
-	Add("UPU_MENU_CMD_DESCRIPTION",		"|c2020F0/pledges|r: Gelöbnisse im Chat ausgeben. Benutzung:\n/pledges x: Zeige die Gelöbnisse von Tag x, startend ab dem heutigen Tag (z.B..: /pledges -1 für die gestrigen Gelöbnisse, /pledges 1 für die morgigen, /pledges 5 für die Gelöbnisse in 5 Tagen). Hinweis: auf max. 30 Tage  begrenzt.\n/pledges week: Zeige alle Gelöbnisse für die Woche an\n|c2020F0/upuday|r: Zeige den nächsten Tag für ein bestimmtes Verlies an. Zu verwenden mit einem Akronym (z.B.: /upuday rom gibt den nächsten Gelöbnis-Tag für die Ruinen von Mazzatun aus).\n|c2020F0/upudayhelp|r: Zeige eine Liste der mit /upuday verwendbaren Akronyme an")
+	Add("UPU_MENU_CMD_DESCRIPTION",		"|cFFD300/pledges|r: Gelöbnisse im Chat ausgeben. Benutzung:\n/pledges x: Zeige die Gelöbnisse von Tag x, startend ab dem heutigen Tag (z.B..: /pledges -1 für die gestrigen Gelöbnisse, /pledges 1 für die morgigen, /pledges 5 für die Gelöbnisse in 5 Tagen). Hinweis: auf max. 30 Tage begrenzt\n/pledges week: Zeige alle Gelöbnisse für die Woche an\n|cFFD300/upuday|r: Zeige den nächsten Tag für ein bestimmtes Verlies an. Zu verwenden mit einem Akronym (z.B.: /upuday rom gibt den nächsten Gelöbnis-Tag für die Ruinen von Mazzatun aus)\n|cFFD300/upudayhelp|r: Zeige eine Liste der mit /upuday verwendbaren Akronyme an")
 
 	--Chat
 	Add("UPU_PLEDGE",		       		"Gelöbnis")
