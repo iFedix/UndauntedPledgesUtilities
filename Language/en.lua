@@ -6,7 +6,7 @@ do
    local Add = ZO_CreateStringId
 
     --Settings
-	Add("UPU_MENU_DESCRIPTION",			"This Addon may contain nuts!")	
+	Add("UPU_MENU_DESCRIPTION",			"This Addon may contain nuts!")
 	Add("UPU_MENU_AUTO_ABANDON",		"Auto Abandon")	
 	Add("UPU_MENU_AUTO_ABANDON_TT",		"Silently abandon all NON COMPLETED undaunted pledges")
 	Add("UPU_MENU_CHEST_HELPER",		"Chest Helper")	
@@ -28,7 +28,9 @@ do
 	Add("UPU_MENU_COMPOSED_ACH_TT",		"Include achievements gainable by doing different tasks in different dungeons (e.g. Complete All Speed Challenges achiev or Vanquisher of the Covenant achiev)")
 	Add("UPU_MENU_SHOW_ACH_ON_AW",		"Show on Achiev Awarded")
 	Add("UPU_MENU_SHOW_ACH_ON_AW_TT",	"Show remaining achievements on achievement awarded")
-
+	Add("UPU_MENU_CMDS",				"COMMANDS INFO")
+	Add("UPU_MENU_CMD_DESCRIPTION",		" |c2020F0/pledges|r: post dailies. Usage:\n/pledges x: get the dailies on the x day starting from today (e.g.: /pledges -1 for yesteday pledges, /pledges 1 for tomorrow pledges, /pledges 5 for pledges in 5 days). Note: max 30 days allowed.\n/pledges week: get pledges for the week\n|c2020F0/upuday|r: get the next pledge day of a specific dungeon given an acronym (e.g.: /upuday rom to get next pledge day for Ruins of Mazzatun).\n|c2020F0/upudayhelp|r: get a list of used acronyms by /upuday")
+	
 	--Chat
 	Add("UPU_PLEDGE",		       		"PLEDGE")
 	Add("UPU_UNDAUNTED_DAILY_CATEGORY", "Undaunted Dailies")	
@@ -49,13 +51,13 @@ do
 	Add("UPU_REWARD_CHEST",				"Reward Chest")
 	Add("UPU_NEW_DAILIES",				"New Undaunted Pledges are availlable !")
 	Add("UPU_MAY_CONTAIN",				"May contain : ")
-	Add("UPU_CHEST_MAJ",				"Blood Spawn, Chokethorn, Shadowren, Engine Guardian, Kra'gh, Maw of the Infernal, Nightflame, Scourge Harvester, Sentinel of Rkugamz, Slimecraw, Spawn of Mephala, Swarm Mother.") 
+	Add("UPU_CHEST_MAJ",				"Blood Spawn, Chokethorn, Shadowrend, Engine Guardian, Kra'gh, Maw of the Infernal, Nightflame, Scourge Harvester, Sentinel of Rkugamz, Slimecraw, Spawn of Mephala, Swarm Mother.") 
 	Add("UPU_CHEST_GLIRION",			"Grothdarr, Iceheart, Ilambris, Infernal Guardian, Sellistrix, Nerien'eth, Pirate Skeleton, Selene, Stormfist, Tremorscale, Troll King, Valkyn Skoria.") 
 	Add("UPU_CHEST_URGARLAG",			"Domihaus, Earthgore, Lord Warden, Mighty Chudan, Molag Kena, Thurvokun, Velidreth, Zaan, Vykosa, Balorgh, Symphony of Blades, Stonekeeper.") 	
 	Add("UPU_MAJ",						"Maj")
 	Add("UPU_GLIRION",					"Glirion")
 	Add("UPU_URGARLAG",					"Urgarlag")
-	Add("UPU_BUTTON_TT",				"<Click to link dailies in chat.>")
+	Add("UPU_BUTTON_TT",				"<Click to link dailies in chat>")
 	
 	--commands
 	Add("UPU_PLEDGE_CMD_DESCRIPTION",	"Shows the undaunted pledges")
@@ -115,7 +117,7 @@ do
 		},
 		["UPU_PLEDGE_05"] ={
 			Regular = "Blessed Crucible",
-			Quest = "Pledge: Blessed Crucible",
+			Quest = "Pledge: Blessed Crucible I",
 			Node = 187,
 		},
 		["UPU_PLEDGE_06"] ={
@@ -155,7 +157,7 @@ do
 		},
 		["UPU_PLEDGE_13"] ={
 			Regular = "Direfrost Keep",
-			Quest = "Pledge: Direfrost Keep",
+			Quest = "Pledge: Direfrost Keep I",
 			Node = 195,
 		},
 		["UPU_PLEDGE_14"] ={

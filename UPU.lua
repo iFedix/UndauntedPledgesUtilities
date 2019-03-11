@@ -13,7 +13,7 @@ UPU = UndauntedPledgesUtilities
 
 UPU.AddonName        	= "UndauntedPledgesUtilities"
 UPU.AddonNameSpaces 	= "Undaunted Pledges Utilities"
-UPU.AddonVersion    	= "1.3"
+UPU.AddonVersion    	= "1.4"
 UPU.Author 				= "iFedix"
 UPU.WebSite 		    = "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html"
 
@@ -89,7 +89,7 @@ local UPU_UI
 local TodaysDailies = {}
 local TodaysHelmets = {}
 -- colors
-local BLUE, RED, WHITE = 1,2,3
+local BLUE, RED, WHITE, GREEN = 1,2,3,4
 
 ---------------------------------------------------------
 --	EVENT HANDLERS			   	   					   --
@@ -128,9 +128,18 @@ function UPU.onZoneChanged()
 	local zone = GetUnitZone("player")	
 	local difficulty = GetCurrentZoneDungeonDifficulty()
 	local pledgeID = UPU.isDungeon(zone)
-	if zone ~= actualZone or difficulty ~= actualDifficulty or UPU.isNewInstance() then
+	local newInstance = UPU.isNewInstance()
+	
+	local debugString = "DEBUG - Zone: "..zone.." Previous Zone: "..actualZone.." Difficulty: "..difficulty.." Previous Difficulty: "..actualDifficulty.." PledgeID: "..pledgeID.. " IsNewInstance: "..tostring(newInstance)
+	
+	--Still need some tuning...
+	if UPU.DebugMode then UPU.Msg2Chat(UPU.Colorize(debugString, RED)) end
+	
+	if zone ~= actualZone or difficulty ~= actualDifficulty or newInstance then
 		if pledgeID ~= "" then
-			--d(zone,actualZone,difficulty,actualDifficulty,UPU.isNewInstance(),pledgeID)
+		
+			if UPU.DebugMode then UPU.Msg2Chat(UPU.Colorize(debugString, GREEN)) end
+			
 			UPU.Msg2Chat(UPU.Colorize(zone, BLUE))
 			UPU.HandleAchievements(difficulty, pledgeID)		
 		end
@@ -230,6 +239,12 @@ function UPU.Initialize() -- == player activated
 		UPU.GetDungeonAcronyms() 
 	end, GetString(UPU_GET_ACR_CMD_DESCRIPTION))
 	
+	--debug mode only for iFedix
+	if string.find(GetDisplayName("player"), UPU.Author) then 
+		UPU.DebugMode=true 
+		UPU.Msg2Chat(UPU.Colorize("UPU: DUBUG MODE ACTIVE", RED))
+	end
+	
 	--useful function active in debug mode to list all the dungeon nodes (to fill the corresponding node info in lang.lua files)
 	if UPU.DebugMode then LSC:Register("/upulistnodes", function() UPU.ShowNodesIndexes() end, GetString(UPU_TEST_CMD_DESCRIPTION)) end
 	
@@ -254,7 +269,9 @@ function UPU.OnChatterBegin(eventCode, optionCount)
 	
 	--only executes if "interact" is an undaunted quest giver
 	local unitName = GetRawUnitName('interact')
-	if string.find(unitName, GetString(UPU_URGARLAG)) or string.find(unitName, GetString(UPU_GLIRION)) or string.find(unitName, GetString(UPU_MAJ)) then
+	if unitName=="Ansei Maja" then return end
+	
+	if string.find(unitName, GetString(UPU_URGARLAG)) or string.find(unitName, GetString(UPU_GLIRION)) or string.find(unitName, GetString(UPU_MAJ)) then		
 		if string.find(string.upper(optionString), GetString(UPU_PLEDGE)) then
 			--dialog is daily undaunted (pledge or delve quest) offering
 			EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_QUEST_OFFERED, UPU.PseudoOnConversationUpdated) -- event should be onconvupdated but strangely is quest offered 
@@ -617,9 +634,9 @@ function UPU.GetNextPledges(dayOffset)
 
 	if dayOffset== nil or dayOffset=="" then
 		if UPU.sVars.bDisplayLootLink then
-			return GetString(UPU_UNDAUNTED_DAILES).." "..TodaysDailies[MAJ].Regular.." ("..zo_strformat(TodaysHelmets[MAJ]).."), "..TodaysDailies[GLIRION].Regular.." ("..zo_strformat(TodaysHelmets[GLIRION])..") and "..TodaysDailies[URGARLAG].Regular.." ("..zo_strformat(TodaysHelmets[URGARLAG])..")"	
+			return UPU.Colorize(GetString(UPU_UNDAUNTED_DAILES).." "..TodaysDailies[MAJ].Regular.." ("..zo_strformat(TodaysHelmets[MAJ]).."), "..TodaysDailies[GLIRION].Regular.." ("..zo_strformat(TodaysHelmets[GLIRION])..") and "..TodaysDailies[URGARLAG].Regular.." ("..zo_strformat(TodaysHelmets[URGARLAG])..")")	
 		else
-			return GetString(UPU_UNDAUNTED_DAILES).." "..TodaysDailies[MAJ].Regular..", "..TodaysDailies[GLIRION].Regular.." and "..TodaysDailies[URGARLAG].Regular	
+			return UPU.Colorize(GetString(UPU_UNDAUNTED_DAILES).." "..TodaysDailies[MAJ].Regular..", "..TodaysDailies[GLIRION].Regular.." and "..TodaysDailies[URGARLAG].Regular)	
 		end
 	elseif dayOffset=="week" then
 		local weekPledges=""
@@ -687,7 +704,7 @@ end
 
 --post to chat keybind
 function UPU.PostToChat()
-	CHAT_SYSTEM:StartTextEntry(UPU.GetNextPledges())
+	CHAT_SYSTEM:StartTextEntry(string.sub(UPU.GetNextPledges(),9,-3))
 end
 
 --creates and displays text for a specific dailie
@@ -810,10 +827,10 @@ function UPU.Teleport(questIndex)
 end
 
 function UPU.GetDailiesTooltipText()
-	local ttText = GetString(UPU_BUTTON_TT).."\r\n"..UPU.Colorize(GetString(UPU_UNDAUNTED_DAILES)).." :\r\n"
-	ttText = ttText.."|t15:15:esoui/art/tutorial/smithing_rightarrow_up.dds|t"..TodaysDailies[MAJ].Regular.."\r\n"
-	ttText = ttText.."|t15:15:esoui/art/tutorial/smithing_rightarrow_up.dds|t"..TodaysDailies[GLIRION].Regular.."\r\n"
-	ttText = ttText.."|t15:15:esoui/art/tutorial/smithing_rightarrow_up.dds|t"..TodaysDailies[URGARLAG].Regular
+	local ttText = UPU.Colorize(GetString(UPU_BUTTON_TT)).."\r\n"..UPU.Colorize(GetString(UPU_UNDAUNTED_DAILES)).."\r\n"
+	ttText = ttText.."|t15:15:esoui/art/tutorial/smithing_rightarrow_up.dds|t"..UPU.Colorize(TodaysDailies[MAJ].Regular).."\r\n"
+	ttText = ttText.."|t15:15:esoui/art/tutorial/smithing_rightarrow_up.dds|t"..UPU.Colorize(TodaysDailies[GLIRION].Regular).."\r\n"
+	ttText = ttText.."|t15:15:esoui/art/tutorial/smithing_rightarrow_up.dds|t"..UPU.Colorize(TodaysDailies[URGARLAG].Regular)
 	return ttText	
 end
 
@@ -840,6 +857,8 @@ function UPU.Colorize( stringToColorize, color )
 			return "|cF0F0F0"..stringToColorize.."|r"
 		elseif color == RED then
 			return "|cF02020"..stringToColorize.."|r"
+		elseif color == GREEN then
+			return "|c1FFF29"..stringToColorize.."|r"
 		end		
 	else
 		return "|c"..UPU.sVars.MainTextColor.hex..""..stringToColorize.."|r"	
@@ -914,13 +933,17 @@ function UPU.InitUI()
 	UPU_UI = WINDOW_MANAGER:GetControlByName("UPU_CHEST_HELPER")
 	
 	local button = WINDOW_MANAGER:GetControlByName("UPU_Button_Button")
-	button:SetHandler("OnClicked", function(self) UPU.Msg2Chat(UPU.Colorize(UPU.GetNextPledges())) end)
+	button:SetHandler("OnClicked", function(self) UPU.Msg2Chat(UPU.GetNextPledges()) end)
 	button:SetHandler("OnMouseEnter", function(self) UPU.DisplayTooltip(self) end)
     button:SetHandler("OnMouseExit", function(self) ZO_Tooltips_HideTextTooltip() end)   
 	
 	local tlc =  WINDOW_MANAGER:GetControlByName("UPU_Button")
 	local fragment = ZO_SimpleSceneFragment:New(tlc)
 	QUEST_JOURNAL_SCENE:AddFragment(fragment)
+	
+	--TODO
+	local prova = WINDOW_MANAGER:GetControlByName("UPU_Grid")
+	prova:SetHidden(true)
 	 
  end
  

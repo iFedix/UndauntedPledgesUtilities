@@ -33,13 +33,22 @@ function UPU.CreateSettingsMenu()
 		},
 		[2] = {
 			type = "header",
-			name = UPU.Colorize(GetString(UPU_MENU_GENERAL)),
+			name = UPU.Colorize(GetString(UPU_MENU_CMDS)),
 			width = "full",
 		},
 		[3] = {
+			type = "description",
+			text = GetString(UPU_MENU_CMD_DESCRIPTION),
+		},
+		[4] = {
+			type = "header",
+			name = UPU.Colorize(GetString(UPU_MENU_GENERAL)),
+			width = "full",
+		},
+		[5] = {
 			type = "colorpicker",
 			name = GetString(UPU_MENU_COLOR), --"Main Text Color",
-			tooltip = "Default is r=204, g=10, b=0",
+			tooltip = "Default is r=254, g=254, b=254",
 			getFunc = function() return UPU.GetMainTextColor() end, 
 			setFunc = function(r,g,b,a)
 				UPU.SetMainTextColor(r, g, b, a) 
@@ -49,12 +58,12 @@ function UPU.CreateSettingsMenu()
 			default = function() return UPU.Default.MainTextColor.r, UPU.Default.MainTextColor.g, UPU.Default.MainTextColor.b, UPU.Default.MainTextColor.a end,
 			disabled = false,
 		},
-		[4] = {
+		[6] = {
 			type = "header",
 			name = UPU.Colorize(GetString(UPU_MENU_DAILIES)),
 			width = "full",
 		},
-		[5] = {
+		[7] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_AUTO_ABANDON), --"Auto Abandon",
 			tooltip = GetString(UPU_MENU_AUTO_ABANDON_TT), --"Silently abandon all NON COMPLETED undaunted dailies",
@@ -67,7 +76,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bAutoDelete,
 		},
-		[6] = {
+		[8] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_DISPLAY_DAILIES), -- "Display Dailies", 
 			tooltip = GetString(UPU_MENU_DISPLAY_DAILIES_TT), --"Whether or not the list of dailies will be displayed in the client chat", 
@@ -77,7 +86,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bAdvertizeDailies,
 		},
-		[7] = {
+		[9] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_QUICK_DIALOGS),--"Quick Dialogs",
 			tooltip = GetString(UPU_MENU_QUICK_DIALOGS_TT),--"Auto accepts and returns quests in npc dialogs",
@@ -92,7 +101,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bQuickDialog,
 		},
-		[8] = {
+		[10] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_CHEST_HELPER), --"Chest Helper",
 			tooltip = GetString(UPU_MENU_CHEST_HELPER_TT), --"Displays the list of possible chest Sets.",
@@ -105,7 +114,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bDisplayChestHelper,
 		},
-		[9] = {
+		[11] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_SHOW_LOOT), --"Show Helmet",
 			tooltip = GetString(UPU_MENU_SHOW_LOOT_TT), --"Displays the lootable helmets in the dungeons.",
@@ -115,7 +124,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bDisplayLootLink,
 		},
-		[10] = {
+		[12] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_DAILY_DELVE), --"Daily delve",
 			tooltip = GetString(UPU_MENU_DAILY_DELVE_TT), --"Shows the daily delve quest in Undaunted Dailies category (default: Guild category)",
@@ -127,12 +136,12 @@ function UPU.CreateSettingsMenu()
 			warning = "ReloadUI",
 			default = UPU.defaults.bIncludeDelves,
 		},
-		[11] = {
+		[13] = {
 			type = "header",
 			name = UPU.Colorize(GetString(UPU_ACH_TRACKER)),
 			width = "full",
 		},
-		[12] = {
+		[14] = {
 			type = "checkbox",
 			name = GetString(UPU_ACH_ENABLE), --"Enable",
 			tooltip = GetString(UPU_ACH_ENABLE_TT), --"Enable the missing achievements info when you enter a dungeon",
@@ -151,7 +160,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bEnableAch,
 		},
-		[13] = {
+		[15] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_SHOW_ACH_ON_AW), --"Show on Achiev Awarded",
 			tooltip = GetString(UPU_MENU_SHOW_ACH_ON_AW_TT), --"Show remaining achievements on achievement awarded",
@@ -162,7 +171,7 @@ function UPU.CreateSettingsMenu()
 			default = UPU.defaults.bShowOnAchievAwarded,
 			disabled = function() return not UPU.sVars.bEnableAch end,
 		},
-		[14] = {
+		[16] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_COMMON_ACH), --"Common Achievements",
 			tooltip = GetString(UPU_MENU_COMMON_ACH_TT), --"Include common achievements to all the dungeons on both difficulties (the achievements in dungeons general category)",
@@ -173,7 +182,7 @@ function UPU.CreateSettingsMenu()
 			default = UPU.defaults.bShowCommonAchievs,
 			disabled = function() return not UPU.sVars.bEnableAch end,
 		},
-		[15] = {
+		[17] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_COMPOSED_ACH), --"Composed Achievements",
 			tooltip = GetString(UPU_MENU_COMPOSED_ACH_TT), --"Include composed achievements (e.g. Complete All Speed Challenges achiev or Vanquisher of the Covenant achiev)",

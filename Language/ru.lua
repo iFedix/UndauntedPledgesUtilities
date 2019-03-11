@@ -1,35 +1,38 @@
-﻿--------------------------------------------------------------------------------------------
--- Russian localization for UndauntedPledgesUtilities (Translated partially by @Savaoth ) --
---------------------------------------------------------------------------------------------
+﻿----------------------------------------------------------------------------------------------------------
+-- Russian localization for UndauntedPledgesUtilities (Translated by @Savaoth and @Wolf-F_low, thanks!) --
+----------------------------------------------------------------------------------------------------------
 
 do
    local Add = ZO_CreateStringId
 
     --Settings
-	Add("UPU_MENU_DESCRIPTION",			"ARK_Undaunted: Обеты Неустрашимых.\nРусская локализация: @Savaoth")	
+	Add("UPU_MENU_DESCRIPTION",			"Аддон может содержать орешки!\nРусская локализация: @Savaoth и @Wolf-F_low")	
 	Add("UPU_MENU_AUTO_ABANDON",		"Авто-отмена незавершенных обетов: ")	
 	Add("UPU_MENU_AUTO_ABANDON_TT",		"Автоматически отменять все НЕЗАВЕРШЕННЫЕ обеты при обновлении ежедневных заданий.")
-	Add("UPU_MENU_CHEST_HELPER",		"Помощник по сундукам: ")	
+	Add("UPU_MENU_CHEST_HELPER",		"Помощник по сундукам Неустрашимых: ")	
 	Add("UPU_MENU_CHEST_HELPER_TT",		"Отображать в подсказках к сундукам Неустрашимых список доступных в сундуке сетов.")
 	Add("UPU_MENU_DISPLAY_WS",			"Показывать экран приветствия")	
 	Add("UPU_MENU_DISPLAY_WS_TT",		"Показывать экран приветствия")	
-	Add("UPU_MENU_GENERAL",				"GENERAL") -- menu category
-	Add("UPU_MENU_DAILIES",				"DAILIES") -- menu category
+	Add("UPU_MENU_GENERAL",				"ОБЩЕЕ") -- menu category
+	Add("UPU_MENU_DAILIES",				"ДЕЙЛИКИ") -- menu category
 	Add("UPU_MENU_COLOR",				"Цвет в чате:")
 	Add("UPU_MENU_DISPLAY_DAILIES",		"Показывать обеты в чате:")
 	Add("UPU_MENU_DISPLAY_DAILIES_TT",	"Выводить список сегодняшних обетов в чат при входе в игру.")
 	Add("UPU_MENU_QUICK_DIALOGS",		"Авто-диалоги:")
 	Add("UPU_MENU_QUICK_DIALOGS_TT",	"Автоматически принимать и сдавать обеты при разговоре с Неустрашимыми.")
-	Add("UPU_MENU_SHOW_LOOT",			"Show Helmets")	--TO TRANSLATE
-	Add("UPU_MENU_SHOW_LOOT_TT",		"Displays the lootable helmets in the dungeons.") --TO TRANSLATE
-	Add("UPU_MENU_DAILY_DELVE",			"Daily Delve") --TO TRANSLATE
-	Add("UPU_MENU_DAILY_DELVE_TT",		"Shows the daily delve quest in Undaunted Dailies category (default: Guild category)") --TO TRANSLATE
-	Add("UPU_MENU_COMMON_ACH",			"Common Achievements") --TO TRANSLATE
-	Add("UPU_MENU_COMMON_ACH_TT",		"Include common achievements to all the dungeons on both difficulties (i.e. the achievements in dungeons general category)") --TO TRANSLATE
-	Add("UPU_MENU_COMPOSED_ACH",		"Composed Achievements") --TO TRANSLATE
-	Add("UPU_MENU_COMPOSED_ACH_TT",		"Include achievements gainable by doing different tasks in different dungeons (e.g. Complete All Speed Challenges achiev or Vanquisher of the Covenant achiev)") --TO TRANSLATE
-	Add("UPU_MENU_SHOW_ACH_ON_AW",		"Show on Achiev Awarded") --TO TRANSLATE
-	Add("UPU_MENU_SHOW_ACH_ON_AW_TT",	"Show remaining achievements on achievement awarded") --TO TRANSLATE
+	Add("UPU_MENU_SHOW_LOOT",			"Отображать шлемы")
+	Add("UPU_MENU_SHOW_LOOT_TT",		"Отображать монстр-сет шлемы данжа.")
+	Add("UPU_MENU_DAILY_DELVE",			"Ежедневный Delve-квест Болгрула")
+	Add("UPU_MENU_DAILY_DELVE_TT",		"Отображать ежедневный Delve-квест Болгрула в отдельной категории в журнале в списке заданий (Категория по умолчанию: Гильдия)") 
+	Add("UPU_MENU_COMMON_ACH",			"Общие достижения")
+	Add("UPU_MENU_COMMON_ACH_TT",		"Отображать общие достижения для всех подземелий на обеих сложностях (то есть достижения  категории 'Общее')") 
+	Add("UPU_MENU_COMPOSED_ACH",		"Составные достижения")
+	Add("UPU_MENU_COMPOSED_ACH_TT",		"Отображать составные достижения, которые можно получить, выполняя прохождение на скорость, без смерти, в усложненном режиме)") 
+	Add("UPU_MENU_SHOW_ACH_ON_AW",		"Мгновенно обновлять список достижений")
+	Add("UPU_MENU_SHOW_ACH_ON_AW_TT",	"Обновлять список оставшихся достижений подземелья в чат, после выполнения какого-либо достижения этого подземелья") 
+	Add("UPU_MENU_CMDS",				"Список команд")
+	Add("UPU_MENU_CMD_DESCRIPTION",		"|c2020F0/pledges|r отображает сегодняшние ежедневные Обеты. Чтобы узнать какие Обеты будут в будущем, добавьте значение, на какой день после сегодняшнего Вы интересуетесь. Например /pledges 1 на завтра /pledges 5 через 5 дней. Максимальное значение - 30 дней.\n |c2020F0/upuday| Узнать дату Обета интересующего Вас подземелья. Вводить необходимо сокращенными названиям. Например /upuday rom отобразит следующий Обет для Руин Маззатуна. \n |c2020F0/upudayhelp|r Отобразить список сокращений для подземелий.")
+	
 	
 	--Chat
 	Add("UPU_PLEDGE",            		"ОБЕТ")
@@ -57,37 +60,37 @@ do
 	Add("UPU_URGARLAG",					"Ургарлаг")
 	Add("UPU_CHEST_MAJ",				"Blood Spawn, Chokethorn, Shadowren, Engine Guardian, Kra'gh, Maw of the Infernal, Nightflame, Scourge Harvester, Sentinel of Rkugamz, Slimecraw, Spawn of Mephala, Swarm Mother.") 
 	Add("UPU_CHEST_GLIRION",			"Grothdarr, Iceheart, Ilambris, Infernal Guardian, Sellistrix, Nerien'eth, Pirate Skeleton, Selene, Stormfist, Tremorscale, Troll King, Valkyn Skoria.") 
-	Add("UPU_CHEST_URGARLAG",			"Domihaus, Earthgore, Lord Warden, Mighty Chudan, Molag Kena, Thurvokun, Velidreth, Zaan, Vykosa, Balorgh, Symphony of Blades, Stonekeeper.") --TO TRANSLATE
+	Add("UPU_CHEST_URGARLAG",			"Domihaus, Earthgore, Lord Warden, Mighty Chudan, Molag Kena, Thurvokun, Velidreth, Zaan, Vykosa, Balorgh, Symphony of Blades, Stonekeeper.")
 	Add("UPU_BUTTON_TT",				"<Список обетов в чат>")
 	
 	--commands
-	Add("UPU_PLEDGE_CMD_DESCRIPTION",	"Shows the undaunted pledges")	--TO TRANSLATE
-	Add("UPU_TEST_CMD_DESCRIPTION",		"Print dungeon nodes (only on debug mode)") --TO TRANSLATE
-	Add("UPU_GET_DAY_CMD_DESCRIPTION",	"Get next pledge day based on a dung acronym") --TO TRANSLATE
-	Add("UPU_GET_ACR_CMD_DESCRIPTION",	"Get a list of dungeon acronyms") --TO TRANSLATE
-	Add("UPU_NEXT_DAY_FOR",				"Next pledge day for ") --TO TRANSLATE
+	Add("UPU_PLEDGE_CMD_DESCRIPTION",	"Отобразить обеты неустрашимых")
+	Add("UPU_TEST_CMD_DESCRIPTION",		"Print dungeon nodes (only on debug mode)")
+	Add("UPU_GET_DAY_CMD_DESCRIPTION",	"Узнать дату Обета подземелья по сокращенному названию")
+	Add("UPU_GET_ACR_CMD_DESCRIPTION",	"Получить список сокращений названий подземелий") 
+	Add("UPU_NEXT_DAY_FOR",				"Следующая возможность выполнить Обет для ") 
 	
 	--achievements
-	Add("UPU_NO_MISSING_ACH",			"No missing achievements for ") --TO TRANSLATE
-	Add("UPU_MISSING_ACH",				"Missing achievements ") --TO TRANSLATE
-	Add("UPU_MIDDLE_CLICK",				"Middle click on links to show them in Achievements") --TO TRANSLATE
-	Add("UPU_NORMAL_MODE",				"Normal mode") --TO TRANSLATE
-	Add("UPU_VETERAN_MODE",				"Veteran mode") --TO TRANSLATE
-	Add("UPU_ACH_AWARDED",				"|cF0F0F0 AWARDED!|r") --TO TRANSLATE
-	Add("UPU_COMMON_ACH",				"Missing common achievements: ") --TO TRANSLATE
-	Add("UPU_COMPOSED_ACH",				"Missing composed achievements: ") --TO TRANSLATE
-	Add("UPU_ACH_TRACKER",				"Achievements") --TO TRANSLATE
-	Add("UPU_ACH_ENABLE",				"Enable") --TO TRANSLATE
-	Add("UPU_ACH_ENABLE_TT",			"Enable missing achievements info in chat when you enter a dungeon") --TO TRANSLATE
+	Add("UPU_NO_MISSING_ACH",			"Нет невыполненных достижений для ") 
+	Add("UPU_MISSING_ACH",				"Невыполненные достижения ") 
+	Add("UPU_MIDDLE_CLICK",				"Щелчок средней кнопкой мыши, для отображения в журнале достижений") 
+	Add("UPU_NORMAL_MODE",				"Нормальный режим") 
+	Add("UPU_VETERAN_MODE",				"Ветеранский режим") 
+	Add("UPU_ACH_AWARDED",				"|cF0F0F0 ВЫПОЛНЕНО!|r") 
+	Add("UPU_COMMON_ACH",				"Недостающие общие достижения: ") 
+	Add("UPU_COMPOSED_ACH",				"Недостающие составные достижения: ") 
+	Add("UPU_ACH_TRACKER",				"Достижения") 
+	Add("UPU_ACH_ENABLE",				"Отобразить пропущенные") 
+	Add("UPU_ACH_ENABLE_TT",			"Отображать информацию о пропущенных достижениях в чат при входе в подземелье") 
 	
 	--keybinds
-	Add("UPU_ABANDON_PLEDGES",			"Abandon Pledges") --TO TRANSLATE
-	Add("UPU_POST_TO_CHAT",				"Post to chat")	--TO TRANSLATE
-	Add("UPU_PLEDGES_ABANDONED",		"All pledge quests are abandoned") --TO TRANSLATE
+	Add("UPU_ABANDON_PLEDGES",			"Отказаться от обета") 
+	Add("UPU_POST_TO_CHAT",				"Отправить в чат")	
+	Add("UPU_PLEDGES_ABANDONED",		"Отказаться от всех обетов") 
 	
 	--errors
-	Add("UPU_WRONG_OFFSET",				"Wrong offset") --TO TRANSLATE
-	Add("UPU_WRONG_ACRONYM",			"Wrong acronym! Type /upudayhelp for a list of dungeon acronyms") --TO TRANSLATE
+	Add("UPU_WRONG_OFFSET",				"Задана не правильная дата") 
+	Add("UPU_WRONG_ACRONYM",			"Неправильное сокращение! Введите в чат /upudayhelp чтобы увидить список сокращений названий подземелий") 
 	
 	--undaunted daily delves
 	localizedDailyUndauntedDelves = {"Обереги предков в Дешаане","Древнее оружие Бангкорая","Айлейдские безделушки в Гратвуде","Кулинарное правосудие в Гриншейде","Проклятые безделушки Стормхейвена",
@@ -118,7 +121,7 @@ do
 		},
 		["UPU_PLEDGE_05"] ={
 			Regular = "Священное Горнило",
-			Quest = "Обет: Священное горнило",
+			Quest = "Обет: Священное Горнило",
 			Node = 187,
 		},
 		["UPU_PLEDGE_06"] ={
@@ -153,12 +156,12 @@ do
 		},
 		["UPU_PLEDGE_12"] ={
 			Regular = "Пещеры Глубокая тень II",
-			Quest = "Обет: пещеры Глубокая тень II",
+			Quest = "Обет: Пещеры Глубокая тень II",
 			Node = 264,
 		},
 		["UPU_PLEDGE_13"] ={
 			Regular = "Крепость Лютых Морозов",
-			Quest = "Обет: крепость Лютых Морозов I",
+			Quest = "Обет: Крепость Лютых Морозов",
 			Node = 195,
 		},
 		["UPU_PLEDGE_14"] ={
@@ -183,12 +186,12 @@ do
 		},
 		["UPU_PLEDGE_18"] ={
 			Regular = "Тюрьма Имперского Города",	
-			Quest = "Обет: тюрьма Имперского Города",
+			Quest = "Обет: Тюрьма Имперского Города",
 			Node = 236,
 		},
 		["UPU_PLEDGE_19"] ={
 			Regular = "Руины Маззатуна",
-			Quest = "Обет: руины Маззатуна",
+			Quest = "Обет: Руины Маззатуна",
 			Node = 260,
 		},
 		["UPU_PLEDGE_20"] ={
@@ -208,7 +211,7 @@ do
 		},
 		["UPU_PLEDGE_23"] ={
 			Regular = "Остров Бурь",
-			Quest = "Обет: остров Бурь",
+			Quest = "Обет: Остров Бурь",
 			Node = 188,
 		},
 		["UPU_PLEDGE_24"] ={
@@ -223,12 +226,12 @@ do
 		},
 		["UPU_PLEDGE_26"] ={
 			Regular = "Канализация Вэйреста I",
-			Quest = "Обет: канализация Вэйреста I",
+			Quest = "Обет: Канализация Вэйреста I",
 			Node = 189,
 		},
 		["UPU_PLEDGE_27"] ={
 			Regular = "Канализация Вэйреста II",
-			Quest = "Обет: канализация Вэйреста II",
+			Quest = "Обет: Канализация Вэйреста II",
 			Node = 263,
 		},
 		["UPU_PLEDGE_28"] ={
@@ -238,43 +241,43 @@ do
 		},
 		["UPU_PLEDGE_29"] ={
 			Regular = "Кузница Кровавого корня",
-			Quest = "Обет: кузница Кровавого корня",
+			Quest = "Обет: Кузница Кровавого корня",
 			Node = 326,
 		},
 		["UPU_PLEDGE_30"] ={
 			Regular = "Владение Фолкрит",
-			Quest = "Обет: владение Фолкрит",
+			Quest = "Обет: Владение Фолкрит",
 			Node = 332,
 		},
-		--TO TRANSLATE
+		
 		["UPU_PLEDGE_31"] ={
-			Regular = "Fang Lair",
-			Quest = "Pledge: Fang Lair",
+			Regular = "Логово Клыка",
+			Quest = "Обет: Логово Клыка",
 			Node = 341,
 		},
 		["UPU_PLEDGE_32"] ={
-			Regular = "Scalecaller Peak",
-			Quest = "Pledge: Scalecaller Peak",
+			Regular = "Пик Призывательницы Чешуи",
+			Quest = "Обет: Пик Призывательницы Чешуи",
 			Node = 363,
 		},
 		["UPU_PLEDGE_33"] ={
-			Regular = "Moon Hunter Keep",
-			Quest = "Pledge: Moon Hunter Keep",
+			Regular = "Крепость Лунного Охотника",
+			Quest = "Обет: Крепость Лунного Охотника",
 			Node = 371,
 		},
 		["UPU_PLEDGE_34"] ={
-			Regular = "March of Sacrifices",
-			Quest = "Pledge: March of Sacrifices",
+			Regular = "Путь Жертвоприношений",
+			Quest = "Обет:  Путь Жертвоприношений",
 			Node = 370,
 		},		
 		["UPU_PLEDGE_35"] ={
-			Regular = "Depths of Malatar",
-			Quest = "Pledge: Depths of Malatar",
+			Regular = "Глубины Малатара",
+			Quest = "Обет: Глубины Малатара",
 			Node = 390,
 		},
 		["UPU_PLEDGE_36"] ={
-			Regular = "Frostvault",
-			Quest = "Pledge: Frostvault",
+			Regular = "Морозное хранилище",
+			Quest = "Обет: Морозное хранилище",
 			Node = 389,
 		},
 	}

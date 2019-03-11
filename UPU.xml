@@ -27,5 +27,34 @@
 				</Button> 
 			</Controls>			
 		</TopLevelControl>
+		<TopLevelControl name="UPU_Grid" mouseEnabled="true" movable="true" clampedToScreen="true" hidden="true">
+			<Dimensions x="350" y="500" />
+			<Anchor point="CENTER" />
+			<Controls> 
+				<Backdrop name="$(parent)BG" inherits="ZO_DefaultBackdrop" />
+ 
+				<Label name="$(parent)WindowTitle" font="ZoFontAnnounceMedium" text="|c8080ffUPU|r Achievements">
+					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" />
+				</Label>
+ 
+				<Texture name="$(parent)TopDivider" textureFile="/esoui/art/miscellaneous/horizontaldivider.dds" tier="HIGH">
+					<Dimensions x="350" y="4"/>
+					<Anchor point="TOP" relativeTo="$(parent)" offsetY="38" />
+				</Texture>
+ 
+				<Button name="$(parent)ButtonCloseAddon" inherits="ZO_ButtonBehaviorClickSound">
+					<Dimensions x="30" y="30" />
+					<Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="15" />
+					<Textures normal="EsoUI/Art/Buttons/closebutton_up.dds"
+						pressed="EsoUI/Art/Buttons/closebutton_down.dds"
+						mouseOver="EsoUI/Art/Buttons/closebutton_mouseover.dds"
+						disabled="EsoUI/Art/Buttons/closebutton_disabled.dds"/>
+					<OnClicked>
+						UPU_Grid:SetHidden(true)
+					</OnClicked>
+				</Button>
+ 
+			</Controls>
+		</TopLevelControl>
 	</Controls>
 </GuiXml> 
