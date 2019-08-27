@@ -48,12 +48,7 @@ do
 	Add("UPU_TELEPORTING_TO",			"Vous téléporter vers ")
 	Add("UPU_HAS_COST_YOU",				" vous a coûté ")
 	Add("UPU_GOLD",						" po.")
-	Add("UPU_REWARD_CHEST",				"Coffre de récompense")	
 	Add("UPU_NEW_DAILIES",				"De nouveaux Serments des Indomptables sont disponibles !")
-	Add("UPU_MAY_CONTAIN",				"Peut contenir :")
-	Add("UPU_CHEST_MAJ",				"Engeance de Méphala, Engeance de Sang, Gardien Moteur, Gueule de l'Infernal, Kra'gh, Malubeth le Faucheur, Mère de la Nuée, Nocteflamme, Rampefange, Ronce Étouffeuse, Sentinelle de Rkugamz, Taillombre.") 
-	Add("UPU_CHEST_GLIRION",			"Cœeur-de-Glace, Gardien Infernal, Sélène, Grothdarr, Ilambris, Nerien'eth, Pirate Squelettique, Poigne Tempête, Roi des Trolls, Sellistrix, Tremblécaille, Valkyn Skoria.") 
-	Add("UPU_CHEST_URGARLAG",			"Domihaus, Gros Chudan, Molag Kena, Seigneur Gardien, Sangreterre, Thurvokun, Velidreth, Zaan, Vykosa, Balorgh, Symphonie des Lames, Gardien des pierres.")
 	Add("UPU_MAJ",						"Maj")
 	Add("UPU_GLIRION",					"Glirion")
 	Add("UPU_URGARLAG",					"Urgarlag")
@@ -65,6 +60,7 @@ do
 	Add("UPU_GET_DAY_CMD_DESCRIPTION",	"Obtenir le prochain jour de Serment via l'acronyme du donjon")
 	Add("UPU_GET_ACR_CMD_DESCRIPTION",	"Obtenir la liste des acronymes de donjons")
 	Add("UPU_NEXT_DAY_FOR",				"Prochain serment le ")
+    Add("UPU_STORE",                    "Magasin")
 	
 	--achievements
 	Add("UPU_NO_MISSING_ACH",			"Pas de succès manquants pour ")
@@ -274,6 +270,16 @@ do
 			Regular = "Arquegivre",
 			Quest = "Serment: Arquegivre",
 			Node = 389,
+		},
+        ["UPU_PLEDGE_37"] ={
+			Regular = "Reliquaire des Lunes funèbres",
+			Quest = "Serment: Reliquaire des Lunes funèbres",
+			Node = 391,
+		},
+        ["UPU_PLEDGE_38"] ={
+			Regular = "Repaire de Maarselok",
+			Quest = "Serment: Repaire de Maarselok",
+			Node = 398,
 		},
 	}
 end

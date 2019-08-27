@@ -48,12 +48,7 @@ do
 	Add("UPU_TELEPORTING_TO",			"Die Reise zur Instanz  ")
 	Add("UPU_HAS_COST_YOU",				" hat dich ")
 	Add("UPU_GOLD",						" Gold gekostet.")
-	Add("UPU_REWARD_CHEST",				"Reward Chest")------------------------------------------------------------------
 	Add("UPU_NEW_DAILIES",				"Neue Unerschrockenen-Gelöbnisse sind vorhanden !")
-	Add("UPU_MAY_CONTAIN",				"Kann enthalten : ")
-	Add("UPU_CHEST_MAJ",				"Blutbrut, Würgedorn, Schattenriss, Maschinenwächter, Kra'gh, Schlund des Infernalen, Nachtflamme, Geißelernter, Wachposten von Rkugamz, Schleimkropf, Mephalas Brut, Schwarmmutter.") 
-	Add("UPU_CHEST_GLIRION",			"Grothdarr, Eisherz, Ilambris, Infernaler Wächter, Sellistrix, Nerien'eth, Piratenskelett, Selene, Sturmfaust, Bebenschuppe, Trollkönig, Valkyn Skoria.") 
-	Add("UPU_CHEST_URGARLAG",			"Domihaus, Erdbluter, Hochwächter, Mächtiger Chudan, Molag Kena, Thurvokun, Velidreth, Zaan, Vykosa, Balorgh, Sinfonie der Klingen, Steinwahrer.") 	
 	Add("UPU_MAJ",						"Maj")
 	Add("UPU_GLIRION",					"Glirion")
 	Add("UPU_URGARLAG",					"Urgarlag")
@@ -65,6 +60,7 @@ do
 	Add("UPU_GET_DAY_CMD_DESCRIPTION",	"Gib nächsten Gelöbnis-Tag aus, basierend auf einem Verlies Akronym")
 	Add("UPU_GET_ACR_CMD_DESCRIPTION",	"Gib eine Liste der Verlies Akronyme aus")
 	Add("UPU_NEXT_DAY_FOR",				"Nächster Gelöbnistag für ")
+    Add("UPU_STORE",                    "anzubieten")
 	
 	--achievements
 	Add("UPU_NO_MISSING_ACH",			"Keine fehlenden Errungenschaften für ")
@@ -276,6 +272,16 @@ do
 			Regular = "Frostgewölbe",
 			Quest = "Gelöbnis: Frostgewölbe",
 			Node = 389,
+		},
+        ["UPU_PLEDGE_37"] ={
+			Regular = "Mondgrab-Tempelstadt",
+			Quest = "Gelöbnis: Mondgrab-Tempelstadt",
+			Node = 391,
+		},
+        ["UPU_PLEDGE_38"] ={
+			Regular = "Hort von Maarselok",
+			Quest = "Gelöbnis: Hort von Maarselok",
+			Node = 398,
 		},
 	}
 end

@@ -103,19 +103,6 @@ function UPU.CreateSettingsMenu()
 		},
 		[10] = {
 			type = "checkbox",
-			name = GetString(UPU_MENU_CHEST_HELPER), --"Chest Helper",
-			tooltip = GetString(UPU_MENU_CHEST_HELPER_TT), --"Displays the list of possible chest Sets.",
-			getFunc = function() return UPU.sVars.bDisplayChestHelper end,
-			setFunc = function(value)
-				UPU.sVars.bDisplayChestHelper = value  
-				if value then
-					ZO_PreHook(RETICLE, "TryHandlingInteraction", UPU.TryHandlingInteraction)
-				end
-			end,
-			default = UPU.defaults.bDisplayChestHelper,
-		},
-		[11] = {
-			type = "checkbox",
 			name = GetString(UPU_MENU_SHOW_LOOT), --"Show Helmet",
 			tooltip = GetString(UPU_MENU_SHOW_LOOT_TT), --"Displays the lootable helmets in the dungeons.",
 			getFunc = function() return UPU.sVars.bDisplayLootLink end,
@@ -124,7 +111,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bDisplayLootLink,
 		},
-		[12] = {
+		[11] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_DAILY_DELVE), --"Daily delve",
 			tooltip = GetString(UPU_MENU_DAILY_DELVE_TT), --"Shows the daily delve quest in Undaunted Dailies category (default: Guild category)",
@@ -136,31 +123,22 @@ function UPU.CreateSettingsMenu()
 			warning = "ReloadUI",
 			default = UPU.defaults.bIncludeDelves,
 		},
-		[13] = {
+		[12] = {
 			type = "header",
 			name = UPU.Colorize(GetString(UPU_ACH_TRACKER)),
 			width = "full",
 		},
-		[14] = {
+		[13] = {
 			type = "checkbox",
 			name = GetString(UPU_ACH_ENABLE), --"Enable",
 			tooltip = GetString(UPU_ACH_ENABLE_TT), --"Enable the missing achievements info when you enter a dungeon",
 			getFunc = function() return UPU.sVars.bEnableAch end,
 			setFunc = function(value)
 				UPU.sVars.bEnableAch = value  
-				if value then
-					EVENT_MANAGER:RegisterForEvent( UPU.AddonName, EVENT_ACHIEVEMENT_AWARDED , UPU.OnAchievementAwarded ) 
-					EVENT_MANAGER:RegisterForEvent( UPU.AddonName, EVENT_ACTIVITY_FINDER_STATUS_UPDATE, UPU.onStatusUpdate)
-					CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", UPU.onZoneChanged)
-				else
-					EVENT_MANAGER:UnregisterForEvent( UPU.AddonName, EVENT_ACHIEVEMENT_AWARDED) 
-					EVENT_MANAGER:UnregisterForEvent( UPU.AddonName, EVENT_ACTIVITY_FINDER_STATUS_UPDATE)
-					CALLBACK_MANAGER:UnregisterCallback("OnWorldMapChanged", UPU.onZoneChanged)
-				end
 			end,
 			default = UPU.defaults.bEnableAch,
 		},
-		[15] = {
+		[14] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_SHOW_ACH_ON_AW), --"Show on Achiev Awarded",
 			tooltip = GetString(UPU_MENU_SHOW_ACH_ON_AW_TT), --"Show remaining achievements on achievement awarded",
@@ -171,7 +149,7 @@ function UPU.CreateSettingsMenu()
 			default = UPU.defaults.bShowOnAchievAwarded,
 			disabled = function() return not UPU.sVars.bEnableAch end,
 		},
-		[16] = {
+		[15] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_COMMON_ACH), --"Common Achievements",
 			tooltip = GetString(UPU_MENU_COMMON_ACH_TT), --"Include common achievements to all the dungeons on both difficulties (the achievements in dungeons general category)",
@@ -182,7 +160,7 @@ function UPU.CreateSettingsMenu()
 			default = UPU.defaults.bShowCommonAchievs,
 			disabled = function() return not UPU.sVars.bEnableAch end,
 		},
-		[17] = {
+		[16] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_COMPOSED_ACH), --"Composed Achievements",
 			tooltip = GetString(UPU_MENU_COMPOSED_ACH_TT), --"Include composed achievements (e.g. Complete All Speed Challenges achiev or Vanquisher of the Covenant achiev)",

@@ -13,7 +13,7 @@ UPU = UndauntedPledgesUtilities
 
 UPU.AddonName        	= "UndauntedPledgesUtilities"
 UPU.AddonNameSpaces 	= "Undaunted Pledges Utilities"
-UPU.AddonVersion    	= "1.4.1"
+UPU.AddonVersion    	= "1.5"
 UPU.Author 				= "iFedix"
 UPU.WebSite 		    = "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html"
 
@@ -37,7 +37,6 @@ UPU.defaults  = {-- default settings for saved variables
 	 bAdvertizeDailies = true, 
 	 bDisplayLootLink = true,
 	 bAutoDelete    = false,
-	 bDisplayChestHelper = true,
 	 bQuickDialog = true,
 	 
 	 --achievements
@@ -53,7 +52,7 @@ UPU.defaults  = {-- default settings for saved variables
 }
 
 UPU.MAJ_AND_GLIRION_CYCLE = 12
-UPU.URGARLAG_CYCLE = 12
+UPU.URGARLAG_CYCLE = 14
 
 local WM = WINDOW_MANAGER
 
@@ -125,6 +124,7 @@ function UPU.isNewInstance()
 end
 
 function UPU.onZoneChanged()
+	if UPU.sVars.bEnableAch==false then return end
 	local zone = GetUnitZone("player")	
 	local difficulty = GetCurrentZoneDungeonDifficulty()
 	local pledgeID = UPU.isDungeon(zone)
@@ -149,6 +149,7 @@ function UPU.onZoneChanged()
 end
 
 function UPU.HandleAchievements(difficulty, pledgeID)
+	
 	if difficulty == DUNGEON_DIFFICULTY_NORMAL then mode = GetString(UPU_NORMAL_MODE) else mode = GetString(UPU_VETERAN_MODE) end		
 	
 		local v1,v2,v3 = false,false,false
@@ -189,6 +190,7 @@ function UPU.HandleAchievements(difficulty, pledgeID)
 end
 
 function UPU.OnAchievementAwarded(eventCode, name, points, id, link)
+	if UPU.sVars.bEnableAch==false then return end
 	local zone = GetUnitZone("player")	
 	local pledgeID = UPU.isDungeon(zone)
 	local difficulty = GetCurrentZoneDungeonDifficulty()
@@ -211,10 +213,7 @@ function UPU.Initialize() -- == player activated
 	EVENT_MANAGER:UnregisterForEvent( UPU.AddonName, EVENT_PLAYER_ACTIVATED )
 	
 	--init-- 
-	ZO_PreHook(_G, "ZO_QuestJournalNavigationEntry_OnMouseUp", UPU.QuestContextMenu)
-	if UPU.sVars.bDisplayChestHelper then
-		ZO_PreHook(RETICLE, "TryHandlingInteraction", UPU.TryHandlingInteraction)
-	end
+    ZO_PreHook(_G, "ZO_QuestJournalNavigationEntry_OnMouseUp", UPU.QuestContextMenu)
 	if UPU.sVars.bQuickDialog then
 		EVENT_MANAGER:RegisterForEvent(UPU.AddonName, EVENT_CHATTER_BEGIN, UPU.OnChatterBegin)
 	end
@@ -240,20 +239,14 @@ function UPU.Initialize() -- == player activated
 	end, GetString(UPU_GET_ACR_CMD_DESCRIPTION))
 	
 	--debug mode only for iFedix
-	if string.find(GetDisplayName("player"), UPU.Author) then 
-		UPU.DebugMode=true 
-		UPU.Msg2Chat(UPU.Colorize("UPU: DUBUG MODE ACTIVE", RED))
-	end
+--	if string.find(GetDisplayName("player"), UPU.Author) then 
+--		UPU.DebugMode=true 
+--		UPU.Msg2Chat(UPU.Colorize("UPU: DUBUG MODE ACTIVE", RED))
+--	end
 	
 	--useful function active in debug mode to list all the dungeon nodes (to fill the corresponding node info in lang.lua files)
 	if UPU.DebugMode then LSC:Register("/upulistnodes", function() UPU.ShowNodesIndexes() end, GetString(UPU_TEST_CMD_DESCRIPTION)) end
 	
-	EVENT_MANAGER:RegisterForEvent(UPU.AddonName, EVENT_RETICLE_HIDDEN_UPDATE, UPU.OnReticleHiddenUpdate)
-end
-
---event :  ensure ui is hidden when reticle is also hidden
-function UPU.OnReticleHiddenUpdate(eventCode, hidden)
-	if hidden then UPU_UI:SetHidden(true) end
 end
 
 --event : triggered when discussion begins (with item or npc)
@@ -262,22 +255,23 @@ end
 --first one is dealt with slect chatter option in 'chatter begin"
 --second one, is dealt with Accept offered quest in "pseudoConversationUpdated" (should be a select chatter option in a conversation updated event)
 --Last one is dealt with a AcceptOfferedQuest in OnQuestOffered
+justInteracted = false
 function UPU.OnChatterBegin(eventCode, optionCount)
-	 
+    if justInteracted == true then justInteracted=false EndInteraction(INTERACTION_CONVERSATION) end
 	local optionString, _ = GetChatterOption(1)
-	if optionString == "" then return end --happens when only option is "goodbye"
-	
+        
 	--only executes if "interact" is an undaunted quest giver
 	local unitName = GetRawUnitName('interact')
 	if unitName=="Ansei Maja" then return end
 	
 	if string.find(unitName, GetString(UPU_URGARLAG)) or string.find(unitName, GetString(UPU_GLIRION)) or string.find(unitName, GetString(UPU_MAJ)) then		
+        if string.find(optionString, GetString(UPU_STORE)) then return end --quest already taken
 		if string.find(string.upper(optionString), GetString(UPU_PLEDGE)) then
-			--dialog is daily undaunted (pledge or delve quest) offering
+			--dialog is daily pledge offering
 			EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_QUEST_OFFERED, UPU.PseudoOnConversationUpdated) -- event should be onconvupdated but strangely is quest offered 
-			SelectChatterOption(1)
+            SelectChatterOption(1)
 		else
-			--dialog is daily undaunted (pledge or delve quest) return
+			--dialog is daily pledge return
 			EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_CONVERSATION_UPDATED, UPU.OnConversationUpdated)
 			SelectChatterOption(1)
 		end
@@ -289,12 +283,15 @@ function UPU.PseudoOnConversationUpdated(eventCode)
 	EVENT_MANAGER:UnregisterForEvent(ADDON_NAME, EVENT_QUEST_OFFERED)
 	EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_QUEST_OFFERED, UPU.OnQuestOffered)
 	AcceptOfferedQuest()
+
 end
 
 -- event : last line of dialog => accepts quest
 function UPU.OnQuestOffered(eventCode)
 	EVENT_MANAGER:UnregisterForEvent(ADDON_NAME, EVENT_QUEST_OFFERED)	
 	AcceptOfferedQuest()
+    justInteracted=true
+
 end
 
 -- event, last line of dialog before actually returning the quest
@@ -307,7 +304,8 @@ end
 -- event : complete the quests and get the loots. (no error management if inventory is full)
 function UPU.OnQuestCompleteDialog(eventCode)
 	EVENT_MANAGER:UnregisterForEvent(ADDON_NAME, EVENT_QUEST_COMPLETE_DIALOG)
-	CompleteQuest()	
+	CompleteQuest()
+    justInteracted=true
 end
 
 -- event: remove pledge quest
@@ -325,6 +323,15 @@ local function OnRemoveQuest(eventCode, isCompleted, journalIndex, questName, zo
 		--UPU.AbandonPledges()
 		zo_callLater(function() UPU.AbandonPledges() end, 200)
 	end
+end
+
+function UPU.FoundAnyPledgeQuests()
+	for questIndex = 1, MAX_JOURNAL_QUESTS do
+		if UPU.isPledge(questIndex) then
+			return true
+		end
+	end	
+    return false
 end
 
 function UPU.ZO_LinkHandler_OnLinkMouseUp(link, button, control)
@@ -351,41 +358,6 @@ end
 ---------------------------------------------------------
 --	HOOKS & OVERRIDES		   	   					   --
 --------------------------------------------------------- 
-
---prehook for reticle function
---displays the ui containing all setsd names when hovering a reward chest
-function UPU.TryHandlingInteraction(interactionPossible)
-	if not UPU.sVars.bDisplayChestHelper then return false end
-		if interactionPossible then
-			local _, name, _, _, _, _, contextualLink, _ = GetGameCameraInteractableActionInfo()
-			if contextualLink ~= nil and contextualLink ~= "" then
-				if string.find(contextualLink, UNDAUNTED_KEY_ITEM_INDEX) then
-					--UPU.Debug("TryHandlingInteraction","Function")
-					UPU_CHEST_HELPER_LABEL1:SetText(GetString(UPU_MAY_CONTAIN))
-					if string.find(name, GetString(UPU_MAJ)) then
-						UPU_CHEST_HELPER_LABEL2:SetText(GetString(UPU_CHEST_MAJ))
-					end 
-					if string.find(name, GetString(UPU_GLIRION)) then
-						UPU_CHEST_HELPER_LABEL2:SetText(GetString(UPU_CHEST_GLIRION))
-					end 
-					if string.find(name, GetString(UPU_URGARLAG)) then
-						UPU_CHEST_HELPER_LABEL2:SetText(GetString(UPU_CHEST_URGARLAG))
-					end 
-			
-					UPU_UI:SetHidden(false)
-					
-				else -- UPU_REWARD_CHEST not found in interactable name
-					d(interactionPossible)
-					UPU_UI:SetHidden(true)
-				end
-			else -- interactable name is ""
-				UPU_UI:SetHidden(true)			
-			end
-		else 
-			UPU_UI:SetHidden(true)
-		end
-	return false -- always perform original RETICLE:TryHandlingInteraction after prehook
-end
 
 --prehook for ZO_QuestJournalNavigationEntry_OnMouseUp
 --adds multiple entries in the context menu for undaunted quests
@@ -604,7 +576,7 @@ function UPU.GetDaysSinceCycleStart(pledgeGiver)
 		cyclesCount, cycleFraction = math.modf(daysElapsed/UPU.MAJ_AND_GLIRION_CYCLE)
 		return UPU.Round(cycleFraction*UPU.MAJ_AND_GLIRION_CYCLE)--rounds the value to nearest integer
 	elseif pledgeGiver == URGARLAG then
-		--Urgarlag cycles through 12 pleges
+		--Urgarlag cycles through 14 pleges
 		cyclesCount, cycleFraction = math.modf(daysElapsed/UPU.URGARLAG_CYCLE)
 		return UPU.Round(cycleFraction*UPU.URGARLAG_CYCLE)--rounds the value to nearest integer	
 	else 
@@ -930,9 +902,8 @@ end
 --"/esoui/art/actionbar/passiveabilityframe_round_up.dds"
 
 function UPU.InitUI()
-	UPU_UI = WINDOW_MANAGER:GetControlByName("UPU_CHEST_HELPER")
-	
-	local button = WINDOW_MANAGER:GetControlByName("UPU_Button_Button")
+
+    local button = WINDOW_MANAGER:GetControlByName("UPU_Button_Button")
 	button:SetHandler("OnClicked", function(self) UPU.Msg2Chat(UPU.GetNextPledges()) end)
 	button:SetHandler("OnMouseEnter", function(self) UPU.DisplayTooltip(self) end)
     button:SetHandler("OnMouseExit", function(self) ZO_Tooltips_HideTextTooltip() end)   
@@ -940,11 +911,7 @@ function UPU.InitUI()
 	local tlc =  WINDOW_MANAGER:GetControlByName("UPU_Button")
 	local fragment = ZO_SimpleSceneFragment:New(tlc)
 	QUEST_JOURNAL_SCENE:AddFragment(fragment)
-	
-	--TODO
-	local prova = WINDOW_MANAGER:GetControlByName("UPU_Grid")
-	prova:SetHidden(true)
-	 
+    
  end
  
  function UPU.DisplayTooltip(ctrl) 

@@ -1,23 +1,5 @@
 <GuiXml>
 	<Controls>
-		<TopLevelControl name="UPU_CHEST_HELPER" mouseEnabled="false" movable="false" clampedToScreen="true" hidden="true">
-			<Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="CENTER" offsetX="100" offsetY="100"/>
-			<Dimensions x="420" y="120"/>
-			<Controls>
-				<Texture name="$(parent)_TEXTURE" textureFile="esoui/art/tutorial/smithing_rightarrow_up.dds">
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="15" offsetY="14"/>
-					<Dimensions x="30" y="30"/>
-				</Texture>
-				<Label name="$(parent)_LABEL1" text="Blabla" verticalAlignment="TOP" horizontalAlignment="LEFT" color="INTERFACE_COLOR_TYPE_TEXT_COLORS:INTERFACE_TEXT_COLOR_NORMAL" font="ZoFontHeader3">
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="49" offsetY = "12"/>
-					<Dimensions x="300" y="30"/>
-				</Label>
-				<Label name="$(parent)_LABEL2" text="Blublu" verticalAlignment="TOP" horizontalAlignment="LEFT" color="INTERFACE_COLOR_TYPE_TEXT_COLORS:INTERFACE_TEXT_COLOR_NORMAL" font="$(MEDIUM_FONT)|$(KB_16)|soft-shadow-thin">
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="49" offsetY = "42"/>
-					<Dimensions x="420" y="90"/>
-				</Label>
-			</Controls>
-		</TopLevelControl>
 		<TopLevelControl name="UPU_Button" hidden="true">
 			<Controls>
 				<Button name="$(parent)_Button" inheritAlpha="true" clickSound="Click">
@@ -27,34 +9,6 @@
 				</Button> 
 			</Controls>			
 		</TopLevelControl>
-		<TopLevelControl name="UPU_Grid" mouseEnabled="true" movable="true" clampedToScreen="true" hidden="true">
-			<Dimensions x="350" y="500" />
-			<Anchor point="CENTER" />
-			<Controls> 
-				<Backdrop name="$(parent)BG" inherits="ZO_DefaultBackdrop" />
- 
-				<Label name="$(parent)WindowTitle" font="ZoFontAnnounceMedium" text="|c8080ffUPU|r Achievements">
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" />
-				</Label>
- 
-				<Texture name="$(parent)TopDivider" textureFile="/esoui/art/miscellaneous/horizontaldivider.dds" tier="HIGH">
-					<Dimensions x="350" y="4"/>
-					<Anchor point="TOP" relativeTo="$(parent)" offsetY="38" />
-				</Texture>
- 
-				<Button name="$(parent)ButtonCloseAddon" inherits="ZO_ButtonBehaviorClickSound">
-					<Dimensions x="30" y="30" />
-					<Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="15" />
-					<Textures normal="EsoUI/Art/Buttons/closebutton_up.dds"
-						pressed="EsoUI/Art/Buttons/closebutton_down.dds"
-						mouseOver="EsoUI/Art/Buttons/closebutton_mouseover.dds"
-						disabled="EsoUI/Art/Buttons/closebutton_disabled.dds"/>
-					<OnClicked>
-						UPU_Grid:SetHidden(true)
-					</OnClicked>
-				</Button>
- 
-			</Controls>
-		</TopLevelControl>
+
 	</Controls>
 </GuiXml> 

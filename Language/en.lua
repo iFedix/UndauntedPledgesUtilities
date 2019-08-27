@@ -48,16 +48,12 @@ do
 	Add("UPU_TELEPORTING_TO",			"Teleporting to ")
 	Add("UPU_HAS_COST_YOU",				" has cost you ")
 	Add("UPU_GOLD",						" gold.")
-	Add("UPU_REWARD_CHEST",				"Reward Chest")
-	Add("UPU_NEW_DAILIES",				"New Undaunted Pledges are availlable !")
-	Add("UPU_MAY_CONTAIN",				"May contain : ")
-	Add("UPU_CHEST_MAJ",				"Blood Spawn, Chokethorn, Shadowrend, Engine Guardian, Kra'gh, Maw of the Infernal, Nightflame, Scourge Harvester, Sentinel of Rkugamz, Slimecraw, Spawn of Mephala, Swarm Mother.") 
-	Add("UPU_CHEST_GLIRION",			"Grothdarr, Iceheart, Ilambris, Infernal Guardian, Sellistrix, Nerien'eth, Pirate Skeleton, Selene, Stormfist, Tremorscale, Troll King, Valkyn Skoria.") 
-	Add("UPU_CHEST_URGARLAG",			"Domihaus, Earthgore, Lord Warden, Mighty Chudan, Molag Kena, Thurvokun, Velidreth, Zaan, Vykosa, Balorgh, Symphony of Blades, Stonekeeper.") 	
+	Add("UPU_NEW_DAILIES",				"New Undaunted Pledges are available!")
 	Add("UPU_MAJ",						"Maj")
 	Add("UPU_GLIRION",					"Glirion")
 	Add("UPU_URGARLAG",					"Urgarlag")
 	Add("UPU_BUTTON_TT",				"<Click to link dailies in chat>")
+    Add("UPU_STORE",                    "Store")
 	
 	--commands
 	Add("UPU_PLEDGE_CMD_DESCRIPTION",	"Shows the undaunted pledges")
@@ -274,6 +270,16 @@ do
 			Regular = "Frostvault",
 			Quest = "Pledge: Frostvault",
 			Node = 389,
+		},
+        ["UPU_PLEDGE_37"] ={
+			Regular = "Moongrave Fane",
+			Quest = "Pledge: Moongrave Fane",
+			Node = 391,
+		},
+        ["UPU_PLEDGE_38"] ={
+			Regular = "Lair of Maarselok",
+			Quest = "Pledge: Lair of Maarselok",
+			Node = 398,
 		},
 	}
 end

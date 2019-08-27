@@ -52,15 +52,10 @@ do
 	Add("UPU_TELEPORTING_TO",			"телепортация к ")
 	Add("UPU_HAS_COST_YOU",				" будет стоить ")
 	Add("UPU_GOLD",						" золотых.")
-	Add("UPU_REWARD_CHEST",				"Сундук с наградой")
 	Add("UPU_NEW_DAILIES",				"Доступны новые обеты Неустрашимых!")
-	Add("UPU_MAY_CONTAIN",				"Может содержать: ")
 	Add("UPU_MAJ",						"Мадж")
 	Add("UPU_GLIRION",					"Глирион")
 	Add("UPU_URGARLAG",					"Ургарлаг")
-	Add("UPU_CHEST_MAJ",				"Blood Spawn, Chokethorn, Shadowren, Engine Guardian, Kra'gh, Maw of the Infernal, Nightflame, Scourge Harvester, Sentinel of Rkugamz, Slimecraw, Spawn of Mephala, Swarm Mother.") 
-	Add("UPU_CHEST_GLIRION",			"Grothdarr, Iceheart, Ilambris, Infernal Guardian, Sellistrix, Nerien'eth, Pirate Skeleton, Selene, Stormfist, Tremorscale, Troll King, Valkyn Skoria.") 
-	Add("UPU_CHEST_URGARLAG",			"Domihaus, Earthgore, Lord Warden, Mighty Chudan, Molag Kena, Thurvokun, Velidreth, Zaan, Vykosa, Balorgh, Symphony of Blades, Stonekeeper.")
 	Add("UPU_BUTTON_TT",				"<Список обетов в чат>")
 	
 	--commands
@@ -69,6 +64,7 @@ do
 	Add("UPU_GET_DAY_CMD_DESCRIPTION",	"Узнать дату Обета подземелья по сокращенному названию")
 	Add("UPU_GET_ACR_CMD_DESCRIPTION",	"Получить список сокращений названий подземелий") 
 	Add("UPU_NEXT_DAY_FOR",				"Следующая возможность выполнить Обет для ") 
+    Add("UPU_STORE",                    "магазин")
 	
 	--achievements
 	Add("UPU_NO_MISSING_ACH",			"Нет невыполненных достижений для ") 
@@ -279,6 +275,16 @@ do
 			Regular = "Морозное хранилище",
 			Quest = "Обет: Морозное хранилище",
 			Node = 389,
+		},
+        ["UPU_PLEDGE_37"] ={
+			Regular = "Логово Маарселока",
+			Quest = "Обет: Лунная могила",
+			Node = 391,
+		},
+        ["UPU_PLEDGE_38"] ={
+			Regular = "Логово Маарселока",
+			Quest = "Обет: Логово Маарселока ",
+			Node = 398,
 		},
 	}
 	
