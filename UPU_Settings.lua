@@ -1,26 +1,22 @@
-
 ----------------------------------------------------------------------------------------------------------------------------------
 --	Undaunted Pledges Utilities settings panel file  	   				    													--
 --	Written by @Carter_DC (EU) / coirier.rom1@gmail.com (initial code) and @iFedix (EU) (current dev) / livio4ever@hotmail.it 	--
 ----------------------------------------------------------------------------------------------------------------------------------
 
-local LAM = LibStub("LibAddonMenu-2.0")
+local LAM = LibAddonMenu2
 UndauntedPledgesUtilities = UndauntedPledgesUtilities or {}
 local UPU = UndauntedPledgesUtilities
 
 function UPU.CreateSettingsMenu()
---    local pledgeDifficultyMode ={
---     [1] = "NORMAL",     
---     [2] = "VETERAN",
---    [3] = "VETERAN HARD MODE",
---	}
-   
+
 	local panelData ={
 		type = "panel",
-		name = UPU.AddonNameSpaces,
+		name = UPU.DisplayName,
+		displayName = zo_strformat("|c155115UNDAUNTED|r |c258e25PLEDGES|r |c30b530UTILITIES|r"),
 		author = UPU.Author,
 		version = UPU.AddonVersion,
 		website = UPU.WebSite,
+		donation = UPU.Donations,
 		registerForRefresh = true,
 		registerForDefaults = true,
 	}
@@ -52,18 +48,31 @@ function UPU.CreateSettingsMenu()
 			getFunc = function() return UPU.GetMainTextColor() end, 
 			setFunc = function(r,g,b,a)
 				UPU.SetMainTextColor(r, g, b, a) 
-				UPU.sVars.MainTextColor.hex = RGBAToHex(r, g, b)
+				UPU.sVars.MainTextColor.hex = UPU.RGBAToHex(r, g, b)
 			end,
 			width = "full",
 			default = function() return UPU.Default.MainTextColor.r, UPU.Default.MainTextColor.g, UPU.Default.MainTextColor.b, UPU.Default.MainTextColor.a end,
 			disabled = false,
 		},
 		[6] = {
+			type = "checkbox",
+			name = "Debug",
+			warning = "ReloadUI",
+			tooltip = "Activate debug mode",
+			getFunc = function() return UPU.sVars.bDebugMode end,
+			setFunc = function(value)
+				UPU.sVars.bDebugMode = value  
+				SCENE_MANAGER:ShowBaseScene()
+				zo_callLater(function() ReloadUI() end, 2000)
+			end,
+			default = UPU.defaults.bDebugMode,
+		},
+		[7] = {
 			type = "header",
 			name = UPU.Colorize(GetString(UPU_MENU_DAILIES)),
 			width = "full",
 		},
-		[7] = {
+		[8] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_AUTO_ABANDON), --"Auto Abandon",
 			tooltip = GetString(UPU_MENU_AUTO_ABANDON_TT), --"Silently abandon all NON COMPLETED undaunted dailies",
@@ -76,7 +85,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bAutoDelete,
 		},
-		[8] = {
+		[9] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_DISPLAY_DAILIES), -- "Display Dailies", 
 			tooltip = GetString(UPU_MENU_DISPLAY_DAILIES_TT), --"Whether or not the list of dailies will be displayed in the client chat", 
@@ -86,7 +95,7 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bAdvertizeDailies,
 		},
-		[9] = {
+		[10] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_QUICK_DIALOGS),--"Quick Dialogs",
 			tooltip = GetString(UPU_MENU_QUICK_DIALOGS_TT),--"Auto accepts and returns quests in npc dialogs",
@@ -94,14 +103,14 @@ function UPU.CreateSettingsMenu()
 			setFunc = function(value)
 				UPU.sVars.bQuickDialog = value  
 				if value then
-					EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_CHATTER_BEGIN, UPU.OnChatterBegin)
+					EVENT_MANAGER:RegisterForEvent(UPU.AddonName, EVENT_CHATTER_BEGIN, UPU.OnChatterBegin)
 				else
-					EVENT_MANAGER:UnregisterForEvent(ADDON_NAME, EVENT_CHATTER_BEGIN)
+					EVENT_MANAGER:UnregisterForEvent(UPU.AddonName, EVENT_CHATTER_BEGIN)
 				end
 			end,
 			default = UPU.defaults.bQuickDialog,
 		},
-		[10] = {
+		[11] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_SHOW_LOOT), --"Show Helmet",
 			tooltip = GetString(UPU_MENU_SHOW_LOOT_TT), --"Displays the lootable helmets in the dungeons.",
@@ -111,34 +120,47 @@ function UPU.CreateSettingsMenu()
 			end,
 			default = UPU.defaults.bDisplayLootLink,
 		},
-		[11] = {
-			type = "checkbox",
-			name = GetString(UPU_MENU_DAILY_DELVE), --"Daily delve",
-			tooltip = GetString(UPU_MENU_DAILY_DELVE_TT), --"Shows the daily delve quest in Undaunted Dailies category (default: Guild category)",
-			getFunc = function() return UPU.sVars.bIncludeDelves end,
-			setFunc = function(value)
-				UPU.sVars.bIncludeDelves = value  
-				zo_callLater(function() ReloadUI() end, 1000)
-			end,
-			warning = "ReloadUI",
-			default = UPU.defaults.bIncludeDelves,
-		},
 		[12] = {
+			type = "checkbox",
+			name = GetString(UPU_MENU_SHOW_LOOT_INFO), --"Show collected helmets info",
+			tooltip = GetString(UPU_MENU_SHOW_LOOT_INFO_TT), --"Displays the info about the collection of the helmets (L=Light, M=Medium, H=Heavy - Green=collected, Red=Not collected)",
+			getFunc = function() return UPU.sVars.bDisplayLootLinkCollectionInfo end,
+			setFunc = function(value)
+				UPU.sVars.bDisplayLootLinkCollectionInfo = value
+			end,
+			default = UPU.defaults.bDisplayLootLinkCollectionInfo,
+			disabled = function() return not UPU.sVars.bDisplayLootLink end,
+		},
+        [13] = {
+			type = "checkbox",
+			name = GetString(UPU_DUNGEON_QUEST_INFO), --"Show Dungeon Quest Info",
+			tooltip = GetString(UPU_DUNGEON_QUEST_INFO_TT), --"Show the info about the dungeon quest completion (useful to see if you can still get the skillpoint there).",
+			getFunc = function() return UPU.sVars.bDisplayQuestInfo end,
+			setFunc = function(value)
+				UPU.sVars.bDisplayQuestInfo = value  
+			end,
+			default = UPU.defaults.bDisplayQuestInfo,
+		},
+		[14] = {
 			type = "header",
 			name = UPU.Colorize(GetString(UPU_ACH_TRACKER)),
 			width = "full",
 		},
-		[13] = {
+		[15] = {
 			type = "checkbox",
 			name = GetString(UPU_ACH_ENABLE), --"Enable",
 			tooltip = GetString(UPU_ACH_ENABLE_TT), --"Enable the missing achievements info when you enter a dungeon",
 			getFunc = function() return UPU.sVars.bEnableAch end,
 			setFunc = function(value)
 				UPU.sVars.bEnableAch = value  
+                if value then
+					--force reset
+					UPU.AfterNewInstance = true
+                end
 			end,
 			default = UPU.defaults.bEnableAch,
 		},
-		[14] = {
+		[16] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_SHOW_ACH_ON_AW), --"Show on Achiev Awarded",
 			tooltip = GetString(UPU_MENU_SHOW_ACH_ON_AW_TT), --"Show remaining achievements on achievement awarded",
@@ -149,7 +171,7 @@ function UPU.CreateSettingsMenu()
 			default = UPU.defaults.bShowOnAchievAwarded,
 			disabled = function() return not UPU.sVars.bEnableAch end,
 		},
-		[15] = {
+		[17] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_COMMON_ACH), --"Common Achievements",
 			tooltip = GetString(UPU_MENU_COMMON_ACH_TT), --"Include common achievements to all the dungeons on both difficulties (the achievements in dungeons general category)",
@@ -160,7 +182,7 @@ function UPU.CreateSettingsMenu()
 			default = UPU.defaults.bShowCommonAchievs,
 			disabled = function() return not UPU.sVars.bEnableAch end,
 		},
-		[16] = {
+		[18] = {
 			type = "checkbox",
 			name = GetString(UPU_MENU_COMPOSED_ACH), --"Composed Achievements",
 			tooltip = GetString(UPU_MENU_COMPOSED_ACH_TT), --"Include composed achievements (e.g. Complete All Speed Challenges achiev or Vanquisher of the Covenant achiev)",
@@ -173,39 +195,34 @@ function UPU.CreateSettingsMenu()
 		},
   }
    
-   LAM:RegisterOptionControls(UPU.AddonName.."_LAM", optionsTable)
+	LAM:RegisterOptionControls(UPU.AddonName.."_LAM", optionsTable)
 end
 
 
-do	
-	function UPU.GetMainTextColor()
-		return UPU.sVars.MainTextColor.r, UPU.sVars.MainTextColor.g, UPU.sVars.MainTextColor.b, UPU.sVars.MainTextColor.a
-	end
+---------------------------------------------------------------- HELPER FUNCTIONS -------------------------------------------------------------------
 
-	function UPU.SetMainTextColor(r, g, b, a)
-		UPU.sVars.MainTextColor.r = r
-		UPU.sVars.MainTextColor.g = g 
-		UPU.sVars.MainTextColor.b = b 
-		UPU.sVars.MainTextColor.a = a 
-	end
+function UPU.GetMainTextColor()
+	return UPU.sVars.MainTextColor.r, UPU.sVars.MainTextColor.g, UPU.sVars.MainTextColor.b, UPU.sVars.MainTextColor.a
+end
 
-	function RGBAToHex(r, g, b, a)
-	  if r>1 then r=1 end
-	  if g>1 then g=1 end
-	  if b>1 then b=1 end
-	  
-	  r = r <= 1 and r >= 0 and r or 0
-	  g = g <= 1 and g >= 0 and g or 0
-	  b = b <= 1 and b >= 0 and b or 0
-	  if a ~= nil then
-	  	  return string.format("%02x%02x%02x%02x", UPU.Round(r * 255), UPU.Round(g * 255), UPU.Round(b * 255), UPU.Round(a * 255))
-		else
-			return string.format("%02x%02x%02x", UPU.Round(r * 255), UPU.Round(g * 255), UPU.Round(b * 255))
-		end
-	end
+function UPU.SetMainTextColor(r, g, b, a)
+	UPU.sVars.MainTextColor.r = r
+	UPU.sVars.MainTextColor.g = g
+	UPU.sVars.MainTextColor.b = b
+	UPU.sVars.MainTextColor.a = a
+end
 
-	function HexToRGBA( hex )
-		local rhex, ghex, bhex, ahex = string.sub(hex, 1, 2), string.sub(hex, 3, 4), string.sub(hex, 5, 6), string.sub(hex, 7, 8)
-		return tonumber(rhex, 16)/255, tonumber(ghex, 16)/255, tonumber(bhex, 16)/255
+function UPU.RGBAToHex(r, g, b, a)
+  if r>1 then r=1 end
+  if g>1 then g=1 end
+  if b>1 then b=1 end
+
+  r = r <= 1 and r >= 0 and r or 0
+  g = g <= 1 and g >= 0 and g or 0
+  b = b <= 1 and b >= 0 and b or 0
+  if a ~= nil then
+	  return string.format("%02x%02x%02x%02x", UPU.Round(r * 255), UPU.Round(g * 255), UPU.Round(b * 255), UPU.Round(a * 255))
+	else
+		return string.format("%02x%02x%02x", UPU.Round(r * 255), UPU.Round(g * 255), UPU.Round(b * 255))
 	end
 end
