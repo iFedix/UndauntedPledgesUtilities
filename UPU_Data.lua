@@ -1,4 +1,3 @@
-
 ----------------------------------------------------------------------------------------------------------------------------------
 --	Undaunted Pledges Utilities data file  	   				    																--
 --	Written by @Carter_DC (EU) / coirier.rom1@gmail.com (initial code) and @iFedix (EU) (current dev) / livio4ever@hotmail.it 	--
@@ -7,643 +6,16 @@
 UndauntedPledgesUtilities = UndauntedPledgesUtilities or {}
 local UPU = UndauntedPledgesUtilities
 
-local MAJ      = 1
-local GLIRION  = 2
-local URGARLAG = 3
-
---populate tables using custom values
-do
-
-local commonAchievements = {709, 753, 754, 710, 711, 749, 750, 751, 752, 691}
-
-local PledgesFromMaj={
-	[0] = {
-		PledgeID = "UPU_PLEDGE_16", -- "Fungal Grotto I"
-		Link = "|H1:item:95013:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "fg1",
-		Achievements = {
-			[1] = {Single = {294}, Composed = {1073}}, --PACT
-			[2] = {Single = {294, 1559, 1556, 1558, 1557, 1560, 1561}, Composed = {}},
-		},
-	},
-	[1] = {
-		PledgeID =       "UPU_PLEDGE_03", -- "Banished Cells II"
-		Link = "|H1:item:59673:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "bc2",
-		Achievements = {
-			[1] = {Single = {1555}, Composed = {1075}}, --DOMINION
-			[2] = {Single = {1555, 545, 852, 853, 451, 449, 1564}, Composed = {1071, 1072}},
-		},
-	},
-	[2] = {
-		PledgeID =       "UPU_PLEDGE_11", -- "Darkshade Caverns I"
-		Link = "|H1:item:94757:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "dc1",
-		Achievements = {
-			[1] = {Single = {78}, Composed = {1073}}, --PACT
-			[2] = {Single = {78, 1581, 1582, 1583, 1584, 1585, 1586}, Composed = {}},
-		},
-	},
-	[3] = {
-		PledgeID =       "UPU_PLEDGE_15", -- "Elden Hollow II"
-		Link = "|H1:item:59565:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "eh2",
-		Achievements = {
-			[1] = {Single = {1579}, Composed = {1075}}, --DOMINION
-			[2] = {Single = {1579, 858, 859, 461, 463, 459, 1580}, Composed = {1071, 1072}},
-		},
-	},
-	[4] = {
-		PledgeID =      "UPU_PLEDGE_26", -- "Wayrest Sewers I"
-		Link = "|H1:item:94500:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "ws1",
-		Achievements = {
-			[1] = {Single = {79}, Composed = {1074}}, --COVENANT
-			[2] = {Single = {79, 1589, 1590, 1591, 1592, 1593, 1594}, Composed = {}},
-		},
-	},
-	[5] = {
-		PledgeID =      "UPU_PLEDGE_22", -- "Spindleclutch II"
-		Link = "|H1:item:59427:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "s2",
-		Achievements = {
-			[1] = {Single = {1571}, Composed = {1074}}, --COVENANT
-			[2] = {Single = {1571, 854, 855, 448, 446, 421, 1572}, Composed = {1071, 1072}},
-		},		
-	},
-	[6] = {
-		PledgeID =       "UPU_PLEDGE_02", -- "Banished Cells I"
-		Link = "|H1:item:94732:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "bc1",
-		Achievements = {
-			[1] = {Single = {325}, Composed = {1075}}, --DOMINION
-			[2] = {Single = {325, 1549, 1550, 1551, 1552, 1553, 1554}, Composed = {}},
-		},
-	},
-	[7] = {
-		PledgeID =       "UPU_PLEDGE_17", -- "Fungal Grotto II"
-		Link = "|H1:item:59393:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "fg2",
-		Achievements = {
-			[1] = {Single = {294}, Composed = {1073}}, --PACT
-			[2] = {Single = {294, 850, 851, 343, 342, 340, 1563}, Composed = {1071, 1072}},
-		},
-	},
-	[8] = {
-		PledgeID =       "UPU_PLEDGE_21", -- "Spindleclutch I"
-		Link = "|H1:item:94476:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "s1",
-		Achievements = {
-			[1] = {Single = {301}, Composed = {1074}}, --COVENANT
-			[2] = {Single = {301, 1565, 1566, 1567, 1568, 1569, 1570}, Composed = {}},
-		},
-	},
-	[9] = {
-		PledgeID =       "UPU_PLEDGE_12", -- "Darkshade Caverns II"
-		Link = "|H1:item:59529:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "dc2",
-		Achievements = {
-			[1] = {Single = {1587}, Composed = {1073}}, --PACT
-			[2] = {Single = {1587, 857, 856, 465, 467, 464, 1588}, Composed = {1071,1072}},
-		},
-	},
-	[10] = {
-		PledgeID =       "UPU_PLEDGE_14", -- "Elden Hollow I"
-		Link = "|H1:item:94764:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "eh1",
-		Achievements = {
-			[1] = {Single = {11}, Composed = {1075}}, --DOMINION
-			[2] = {Single = {11, 1573, 1574, 1575, 1576, 1577, 1578}, Composed = {}},
-		},
-	},
-	[11] = {
-		PledgeID =       "UPU_PLEDGE_27", -- "Wayrest Sewers II"
-		Link = "|H1:item:59505:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "ws2",
-		Achievements = {
-			[1] = {Single = {1595}, Composed = {1074}}, --COVENANT
-			[2] = {Single = {1595, 860, 861, 679, 681, 678, 1596}, Composed = {1071,1072}},
-		},
-	},
-}
-	
-	
-local PledgesFromGlirion={
-	[0] = {
-		PledgeID =       "UPU_PLEDGE_20", -- "Selene's Web"
-		Link = "|H1:item:95116:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "sw",
-		Achievements = {
-			[1] = {Single = {417}, Composed = {1075}}, --DOMINION
-			[2] = {Single = {417, 1635, 1636, 1637, 1638, 1639, 1640}, Composed = {}},
-		},
-	},
-	[1] = {
-		PledgeID =       "UPU_PLEDGE_07", -- "City of Ash II"
-		Link = "|H1:item:59637:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "coa2",
-		Achievements = {
-			[1] = {Single = {1603, 1111, 1082}, Composed = {1159, 1075}}, --DOMINION
-			[2] = {Single = {1603, 1111, 1082, 878, 1114, 1108, 1107, 1105, 1106}, Composed = {1159}},
-		},
-	},
-	[2] = {
-		PledgeID =       "UPU_PLEDGE_09", -- "Crypt Of Hearts I"
-		Link = "|H1:item:94796:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "coh1",
-		Achievements = {
-			[1] = {Single = {80}, Composed = {1074}}, --COVENANT
-			[2] = {Single = {80, 1614, 1613, 1610, 1612, 1611, 1615}, Composed = {}},
-		},
-	},
-	[3] = {
-		PledgeID =       "UPU_PLEDGE_25", -- "Volenfell"
-		Link = "|H1:item:94548:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "v",
-		Achievements = {
-			[1] = {Single = {391}, Composed = {1074}}, --COVENANT
-			[2] = {Single = {391, 1629, 1630, 1631, 1632, 1633, 1634}, Composed = {}},
-		},
-	},
-	[4] = {
-		PledgeID =      "UPU_PLEDGE_05", -- "Blessed Crucible"
-		Link = "|H1:item:94836:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "bc",
-		Achievements = {
-			[1] = {Single = {393}, Composed = {1073}}, --PACT
-			[2] = {Single = {393, 1641, 1642, 1643, 1644, 1645, 1646}, Composed = {}},
-		},
-	},
-	[5] = {
-		PledgeID =      "UPU_PLEDGE_13", -- "Direfrost Keep"
-		Link = "|H1:item:94804:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "dk",
-		Achievements = {
-			[1] = {Single = {357}, Composed = {1073}}, --PACT
-			[2] = {Single = {357, 1623, 1624, 1625, 1626, 1627, 1628}, Composed = {}},
-		},
-	},
-	[6] = {
-		PledgeID =       "UPU_PLEDGE_24", -- "Vaults of Madness"
-		Link = "|H1:item:94852:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "vom",
-		Achievements = {
-			[1] = {Single = {570}, Composed = {}},
-			[2] = {Single = {570, 1653, 1654, 1655, 1656, 1657, 1658}, Composed = {}},
-		},
-	},
-	[7] = {
-		PledgeID =       "UPU_PLEDGE_10", -- "Crypt of Hearts II"
-		Link = "|H1:item:59601:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "coh2",
-		Achievements = {
-			[1] = {Single = {1616}, Composed = {1074}}, --COVENANT
-			[2] = {Single = {1616, 1084, 939, 940, 941, 942, 876}, Composed = {1071,1072}},
-		},
-	},
-	[8] = {
-		PledgeID =       "UPU_PLEDGE_06", -- "City of Ash I"
-		Link = "|H1:item:94788:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "coa1",
-		Achievements = {
-			[1] = {Single = {551}, Composed = {1075}}, --DOMINION
-			[2] = {Single = {551, 1597, 1598, 1599, 1600, 1601, 1602}, Composed = {}},
-		},
-	},
-	[9] = {
-		PledgeID =       "UPU_PLEDGE_23", -- "Tempest Island"
-		Link = "|H1:item:95084:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "ti",
-		Achievements = {
-			[1] = {Single = {81}, Composed = {1075}}, --DOMINION
-			[2] = {Single = {81, 1617, 1618, 1619, 1620, 1621, 1622}, Composed = {}},
-		},
-	},
-	[10] = {
-		PledgeID =       "UPU_PLEDGE_04", -- "Blackheart Haven"
-		Link = "|H1:item:94556:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "bh",
-		Achievements = {
-			[1] = {Single = {410}, Composed = {1074}}, --COVENANT
-			[2] = {Single = {410, 1647, 1648, 1649, 1650, 1651, 1652}, Composed = {}},
-		},
-	},
-	[11] = {
-		PledgeID =       "UPU_PLEDGE_01", -- "Arx Corinium"
-		Link = "|H1:item:95052:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "ac",
-		Achievements = {
-			[1] = {Single = {272}, Composed = {1073}}, --PACT
-			[2] = {Single = {272, 1604, 1605, 1606, 1607, 1608, 1609}, Composed = {}},
-		},
-	},
-}
-
-
-local PledgesFromUrgarlag={
-	[0] = {
-		PledgeID =  	"UPU_PLEDGE_29", -- "Bloodroot Forge" 08/14/2017
-		Link = "|H1:item:127722:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "bf",
-		Achievements = {
-			[1] = {Single = {1940, 1690, 1697}, Composed = {}},
-			[2] = {Single = {1940, 1690, 1697, 1941, 1691, 1696, 1694, 1695, 1692, 1693, 1816, 1817, 1818, 1819, 1820, 1821, 1822, 1823}, Composed = {1937}},
-		},		
-	},
-	[1] = {
-		PledgeID =  	"UPU_PLEDGE_30", -- "Falkreath Hold" 08/15/2017
-		Link = "|H1:item:128309:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "fh",
-		Achievements = {
-			[1] = {Single = {1940, 1698, 1705, 1945, 1949}, Composed = {}},
-			[2] = {Single = {1940, 1698, 1705, 1945, 1949, 1942, 1704, 1702, 1703, 1700, 1701, 1946, 1947, 1948, 1950, 1951}, Composed = {1937}},
-		},	
-	},
-	[2] = {
-		PledgeID =       "UPU_PLEDGE_31", -- "Fang Lair" 12/02/2018
-		Link = "|H1:item:129484:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "fl",
-		Achievements = {
-			[1] = {Single = {1959, 2104, 1974}, Composed = {}},
-			[2] = {Single = {1959, 2104, 1974, 2102, 1966, 1960, 1965, 1963, 1964, 1961, 1962, 1967, 1968, 1969, 1970, 1971, 1972, 1973}, Composed = {2103}},
-		},	
-	},
-	[3] = {
-		PledgeID =       "UPU_PLEDGE_32", -- "Scalecaller Peak" 13/02/2018
-		Link = "|H1:item:129535:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "sp",
-		Achievements = {
-			[1] = {Single = {2104, 1975, 1985, 1990}, Composed = {}},
-			[2] = {Single = {2104, 1975, 1985, 1990, 1983, 1982, 1976, 1979, 1981, 1980, 1984, 1977, 1978, 1986, 1987, 1988, 1989, 1991}, Composed = {2103}},
-		},	
-	},
-	[4] = {
-		PledgeID =       "UPU_PLEDGE_33", -- "Moon Hunter Keep" 08/13/2018
-		Link = "|H1:item:141698:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "mhk",
-		Achievements = {
-			[1] = {Single = {2157, 2152, 2298, 2299, 2307}, Composed = {}},
-			[2] = {Single = {2307, 2308, 2309, 2157, 2152, 2298, 2299, 2159, 2158, 2156, 2297, 2153, 2154, 2300, 2155, 2301, 2151, 2150}, Composed = {2170}},
-		},	
-	},
-	[5] = {
-		PledgeID =       "UPU_PLEDGE_34", -- "March of Sacrifices" 08/14/2018
-		Link = "|H1:item:141650:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "mos",
-		Achievements = {
-			[1] = {Single = {2157, 2162, 2302}, Composed = {}},
-			[2] = {Single = {2157, 2162, 2302, 2167, 2165, 2303, 2168, 2304, 2163, 2305, 2164, 2306, 2166, 2160, 2161, 2310, 2311, 2312}, Composed = {2170}},
-		},	
-	},
-	[6] = {
-		PledgeID =       "UPU_PLEDGE_35", -- "Depths of Malatar" 02/25/2019
-		Link = "|H1:item:147235:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "dom",
-		Achievements = {
-			[1] = {Single = {2265, 2270, 2389, 2391, 2392}, Composed = {2471}},
-			[2] = {Single = {2265, 2270, 2389, 2391, 2392, 2275, 2276, 2272, 2273, 2274, 2268, 2269, 2388, 2390, 2393, 2394, 2395}, Composed = {2471, 2277}},
-		},	
-	},
-	[7] = {
-		PledgeID =       "UPU_PLEDGE_36", -- "Frostvault" 02/25/2019
-		Link = "|H1:item:146668:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "fv",
-		Achievements = {
-			[1] = {Single = {2265, 2260, 2380, 2381, 2382, 2383, 2385, 2387}, Composed = {2471}},
-			[2] = {Single = {2265, 2260, 2380, 2381, 2382, 2383, 2385, 2387, 2266, 2261, 2267, 2262, 2263, 2264, 2259, 2258, 2384, 2386}, Composed = {2471, 2277}},
-		},	
-	},
-    [8] = {
-		PledgeID =       "UPU_PLEDGE_37", -- "Moongrave Fane" 08/12/2019
-		Link = "|H1:item:152302:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "mf",
-		Achievements = {
-			[1] = {Single = {2415, 2570, 2420, 2577, 2571, 2576, 2578}, Composed = {2590}},
-			[2] = {Single = {2420, 2416, 2572, 2421, 2422, 2417, 2418, 2419, 2413, 2414, 2573, 2574, 2575, 2569}, Composed = {2432}},
-		},	
-	},
-	[9] = {
-		PledgeID =       "UPU_PLEDGE_38", -- "Lair of Maarselok" 08/12/2019
-		Link = "|H1:item:152314:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "lom",
-		Achievements = {
-			[1] = {Single = {2425, 2420, 2580}, Composed = {2590}},
-			[2] = {Single = {2420, 2426, 2430, 2431, 2427, 2428, 2429, 2423, 2424, 2579, 2581, 2582, 2583, 2584}, Composed = {2432}},
-		},	
-	},
-	[10] = {
-		PledgeID =       "UPU_PLEDGE_18", -- "Imperial City Prison" 08/16/2017
-		Link = "|H1:item:59459:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "icp",
-		Achievements = {
-			[1] = {Single = {1122, 1345}, Composed = {}},
-			[2] = {Single = {1122, 880, 1345, 1129, 1303, 1131, 1130, 1128, 1133, 1142}, Composed = {1132}},
-		},	
-	},
-	[11] = {
-		PledgeID =       "UPU_PLEDGE_19", -- "Ruins of Mazzatun"
-		Link = "|H1:item:82188:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "rom",
-		Achievements = {
-			[1] = {Single = {1520, 1504, 1512, 1514}, Composed = {}},
-			[2] = {Single = {1520, 1504, 1512, 1514, 1511, 1505, 1506, 1507, 1508, 1509, 1510, 1513, 1515, 1516, 1517, 1518, 1519}, Composed = {1538}},
-		},	
-	},
-	[12] = {
-		PledgeID =       "UPU_PLEDGE_28", -- "White-Gold Tower"
-		Link = "|H1:item:68112:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "wgt",
-		Achievements = {
-			[1] = {Single = {1281, 1346}, Composed = {}},
-			[2] = {Single = {1278, 1277, 1280, 1275, 1281, 1279, 1306, 1276, 1120, 1346}, Composed = {1132}},
-		},	
-	},
-	[13] = {
-		PledgeID =       "UPU_PLEDGE_08", -- "Cradle of Shadows"
-		Link = "|H1:item:82142:363:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000:0|h|h",
-		Acronym = "cos",
-		Achievements = {
-			[1] = {Single = {1520, 1522, 1536}, Composed = {}},
-			[2] = {Single = {1520, 1522, 1536, 1529, 1523, 1524, 1525, 1526, 1527, 1528, 1530, 1531, 1532, 1533, 1534, 1535}, Composed = {1538}},
-		},	
-	},
-}
-
----------------------------------------------------------
---	/upuday & /upudayhelp commands					   --
---------------------------------------------------------- 
-
---get localized dungeon name from an acronym
-function UPU.GetDungeon(acronym) 
-	for i=0,UPU.MAJ_AND_GLIRION_CYCLE-1 do 
-		if PledgesFromMaj[i].Acronym==acronym then
-			return localizedPledges[PledgesFromMaj[i].PledgeID].Regular 
-		end
-	end
-	for i=0,UPU.MAJ_AND_GLIRION_CYCLE-1 do 
-		if PledgesFromGlirion[i].Acronym==acronym then
-			return localizedPledges[PledgesFromGlirion[i].PledgeID].Regular 
-		end
-	end
-	for i=0,UPU.URGARLAG_CYCLE-1 do 
-		if PledgesFromUrgarlag[i].Acronym==acronym then
-			return localizedPledges[PledgesFromUrgarlag[i].PledgeID].Regular 
-		end
-	end 
-	return ""
-end
-
---return true if location is a dungeon name
-function UPU.isDungeon(location) 
-	for k, v in pairs(localizedPledges) do
-		if v.Regular==location then
-			return k
-		end
-	end
-	return ""
-end
-
---get a list of dungeon acronyms
-function UPU.GetDungeonAcronyms() 
-	for i=0,UPU.MAJ_AND_GLIRION_CYCLE-1 do 
-		UPU.Msg2Chat(UPU.Colorize(localizedPledges[PledgesFromMaj[i].PledgeID].Regular..": "..PledgesFromMaj[i].Acronym))
-	end
-	for i=0,UPU.MAJ_AND_GLIRION_CYCLE-1 do 
-		UPU.Msg2Chat(UPU.Colorize(localizedPledges[PledgesFromGlirion[i].PledgeID].Regular..": "..PledgesFromGlirion[i].Acronym))
-	end
-	for i=0,UPU.URGARLAG_CYCLE-1 do 
-		UPU.Msg2Chat(UPU.Colorize(localizedPledges[PledgesFromUrgarlag[i].PledgeID].Regular..": "..PledgesFromUrgarlag[i].Acronym))
-	end 
-end
-
----------------------------------------------------------
---	Achievements									   --
---------------------------------------------------------- 
-
---get dungeon achievs given the difficulty and the type of achiev
-function UPU.GetAchievements(difficulty, pledgeID, achType)
-	for i=0,UPU.MAJ_AND_GLIRION_CYCLE-1 do
-		if PledgesFromMaj[i].PledgeID == pledgeID then
-			return PledgesFromMaj[i].Achievements[difficulty][achType],achType
-		end
-	end
-	for i=0,UPU.MAJ_AND_GLIRION_CYCLE-1 do 
-		if PledgesFromGlirion[i].PledgeID == pledgeID then
-			return PledgesFromGlirion[i].Achievements[difficulty][achType],achType
-		end
-	end
-	for i=0,UPU.URGARLAG_CYCLE-1 do 
-		if PledgesFromUrgarlag[i].PledgeID == pledgeID then
-			return PledgesFromUrgarlag[i].Achievements[difficulty][achType],achType
-		end
-	end 
-end
-
---get uncompleted achievs starting from an array (normal or difficult achievs) and achType(single or composed)
-function UPU.GetUncompletedAchievements(achievements, achType)
-	local res =  {}
-	local j=1
-	for i=1,#achievements do
-		local id = achievements[i]
-		if achType=="Composed" then composed=UPU.CheckComposed(id) else composed=true end
-		local _,_,_,_,completed,_,_,_ = GetAchievementInfo(id)
-		--d(name, completed)
-		--d(GetAchievementInfo(achievements[i]))
-		if not completed and composed and UPU.DeadlandsSavvyAchiev(id) then 
-			res[j]=id
-			j=j+1
-		end
-	end
-	return res
-end
-
---get uncompleted common achievs
-function UPU.GetUncompletedCommonAchievements()
-	return UPU.GetUncompletedAchievements(commonAchievements)
-end
-
---print achievs (table as input)
-function UPU.PrintAchievements(achievements)
-	for i=1,#achievements do
-		CHAT_SYSTEM:AddMessage( "|cF0F0F0-|r "..GetAchievementLink(achievements[i],1))
-	end
-end
-
---deadlandsSavvy achiev
-function UPU.DeadlandsSavvyAchiev(id)
-	if id==1159 then 
-		if GetCurrentZoneDungeonDifficulty()==DUNGEON_DIFFICULTY_NORMAL then
-			local _,_,_,_,c1,_,_,_ = GetAchievementInfo(1111)
-			local _,_,_,_,c2,_,_,_ = GetAchievementInfo(1082)
-			return not (c1 and c2)
-		end
-	end
-	return true
-end
-
---check when achiev is awarded
-function UPU.isValidAchiev(id,pledgeID,difficulty)
-	local achievements = UPU.GetAchievements(difficulty, pledgeID, "Single");
-	--check in specific dungeon achievements
-	for i=1,#achievements do
-		if achievements[i]==id then return true end
-	end
-	--check in common dungeon achievements
-	if UPU.sVars.bShowCommonAchievs then
-		for i=1,#commonAchievements do
-			if commonAchievements[i]==id then return true end
-		end	
-	end
-	--check in composed dungeon achievements
-	if UPU.sVars.bShowComposedAchievs then
-		local composedAchievements = UPU.GetAchievements(difficulty, pledgeID, "Composed")
-		for i=1,#composedAchievements do
-			if composedAchievements[i]==id then return true end
-		end	
-	end
-	return false
-end
-
---check if the achiev is composed
-function UPU.CheckComposed(id)
-	return UPU.VanquisherOfTheAllianceAchiev(id) and UPU.AllSpeedAchiev(id) and UPU.AllDeathAchiev(id) and UPU.DLCDelverAchiev(id) and UPU.ICChallenger(id)
-end
-
---composed Achievements:
-function UPU.ICChallenger(id)
-	local numCriteria = 6;
-	local c1,c2,c3
-	if id==1132 then
-		local zone = GetUnitZone("player")
-		if localizedPledges["UPU_PLEDGE_18"].Regular==zone then
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(1128)
-			_,_,_,_,c2,_,_,_ = GetAchievementInfo(1129)
-			_,_,_,_,c3,_,_,_ = GetAchievementInfo(1303)		
-		else
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(1275)
-			_,_,_,_,c2,_,_,_ = GetAchievementInfo(1276)
-			_,_,_,_,c3,_,_,_ = GetAchievementInfo(1279)
-		end
-		return not (c1 and c2 and c3)	
-	end
-	return true
-end
-
-function UPU.DLCDelverAchiev(id)
-	local numCriteria = 2;
-	if id==1937 or id==2103 or id==2170 or id==2471 or id==2277 or id==1538 then
-		for i=1,numCriteria do
-			local dungeonName,numCompleted,numRequired = GetAchievementCriterion(id, i)
-			if string.find(dungeonName, GetUnitZone("player")) then
-				if numCompleted==numRequired then
-					return false
-				end
-			end
-		end
-	end
-	return true
-end
-
-function UPU.VanquisherOfTheAllianceAchiev(id)
-	local numCriteria = 5;
-	if id==1073 or id==1074 or id==1075 then
-		for i=1,numCriteria do
-			local dungeonName,numCompleted, numRequired = GetAchievementCriterion(id, i)
-			if string.find(GetUnitZone("player"),dungeonName) then
-				if numCompleted==numRequired then
-					return false
-				end
-			end
-		end
-	end
-	return true
-end
-
-function UPU.AllSpeedAchiev(id)
-	local numCriteria = 7;
-	if id==1071 then
-		for i=1,numCriteria do
-			local dungeonSpeed,numCompleted, numRequired = GetAchievementCriterion(id, i)
-			if string.find(dungeonSpeed, GetUnitZone("player")) then
-				if numCompleted==numRequired then
-					return false
-				end
-			end
-		end
-	end
-	return true
-end
-
-function UPU.AllDeathAchiev(id)
-	local c1,c2 = true, true
-	if id==1072 then
-		if localizedPledges["UPU_PLEDGE_15"].Regular==zone then --Elden Hollow II
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(463)	
-		end
-		if localizedPledges["UPU_PLEDGE_22"].Regular==zone then --Spindleclutch II
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(448)	
-		end
-		if localizedPledges["UPU_PLEDGE_02"].Regular==zone then --The Banished Cells II
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(451)
-		end			
-		if localizedPledges["UPU_PLEDGE_10"].Regular==zone then --Crypt of Hearts II
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(942)	
-			_,_,_,_,c2,_,_,_ = GetAchievementInfo(1114)		
-		end
-		if localizedPledges["UPU_PLEDGE_12"].Regular==zone then --Darkshade Caverns II
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(467)	
-		end
-		if localizedPledges["UPU_PLEDGE_17"].Regular==zone then --Fungal Grotto II
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(342)	
-		end
-		if localizedPledges["UPU_PLEDGE_27"].Regular==zone then --Wayrest Sewers II
-			_,_,_,_,c1,_,_,_ = GetAchievementInfo(681)
-		end			
-		return not (c1 and c2)	
-	end
-	return true
-end
-
----------------------------------------------------------
---	Pledges											   --
---------------------------------------------------------- 
-
---get the localized pledge info
-function UPU.GetLocalizedPledge(internalIndex,questGiver)
-	local pledgeID
-	if questGiver == MAJ then
-		pledgeID = PledgesFromMaj[internalIndex].PledgeID 
-	elseif questGiver == GLIRION then
-		pledgeID = PledgesFromGlirion[internalIndex].PledgeID
-	elseif questGiver == URGARLAG then
-		pledgeID = PledgesFromUrgarlag[internalIndex].PledgeID
-	end
-	return localizedPledges[pledgeID]	
-end
-
---returns a item link specific to the quest (monster set)
-function UPU.GetPledgeLink(internalIndex,questGiver)
-	local pledgeLink
-	if questGiver == MAJ then
-		pledgeLink = PledgesFromMaj[internalIndex].Link 
-	elseif questGiver == GLIRION then
-		pledgeLink = PledgesFromGlirion[internalIndex].Link
-	elseif questGiver == URGARLAG then
-		pledgeLink = PledgesFromUrgarlag[internalIndex].Link
-	end
-	return pledgeLink	
-end
-
 ESO_Dialogs["UPU_TELEPORT"] = {
     title ={
         text = GetString(UPU_TELEPORT_TO), -- "Teleport to <<1>>",
     },
     mainText ={
-        text = GetString(UPU_TELEPORT_ALERT), -- "Your group is not in veteran mode",
+        text = GetString(UPU_TELEPORT_ALERT), -- "Your group is not in veteran mode!",
     },
     buttons ={
         [1] ={
-            text =      GetString(UPU_TELEPORT_ANYWAY), --"teleport anyway",
+            text =      GetString(UPU_TELEPORT_ANYWAY), --"Teleport anyway",
             callback =  function(dialog)
 							--Debug(dialog.data[1],"FastTravelToNode")
                             FastTravelToNode(dialog.data[1])
@@ -656,4 +28,1062 @@ ESO_Dialogs["UPU_TELEPORT"] = {
     }
 }
 
+local commonAchievements = {709, 753, 754, 710, 711, 749, 750, 751, 752, 691}
+
+local pledgesData = {
+	['Maj'] =
+	{
+		[0] = {
+			ZoneID = 283, -- "Fungal Grotto I"
+			Acronym = "fg1",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {294},
+					Composed = {
+						[1073] = {294} --Vanquisher of the Pact
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1559, 1556, 1558, 1557, 1560, 1561},
+					Composed = {}
+				},
+			},
+			QuestID = 3993,
+			NodeID = 98,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94741,
+				[ARMORTYPE_MEDIUM] = 95013,
+				[ARMORTYPE_HEAVY] = 94469
+			},
+		},
+		[1] = {
+			ZoneID = 935, -- "The Banished Cells II"
+			Acronym = "bc2",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1555},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {545, 852, 853, 451, 449, 1564},
+					Composed = {
+						[1071] = {449}, --Banished Cells II Assassin
+						[1072] = {451} --Cursed Hero
+					}
+				},
+			},
+			QuestID = 4597,
+			NodeID = 262,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59685,
+				[ARMORTYPE_MEDIUM] = 59679,
+				[ARMORTYPE_HEAVY] = 59673
+			},
+		},
+		[2] = {
+			ZoneID = 63, -- "Darkshade Caverns I"
+			Acronym = "dc1",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {78},
+					Composed = {
+						[1073] = {78} --Vanquisher of the Pact
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1581, 1582, 1583, 1584, 1585, 1586},
+					Composed = {}
+				},
+			},
+			QuestID = 4145,
+			NodeID = 198,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94757,
+				[ARMORTYPE_MEDIUM] = 95029,
+				[ARMORTYPE_HEAVY] = 94485
+			},
+		},
+		[3] = {
+			ZoneID = 931, -- "Elden Hollow II"
+			Acronym = "eh2",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1579},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {858, 859, 461, 463, 459, 1580},
+					Composed = {
+						[1071] = {461}, --Elden Hollow 2 Assassin
+						[1072] = {463} --Closing the Book
+					}
+				},
+			},
+			QuestID = 4675,
+			NodeID = 265,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59577,
+				[ARMORTYPE_MEDIUM] = 59571,
+				[ARMORTYPE_HEAVY] = 59565
+			},
+		},
+		[4] = {
+			ZoneID = 146, -- "Wayrest Sewers I"
+			Acronym = "ws1",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {79},
+					Composed = {
+						[1074] = {79} --Vanquisher of the Covenant
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1589, 1590, 1591, 1592, 1593, 1594}, 
+					Composed = {}
+				},
+			},
+			QuestID = 4246,
+			NodeID = 189,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94773, 
+				[ARMORTYPE_MEDIUM] = 95045, 
+				[ARMORTYPE_HEAVY] = 94501
+			},
+		},
+		[5] = {
+			ZoneID = 936, -- "Spindleclutch II"
+			Acronym = "s2",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1571}, 
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = 
+				{
+					Single = {854, 855, 448, 446, 421, 1572}, 
+					Composed = {
+						[1071] = {446}, --Spindleclutch II Assassin
+						[1072] = {448} --Compassionate Hero
+					}
+				},
+			},
+			QuestID = 4555,
+			NodeID = 267,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59433,
+				[ARMORTYPE_MEDIUM] = 59427,
+				[ARMORTYPE_HEAVY] = 59421
+			},
+		},
+		[6] = {
+			ZoneID = 380, -- "Banished Cells I"
+			Acronym = "bc1",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {325},
+					Composed = {
+						[1075] = {325} --Vanquisher of the Dominion
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1549, 1550, 1551, 1552, 1553, 1554},
+					Composed = {}
+				},
+			},
+			QuestID = 4107,
+			NodeID = 194,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94733,
+				[ARMORTYPE_MEDIUM] = 95005,
+				[ARMORTYPE_HEAVY] = 94461
+			},
+		},
+		[7] = {
+			ZoneID = 934, -- "Fungal Grotto II"
+			Acronym = "fg2",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {294},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] =
+				{
+					Single = {850, 851, 343, 342, 340, 1563},
+					Composed = {
+						[1071] = {340}, --Fungal Grotto II Assassin
+						[1072] = {342} --Fearless Assaulter
+					}
+				},
+			},
+			QuestID = 4303,
+			NodeID = 98,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59397,
+				[ARMORTYPE_MEDIUM] = 59391,
+				[ARMORTYPE_HEAVY] = 59385
+			},
+		},
+		[8] = {
+			ZoneID = 144, -- "Spindleclutch I"
+			Acronym = "s1",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {301},
+					Composed = {
+						[1074] = {301} --Vanquisher of the Covenant
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1565, 1566, 1567, 1568, 1569, 1570},
+					Composed = {}
+				},
+			},
+			QuestID = 4054,
+			NodeID = 193,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94749,
+				[ARMORTYPE_MEDIUM] = 95021,
+				[ARMORTYPE_HEAVY] = 94477
+			},
+		},
+		[9] = {
+			ZoneID = 930, -- "Darkshade Caverns II"
+			Acronym = "dc2",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1587},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {857, 856, 465, 467, 464, 1588},
+					Composed = {
+						[1071] = {465}, --Darkshade Caverns II Assassin
+						[1072] = {467} --Deadly Engineer
+					}
+				},
+			},
+			QuestID = 4641,
+			NodeID = 264,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59541,
+				[ARMORTYPE_MEDIUM] = 59535,
+				[ARMORTYPE_HEAVY] = 59529
+			},
+		},
+		[10] = {
+			ZoneID = 126, -- "Elden Hollow I"
+			Acronym = "eh1",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {11},
+					Composed = {
+						[1075] = {11} --Vanquisher of the Dominion
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1573, 1574, 1575, 1576, 1577, 1578},
+					Composed = {}
+				},
+			},
+			QuestID = 4336,
+			NodeID = 191,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94765,
+				[ARMORTYPE_MEDIUM] = 95037,
+				[ARMORTYPE_HEAVY] = 94493
+			},
+		},
+		[11] = {
+			ZoneID =  933, -- "Wayrest Sewers II"
+			Acronym = "ws2",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1595},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {860, 861, 679, 681, 678, 1596},
+					Composed = {
+						[1071] = {679}, --Wayrest Sewers II Assassin
+						[1072] = {681}  --Pellingare Ghoul Slayer
+					}
+				},
+			},
+			QuestID = 4813,
+			NodeID = 263,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59505,
+				[ARMORTYPE_MEDIUM] = 59499,
+				[ARMORTYPE_HEAVY] = 59493
+			},
+		},
+
+	},
+	['Glirion'] = {
+		[0] = {
+			ZoneID = 31, -- "Selene's Web"
+			Acronym = "sw",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {417},
+					Composed = {
+						[1075] = {417} --Vanquisher of the Dominion
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1635, 1636, 1637, 1638, 1639, 1640},
+					Composed = {}
+				},
+			},
+			QuestID = 4733,
+			NodeID = 185,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94845,
+				[ARMORTYPE_MEDIUM] = 95117,
+				[ARMORTYPE_HEAVY] = 94573
+			},
+		},
+		[1] = {
+			ZoneID = 681, -- "City of Ash II"
+			Acronym = "coa2",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1603, 1111, 1082},
+					Composed = {
+						[1159] = {1111, 1082}
+					}
+				}, --DOMINION
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {878, 1114, 1108, 1107, 1105, 1106},
+					Composed = {
+						[1072] = {1114} --The Blade's Edge
+					}
+				},
+			},
+			QuestID = 5120,
+			NodeID = 268,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59649,
+				[ARMORTYPE_MEDIUM] = 59643,
+				[ARMORTYPE_HEAVY] = 59637
+			},
+		},
+		[2] = {
+			ZoneID = 130, -- "Crypt Of Hearts I"
+			Acronym = "coh1",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {80},
+					Composed = {
+						[1074] = {80} --Vanquisher of the Covenant
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1614, 1613, 1610, 1612, 1611, 1615},
+					Composed = {}
+				},
+			},
+			QuestID = 4379,
+			NodeID = 190,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94797,
+				[ARMORTYPE_MEDIUM] = 95069,
+				[ARMORTYPE_HEAVY] = 94525},
+		},
+		[3] = {
+			ZoneID = 22, -- "Volenfell"
+			Acronym = "v",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {391},
+					Composed = {
+						[1074] = {391}
+					}
+				}, --Vanquisher of the Covenant
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1629, 1630, 1631, 1632, 1633, 1634},
+					Composed = {}
+				},
+			},
+			QuestID = 4432,
+			NodeID = 196,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94821,
+				[ARMORTYPE_MEDIUM] = 95093,
+				[ARMORTYPE_HEAVY] = 94549
+			},
+		},
+		[4] = {
+			ZoneID = 64, -- "Blessed Crucible"
+			Acronym = "bc",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {393},
+					Composed = {
+						[1073] = {393} --Vanquisher of the Pact
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1641, 1642, 1643, 1644, 1645, 1646},
+					Composed = {}
+				},
+			},
+			QuestID = 4469,
+			NodeID = 187,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94837,
+				[ARMORTYPE_MEDIUM] = 95109,
+				[ARMORTYPE_HEAVY] = 94565
+			},
+		},
+		[5] = {
+			ZoneID = 449, -- "Direfrost Keep"
+			Acronym = "dk",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {357},
+					Composed = {
+						[1073] = {357} --Vanquisher of the Pact
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1623, 1624, 1625, 1626, 1627, 1628},
+					Composed = {}
+				},
+			},
+			QuestID = 4346,
+			NodeID = 195,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94805,
+				[ARMORTYPE_MEDIUM] = 95077,
+				[ARMORTYPE_HEAVY] = 94533
+			},
+		},
+		[6] = {
+			ZoneID = 11, -- "Vaults of Madness"
+			Acronym = "vom",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {570},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1653, 1654, 1655, 1656, 1657, 1658},
+					Composed = {}
+				},
+			},
+			QuestID = 4822,
+			NodeID = 184,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94853,
+				[ARMORTYPE_MEDIUM] = 95125,
+				[ARMORTYPE_HEAVY] = 94581},
+		},
+		[7] = {
+			ZoneID = 932, -- "Crypt of Hearts II"
+			Acronym = "coh2",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1616},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1084, 939, 940, 941, 942, 876},
+					Composed = {
+						[1071] = {941}, --Crypt of Hearts II Assassin
+						[1072] = {942} --Deadly Crypt Survivor (Crypt of Hearts II)
+					}
+				},
+			},
+			QuestID = 5113,
+			NodeID = 269,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59613,
+				[ARMORTYPE_MEDIUM] = 59607,
+				[ARMORTYPE_HEAVY] = 59601
+			},
+		},
+		[8] = {
+			ZoneID = 176, -- "City of Ash I"
+			Acronym = "coa1",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {551},
+					Composed = {
+						[1075] = {551} --Vanquisher of the Dominion
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1597, 1598, 1599, 1600, 1601, 1602},
+					Composed = {}
+				},
+			},
+			QuestID = 4778,
+			NodeID = 197,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94789,
+				[ARMORTYPE_MEDIUM] = 95061,
+				[ARMORTYPE_HEAVY] = 94517
+			},
+		},
+		[9] = {
+			ZoneID = 131, -- "Tempest Island"
+			Acronym = "ti",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {81},
+					Composed = {
+						[1075] = {81}
+					} --Vanquisher of the Dominion
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1617, 1618, 1619, 1620, 1621, 1622},
+					Composed = {}
+				},
+			},
+			QuestID = 4538,
+			NodeID = 188,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94813,
+				[ARMORTYPE_MEDIUM] = 95085,
+				[ARMORTYPE_HEAVY] = 94541
+			},
+		},
+		[10] = {
+			ZoneID = 38, -- "Blackheart Haven"
+			Acronym = "bh",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {410},
+					Composed = {
+						[1074] = {410} --Vanquisher of the Covenant
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1647, 1648, 1649, 1650, 1651, 1652},
+					Composed = {}
+				},
+			},
+			QuestID = 4589,
+			NodeID = 186,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94829,
+				[ARMORTYPE_MEDIUM] = 95101,
+				[ARMORTYPE_HEAVY] = 94557
+			},
+		},
+		[11] = {
+			ZoneID = 148, -- "Arx Corinium"
+			Acronym = "ac",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {272},
+					Composed = {
+						[1073] = {272} --Vanquisher of the Pact
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1604, 1605, 1606, 1607, 1608, 1609},
+					Composed = {}
+				},
+			},
+			QuestID = 4202,
+			NodeID = 192,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 94781,
+				[ARMORTYPE_MEDIUM] = 95053,
+				[ARMORTYPE_HEAVY] = 94509
+			},
+		},
+	},
+	['Urgarlag'] =
+	{
+		[8] = {
+			ZoneID = 678, -- "Imperial City Prison" 08/16/2017
+			Acronym = "icp",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1122, 1345},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {880, 1129, 1303, 1131, 1130, 1128, 1133, 1142},
+					Composed = {
+						[1132] = {1128, 1129, 1303}
+					}
+				},
+			},
+			QuestID = 5136,
+			NodeID = 236,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 59469,
+				[ARMORTYPE_MEDIUM] = 59463,
+				[ARMORTYPE_HEAVY] = 59457},
+		},
+		[9] = {
+			ZoneID = 843, -- "Ruins of Mazzatun"
+			Acronym = "rom",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1520, 1504, 1512, 1514},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1511, 1505, 1506, 1507, 1508, 1509, 1510, 1513, 1515, 1516, 1517, 1518, 1519},
+					Composed = {
+						[1538] = {1505,1523}
+					}
+				},
+			},
+			QuestID = 5403,
+			NodeID = 260,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 82180,
+				[ARMORTYPE_MEDIUM] = 82178,
+				[ARMORTYPE_HEAVY] = 82176
+			},
+		},
+		[10] = {
+			ZoneID = 688, -- "White-Gold Tower"
+			Acronym = "wgt",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1281, 1346},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1278, 1277, 1280, 1275, 1279, 1306, 1276, 1120},
+					Composed = {
+						[1132] = {1275, 1276, 1279}
+					}
+				},
+			},
+			QuestID = 5342,
+			NodeID = 247,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 68124,
+				[ARMORTYPE_MEDIUM] = 68118,
+				[ARMORTYPE_HEAVY] = 68112
+			},
+		},
+		[11] = {
+			ZoneID = 848, -- "Cradle of Shadows"
+			Acronym = "cos",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1520, 1522, 1536},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1529, 1523, 1524, 1525, 1526, 1527, 1528, 1530, 1531, 1532, 1533, 1534, 1535},
+					Composed = {
+						[1538] = {1505,1523}
+					}
+				},
+			},
+			QuestID = 5702,
+			NodeID = 261,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 82132,
+				[ARMORTYPE_MEDIUM] = 82130,
+				[ARMORTYPE_HEAVY] = 82128
+			},
+		},
+		[12] = {
+			ZoneID = 973, -- "Bloodroot Forge" 08/14/2017
+			Acronym = "bf",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1940, 1690, 1697},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1941, 1691, 1696, 1694, 1695, 1692, 1693, 1816, 1817, 1818, 1819, 1820, 1821, 1822, 1823},
+					Composed = {
+						[1937] = {1691,1699}
+					}
+				},
+			},
+			QuestID = 5889,
+			NodeID = 326,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 127722,
+				[ARMORTYPE_MEDIUM] = 127738,
+				[ARMORTYPE_HEAVY] = 127706
+			},
+		},
+		[13] = {
+			ZoneID = 974, -- "Falkreath Hold" 08/15/2017
+			Acronym = "fh",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1940, 1698, 1705, 1945, 1949},
+					Composed = {}},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1942, 1704, 1702, 1703, 1700, 1701, 1946, 1947, 1948, 1950, 1951},
+					Composed = {
+						[1937] = {1691,1699}
+					}
+				},
+			},
+			QuestID = 5891,
+			NodeID = 332,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 128325,
+				[ARMORTYPE_MEDIUM] = 128341,
+				[ARMORTYPE_HEAVY] = 128309
+			},
+		},
+		[14] = {
+			ZoneID = 1009, -- "Fang Lair" 12/02/2018
+			Acronym = "fl",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {1959, 2104, 1974},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2102, 1966, 1960, 1965, 1963, 1964, 1961, 1962, 1967, 1968, 1969, 1970, 1971, 1972, 1973},
+					Composed = {
+						[2103] = {1960, 1976}
+					}
+				},
+			},
+			QuestID = 6064,
+			NodeID = 341,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 129499,
+				[ARMORTYPE_MEDIUM] = 129515,
+				[ARMORTYPE_HEAVY] = 129483
+			},
+		},
+		[15] = {
+			ZoneID = 1010, -- "Scalecaller Peak" 13/02/2018
+			Acronym = "sp",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2104, 1975, 1985, 1990},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {1983, 1982, 1976, 1979, 1981, 1980, 1984, 1977, 1978, 1986, 1987, 1988, 1989, 1991},
+					Composed = {
+						[2103] = {1960, 1976}
+					}
+				},
+			},
+			QuestID = 6065,
+			NodeID = 363,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 129547,
+				[ARMORTYPE_MEDIUM] = 129563,
+				[ARMORTYPE_HEAVY] = 129531
+			},
+		},
+		[16] = {
+			ZoneID = 1052, -- "Moon Hunter Keep" 08/13/2018
+			Acronym = "mhk",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2157, 2152, 2298, 2299, 2307},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2308, 2309, 2159, 2158, 2156, 2297, 2153, 2154, 2300, 2155, 2301, 2151, 2150},
+					Composed = {
+						[2170] = {2163, 2153}
+					}
+				},
+			},
+			QuestID = 6186,
+			NodeID = 371,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 141678,
+				[ARMORTYPE_MEDIUM] = 141680,
+				[ARMORTYPE_HEAVY] = 141676
+			},
+		},
+		[17] = {
+			ZoneID = 1055, -- "March of Sacrifices" 08/14/2018
+			Acronym = "mos",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2157, 2162, 2302},
+					Composed = {}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2167, 2165, 2303, 2168, 2304, 2163, 2305, 2164, 2306, 2166, 2160, 2161, 2310, 2311, 2312},
+					Composed = {
+						[2170] = {2163, 2153}
+					}
+				},
+			},
+			QuestID = 6188,
+			NodeID = 370,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 141630,
+				[ARMORTYPE_MEDIUM] = 141632,
+				[ARMORTYPE_HEAVY] = 141628
+			},
+		},
+		[18] = {
+			ZoneID = 1081, -- "Depths of Malatar" 02/25/2019
+			Acronym = "dom",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2265, 2270, 2391, 2392},
+					Composed = {
+						[2471] = {2270, 2260}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2389, 2275, 2276, 2272, 2273, 2274, 2268, 2269, 2388, 2390, 2393, 2394, 2395},
+					Composed = {
+						[2277] = {2271, 2261}
+					}
+				},
+			},
+			QuestID = 6251,
+			NodeID = 390,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 147243,
+				[ARMORTYPE_MEDIUM] = 147245,
+				[ARMORTYPE_HEAVY] = 147241
+			},
+		},
+		[19] = {
+			ZoneID = 1080, -- "Frostvault" 02/25/2019
+			Acronym = "fv",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2265, 2260, 2380, 2381, 2382, 2383, 2385, 2387},
+					Composed = {
+						[2471] = {2270, 2260}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2266, 2261, 2267, 2262, 2263, 2264, 2259, 2258, 2384, 2386},
+					Composed = {
+						[2277] = {2271, 2261}
+					}
+				},
+			},
+			QuestID = 6249,
+			NodeID = 389,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 146640,
+				[ARMORTYPE_MEDIUM] = 146642,
+				[ARMORTYPE_HEAVY] = 146638
+			},
+		},
+		[0] = {
+			ZoneID = 1122, -- "Moongrave Fane" 08/12/2019
+			Acronym = "mf",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2415, 2570, 2420, 2577, 2578},
+					Composed = {
+						[2590] = {2415, 2425}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2416, 2572, 2421, 2422, 2571, 2417, 2418, 2419, 2413, 2414, 2573, 2574, 2575, 2569},
+					Composed = {
+						[2432] = {2426, 2416}
+					}
+				},
+			},
+			QuestID = 6349,
+			NodeID = 391,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 152268,
+				[ARMORTYPE_MEDIUM] = 152270,
+				[ARMORTYPE_HEAVY] = 152266
+			},
+		},
+		[1] = {
+			ZoneID = 1123, -- "Lair of Maarselok" 08/12/2019
+			Acronym = "lom",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2425, 2420, 2580, 2576},
+					Composed = {
+						[2590] = {2415, 2425}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2426, 2430, 2431, 2427, 2428, 2429, 2423, 2424, 2579, 2581, 2582, 2583, 2584},
+					Composed = {
+						[2432] = {2426, 2416}
+					}
+				},
+			},
+			QuestID = 6351,
+			NodeID = 398,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 152316,
+				[ARMORTYPE_MEDIUM] = 152318,
+				[ARMORTYPE_HEAVY] = 152314
+			},
+		},
+		[2] = {
+			ZoneID = 1152, -- "Icereach" 02/24/2020
+			Acronym = "ir",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2544, 2539, 2676, 2671},
+					Composed = {
+						[2660] = {2549, 2539}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2545, 2546, 2541, 2542, 2543, 2537, 2538, 2670, 2672, 2673, 2674, 2675, 2677},
+					Composed = {
+						[2556] = {2550, 2540}
+					}
+				},
+			},
+			QuestID = 6414,
+			NodeID = 424,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 158177,
+				[ARMORTYPE_MEDIUM] = 158171,
+				[ARMORTYPE_HEAVY] = 158165
+			},
+		},
+		[3] = {
+			ZoneID = 1153, -- "Unhallowed Grave" 02/24/2020
+			Acronym = "ug",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2544, 2549, 2678, 2680, 2681, 2682, 2685},
+					Composed = {
+						[2660] = {2549, 2539}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2554, 2555, 2551, 2552, 2553, 2547, 2548, 2679, 2683, 2684},
+					Composed = {
+						[2556] = {2550, 2540}
+					}
+				},
+			},
+			QuestID = 6416,
+			NodeID = 425,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 158239,
+				[ARMORTYPE_MEDIUM] = 158233,
+				[ARMORTYPE_HEAVY] = 158227
+			},
+		},
+		[4] = {
+			ZoneID = 1197, -- "Stone Garden" 08/24/2020
+			Acronym = "sg",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2699, 2694, 2825, 2810, 2826},
+					Composed = {
+						[2862] = {2704, 2694}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2697, 2753, 2698, 2754, 2700, 2695, 2693, 2692, 2755, 2701, 2823, 2824, 2809, 2808},
+					Composed = {
+						[2711] = {2705,2695}
+					}
+				},
+			},
+			QuestID = 6505,
+			NodeID = 435,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 167052,
+				[ARMORTYPE_MEDIUM] = 167046,
+				[ARMORTYPE_HEAVY] = 167040
+			},
+		},
+		[5] = {
+			ZoneID = 1201, -- "Castle Thorn" 08/24/2020
+			Acronym = "ct",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2699, 2704, 2814},
+					Composed = {
+						[2862] = {2704, 2694}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2702, 2710, 2709, 2705, 2707, 2708, 2703, 2706, 2813, 2828, 2811, 2815, 2827},
+					Composed = {
+						[2711] = {2705,2695}
+					}
+				},
+			},
+			QuestID = 6507,
+			NodeID = 436,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 167128,
+				[ARMORTYPE_MEDIUM] = 167122,
+				[ARMORTYPE_HEAVY] = 167116
+			},
+		},
+		[6] = {
+			ZoneID = 1228, -- "Black Drake Villa" 03/08/2021
+			Acronym = "bdv",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2836, 2831},
+					Composed = {
+						[2864] = {2841, 2831}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2837, 2832, 2833, 2835, 2834, 2838, 2830, 2829, 2881, 2880, 2879, 2882, 2883},
+					Composed = {
+						[2848] = {2842, 2832}
+					}
+				},
+			},
+			QuestID = 6576,
+			NodeID = 437,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 171619,
+				[ARMORTYPE_MEDIUM] = 171613,
+				[ARMORTYPE_HEAVY] = 171607
+			},
+		},
+		[7] = {
+			ZoneID = 1229, -- "The Cauldron" 03/08/2021
+			Acronym = "tc",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {2836, 2841, 2889, 2884},
+					Composed = {
+						[2864] = {2841, 2831}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {2846, 2842, 2843, 2845, 2844, 2847, 2839, 2840, 2890, 2887, 2886, 2885, 2888},
+					Composed = {
+						[2848] = {2842, 2832}
+					}
+				},
+			},
+			QuestID = 6578,
+			NodeID = 454,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 171675,
+				[ARMORTYPE_MEDIUM] = 171669,
+				[ARMORTYPE_HEAVY] = 171663
+			},
+		},
+	}
+}
+
+------------------------------------------------------- GETTERS -------------------------------------------------------
+function UPU.GetPledgesData()
+	return pledgesData
+end
+
+function UPU.GetCommonAchievements()
+	return commonAchievements
 end
