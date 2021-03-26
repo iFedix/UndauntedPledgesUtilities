@@ -86,15 +86,25 @@ function UPU.OnAchievementAwarded(eventCode, name, points, id, link)
         if UPU.sVars.bDebugMode then
             UPU.Msg2Chat(UPU.Colorize("EVENT: EVENT_ACHIEVEMENT_AWARDED, MSG: awarded achievement: "..name,"GREEN"))
         end
+
         local currentZoneID = GetZoneId(GetUnitZoneIndex("player"))
+
         for _, pledgeGiverData in pairs(UPU.GetPledgesData()) do
             for _,indexData in pairs(pledgeGiverData) do
                 if currentZoneID==indexData.ZoneID then
-                    CHAT_SYSTEM:AddMessage(GetAchievementLink(id,1)..GetString(UPU_ACH_AWARDED))
-                    if UPU.sVars.bShowOnAchievAwarded then
-                        UPU.HandleAchievements(GetCurrentZoneDungeonDifficulty(), indexData)
+
+                    local difficulty = GetCurrentZoneDungeonDifficulty()
+
+                    --need to check if its an achiev from the dungeon
+                    --(for example "Treasure Chest Hunter" can also trigger, but it should not)
+
+                    if UPU.IsAchievFromDungeon(id, indexData.Achievements[difficulty]) then
+                        CHAT_SYSTEM:AddMessage(GetAchievementLink(id,1)..GetString(UPU_ACH_AWARDED))
+                        if UPU.sVars.bShowOnAchievAwarded then
+                            UPU.HandleAchievements(difficulty, indexData)
+                        end
+                        break
                     end
-                    break
                 end
             end
         end
@@ -103,6 +113,19 @@ end
 
 
 ------------------------------------------------------------------ ACHIEVS FUNCTIONS ----------------------------------------------------------
+
+--check if a trigger achiev is related to dungeon achievements
+function UPU.IsAchievFromDungeon(achID, achievementsFromDung)
+    --Single check
+    for _,storedID in pairs(achievementsFromDung.Single) do
+        if storedID == achID then return true end
+    end
+    --Composed check
+    for storedID,_ in pairs(achievementsFromDung.Composed) do
+        if storedID == achID then return true end
+    end
+    return false
+end
 
 --open achievements menu and show selected achievement
 function UPU.ShowAchieve(link)

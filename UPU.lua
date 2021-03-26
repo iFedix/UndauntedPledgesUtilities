@@ -8,7 +8,7 @@ UPU = UndauntedPledgesUtilities
 
 UPU.AddonName        	= "UndauntedPledgesUtilities"
 UPU.DisplayName			= "Undaunted Pledges Utilities"
-UPU.AddonVersion    	= "2.0"
+UPU.AddonVersion    	= "2.0.1"
 UPU.Author 				= "iFedix"
 UPU.WebSite 		    = "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html"
 UPU.Donations 			= "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html#donate"
@@ -66,16 +66,18 @@ UPU.AtStartup = true
 --Last one is dealt with a AcceptOfferedQuest in OnQuestOffered
 
 function UPU.OnChatterBegin(eventCode, optionCount)
+
     if UPU.JustInteracted == true then UPU.JustInteracted=false EndInteraction(INTERACTION_CONVERSATION) end
-	local optionString, _ = GetChatterOption(1)
+	local optionString, _ = ZO_CachedStrFormat("<<C:1>>", GetChatterOption(1) )
 
 	--only executes if "interact" is an undaunted quest giver
-	local unitName = GetRawUnitName('interact')
-	if unitName=="Ansei Maja" then return end
+	local unitName = ZO_CachedStrFormat("<<C:1>>", GetRawUnitName('interact') )
 
-	if string.find(unitName, GetString(UPU_URGARLAG)) or string.find(unitName, GetString(UPU_GLIRION)) or string.find(unitName, GetString(UPU_MAJ)) then
+	if string.upper(unitName)== string.upper(GetString(UPU_URGARLAG))
+			or string.upper(unitName) == string.upper(GetString(UPU_GLIRION))
+			or string.upper(unitName) == string.upper(GetString(UPU_MAJ)) then
         if string.find(optionString, GetString(UPU_STORE)) then return end --quest already taken
-		if string.find(string.upper(optionString), GetString(UPU_PLEDGE)) then
+		if string.find(string.upper(optionString), string.upper(GetString(UPU_PLEDGE))) then
 			--dialog is daily pledge offering
 			EVENT_MANAGER:RegisterForEvent(UPU.AddonName, EVENT_QUEST_OFFERED, UPU.PseudoOnConversationUpdated) -- event should be onconvupdated but strangely is quest offered
             SelectChatterOption(1)
@@ -123,9 +125,9 @@ local function OnRemoveQuest(eventCode, isCompleted, journalIndex, questName, zo
 	if UPU == nil or UPU.AbandonQuestEventName == nil then return false end
 	--d("[OnRemoveQuest] isCompleted: " .. tostring(isCompleted) .. ", journalIndex: " .. tostring(journalIndex) .. ", questName: " .. tostring(questName) .. ", questID: " .. tostring(questID))
 
-    if string.find(string.upper(questName), GetString(UPU_PLEDGE)) then
+    if string.find(string.upper(questName), string.upper(GetString(UPU_PLEDGE))) then
 
-        UPU.Msg2Chat(UPU.Colorize(string.sub(questName,9).." "..GetString(UPU_ABANDONNED)))
+        UPU.Msg2Chat(UPU.Colorize(questName.." "..GetString(UPU_ABANDONNED)))
 
         --If pledges quest got abandoned we need to go on with the next possible pledges quest
         if not isCompleted then
@@ -462,11 +464,11 @@ function UPU.GetDailiesTooltipText()
 	local arrow = "|t15:15:esoui/art/tutorial/smithing_rightarrow_up.dds|t"
 	local ttText = UPU.Colorize(GetString(UPU_BUTTON_TT)).."\r\n"..UPU.Colorize(GetString(UPU_UNDAUNTED_DAILES)).."\r\n"
 
-	for _, pledgeGiverData in pairs(UPU.DailyData) do
-		ttText=ttText..arrow..UPU.Colorize(UPU.GetZoneName(pledgeGiverData.ZoneID)).."\n"
-	end
+	ttText=ttText..arrow..UPU.Colorize(UPU.GetZoneName(UPU.DailyData['Maj'].ZoneID)).."\n"
+	ttText=ttText..arrow..UPU.Colorize(UPU.GetZoneName(UPU.DailyData['Glirion'].ZoneID)).."\n"
+	ttText=ttText..arrow..UPU.Colorize(UPU.GetZoneName(UPU.DailyData['Urgarlag'].ZoneID))
 
-	return string.sub(ttText,1, -2)
+	return ttText
 end
 
 --init ui

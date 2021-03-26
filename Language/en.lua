@@ -40,7 +40,7 @@ do
 			"\n|cFFD300/dayhelp|r or |cFFD300/upudayhelp|r: get a list of used acronyms by /upuday and /upuwhereis")
 
 	--Chat
-	Add("UPU_PLEDGE",		       		"PLEDGE")
+	Add("UPU_PLEDGE",		       		"Pledge")
 	Add("UPU_UNDAUNTED_DAILY_CATEGORY", "Undaunted Dailies")	
 	Add("UPU_UNDAUNTED_DAILES",  		"Undaunted Daily Pledges:")
 	Add("UPU_FROM_MAJ",          		"Pledge from Maj: ")
@@ -57,9 +57,9 @@ do
 	Add("UPU_HAS_COST_YOU",				" has cost you ")
 	Add("UPU_GOLD",						" gold")
 	Add("UPU_NEW_DAILIES",				"New Undaunted Pledges are available!")
-	Add("UPU_MAJ",						"Maj")
-	Add("UPU_GLIRION",					"Glirion")
-	Add("UPU_URGARLAG",					"Urgarlag")
+	Add("UPU_MAJ",						"Maj al-Ragath")
+	Add("UPU_GLIRION",					"Glirion the Redbeard")
+	Add("UPU_URGARLAG",					"Urgarlag Chief-bane")
 	Add("UPU_BUTTON_TT",				"<Click to link dailies in chat>")
 	
 	--commands
