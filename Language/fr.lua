@@ -40,7 +40,7 @@ do
 			"\n|cFFD300/dayhelp|r ou |cFFD300/upudayhelp|r: obtenir la liste des acronymes utilisés par /upuday et /upuwhereis")
 	
 	--Chat
-	Add("UPU_PLEDGE",            		"SERMENT")
+	Add("UPU_PLEDGE",            		"Serment")
 	Add("UPU_UNDAUNTED_DAILY_CATEGORY",	"Serments des Indomptables")
 	Add("UPU_UNDAUNTED_DAILES", 		"Quêtes journalières des Indomptables")
 	Add("UPU_FROM_MAJ",         		"Serment de Maj: ")
@@ -57,9 +57,9 @@ do
 	Add("UPU_HAS_COST_YOU",				" vous a coûté ")
 	Add("UPU_GOLD",						" po")
 	Add("UPU_NEW_DAILIES",				"De nouveaux Serments des Indomptables sont disponibles!")
-	Add("UPU_MAJ",						"Maj")
-	Add("UPU_GLIRION",					"Glirion")
-	Add("UPU_URGARLAG",					"Urgarlag")
+	Add("UPU_MAJ",						"Maj al-Ragath")
+	Add("UPU_GLIRION",					"Glirion Barbe-Rousse")
+	Add("UPU_URGARLAG",					"Urgarlag l'Émasculatrice")
 	Add("UPU_BUTTON_TT",				"<Clique pour créer un lien des quêtes quotidiennes>")
 	
 	--commands

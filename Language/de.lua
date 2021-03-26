@@ -57,9 +57,9 @@ do
 	Add("UPU_HAS_COST_YOU",				" hat dich ")
 	Add("UPU_GOLD",						" Gold gekostet")
 	Add("UPU_NEW_DAILIES",				"Neue Unerschrockenen-Gelöbnisse sind vorhanden!")
-	Add("UPU_MAJ",						"Maj")
-	Add("UPU_GLIRION",					"Glirion")
-	Add("UPU_URGARLAG",					"Urgarlag")
+	Add("UPU_MAJ",						"Maj al-Ragath")
+	Add("UPU_GLIRION",					"Glirion der Rotbart")
+	Add("UPU_URGARLAG",					"Urgarlag Häuptlingsfluch")
 	Add("UPU_BUTTON_TT",				"<Hier klicken, um die Gelöbnisse im Chat zu verlinken>")
 
 	--commands

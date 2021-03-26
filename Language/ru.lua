@@ -40,7 +40,7 @@ do
 			"\n|cFFD300/dayhelp|r или |cFFD300/upudayhelp|r Отобразить список сокращений для подземелий")
 
 	--Chat
-	Add("UPU_PLEDGE",            		"ОБЕТ")
+	Add("UPU_PLEDGE",            		"Обет")
 	Add("UPU_UNDAUNTED_DAILY_CATEGORY", "НЕУСТРАШИМЫХ")
 	Add("UPU_UNDAUNTED_DAILES",  		"Обеты неустрашимых: ")
 	Add("UPU_FROM_MAJ",          		"Обет от Мадж: ")
@@ -57,9 +57,9 @@ do
 	Add("UPU_HAS_COST_YOU",				" будет стоить ")
 	Add("UPU_GOLD",						" золотых")
 	Add("UPU_NEW_DAILIES",				"Доступны новые обеты Неустрашимых!")
-	Add("UPU_MAJ",						"Мадж")
-	Add("UPU_GLIRION",					"Глирион")
-	Add("UPU_URGARLAG",					"Ургарлаг")
+	Add("UPU_MAJ",						"Мадж аль-Рагат")
+	Add("UPU_GLIRION",					"Глирион Рыжебородый")
+	Add("UPU_URGARLAG",					"Ургарлаг Бич Вождей")
 	Add("UPU_BUTTON_TT",				"<Список обетов в чат>")
 	
 	--commands
