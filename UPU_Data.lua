@@ -598,7 +598,7 @@ local pledgesData = {
 	},
 	['Urgarlag'] =
 	{
-		[8] = {
+		[10] = {
 			ZoneID = 678, -- "Imperial City Prison" 08/16/2017
 			Acronym = "icp",
 			Achievements = {
@@ -620,7 +620,7 @@ local pledgesData = {
 				[ARMORTYPE_MEDIUM] = 59463,
 				[ARMORTYPE_HEAVY] = 59457},
 		},
-		[9] = {
+		[11] = {
 			ZoneID = 843, -- "Ruins of Mazzatun"
 			Acronym = "rom",
 			Achievements = {
@@ -643,7 +643,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 82176
 			},
 		},
-		[10] = {
+		[12] = {
 			ZoneID = 688, -- "White-Gold Tower"
 			Acronym = "wgt",
 			Achievements = {
@@ -666,7 +666,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 68112
 			},
 		},
-		[11] = {
+		[13] = {
 			ZoneID = 848, -- "Cradle of Shadows"
 			Acronym = "cos",
 			Achievements = {
@@ -689,7 +689,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 82128
 			},
 		},
-		[12] = {
+		[14] = {
 			ZoneID = 973, -- "Bloodroot Forge" 08/14/2017
 			Acronym = "bf",
 			Achievements = {
@@ -712,7 +712,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 127706
 			},
 		},
-		[13] = {
+		[15] = {
 			ZoneID = 974, -- "Falkreath Hold" 08/15/2017
 			Acronym = "fh",
 			Achievements = {
@@ -734,7 +734,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 128309
 			},
 		},
-		[14] = {
+		[16] = {
 			ZoneID = 1009, -- "Fang Lair" 12/02/2018
 			Acronym = "fl",
 			Achievements = {
@@ -757,7 +757,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 129483
 			},
 		},
-		[15] = {
+		[17] = {
 			ZoneID = 1010, -- "Scalecaller Peak" 13/02/2018
 			Acronym = "sp",
 			Achievements = {
@@ -780,7 +780,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 129531
 			},
 		},
-		[16] = {
+		[18] = {
 			ZoneID = 1052, -- "Moon Hunter Keep" 08/13/2018
 			Acronym = "mhk",
 			Achievements = {
@@ -803,7 +803,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 141676
 			},
 		},
-		[17] = {
+		[19] = {
 			ZoneID = 1055, -- "March of Sacrifices" 08/14/2018
 			Acronym = "mos",
 			Achievements = {
@@ -826,7 +826,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 141628
 			},
 		},
-		[18] = {
+		[20] = {
 			ZoneID = 1081, -- "Depths of Malatar" 02/25/2019
 			Acronym = "dom",
 			Achievements = {
@@ -851,7 +851,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 147241
 			},
 		},
-		[19] = {
+		[21] = {
 			ZoneID = 1080, -- "Frostvault" 02/25/2019
 			Acronym = "fv",
 			Achievements = {
@@ -1031,7 +1031,7 @@ local pledgesData = {
 			Acronym = "bdv",
 			Achievements = {
 				[DUNGEON_DIFFICULTY_NORMAL] = {
-					Single = {2836, 2831},
+					Single = {2836, 2831, 2884},
 					Composed = {
 						[2864] = {2841, 2831}
 					}
@@ -1056,7 +1056,7 @@ local pledgesData = {
 			Acronym = "tc",
 			Achievements = {
 				[DUNGEON_DIFFICULTY_NORMAL] = {
-					Single = {2836, 2841, 2889, 2884},
+					Single = {2836, 2841, 2889},
 					Composed = {
 						[2864] = {2841, 2831}
 					}
@@ -1074,6 +1074,58 @@ local pledgesData = {
 				[ARMORTYPE_LIGHT] = 171675,
 				[ARMORTYPE_MEDIUM] = 171669,
 				[ARMORTYPE_HEAVY] = 171663
+			},
+		},
+		[8] = {
+			ZoneID = 1267, --- "Red Petal Bastion" 08/23/2021
+			Acronym = "rpb",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {3021, 3016, 3038, 3039, 3040},
+					Composed = {
+						[3034] = {3026, 3016},
+						[3093] = {3038, 3039, 3040, 3090, 3091, 3092},
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {3023, 3017, 3022, 3014, 3015, 3086, 3087, 3018, 3019, 3020, 3035, 3036, 3037},
+					Composed = {
+						[3033] = {3027, 3017}
+					}
+				},
+			},
+			QuestID = 6683,
+			NodeID = 470,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 178588,
+				[ARMORTYPE_MEDIUM] = 178582,
+				[ARMORTYPE_HEAVY] = 178576
+			},
+		},
+		[9] = {
+			ZoneID = 1268, --- "The Dread Cellar" 08/23/2021
+			Acronym = "tdc",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {3021, 3026, 3044, 3090, 3091, 3092},
+					Composed = {
+						[3034] = {3026, 3016},
+						[3093] = {3038, 3039, 3040, 3090, 3091, 3092},
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {3027, 3031, 3024, 3025, 3088, 3089, 3028, 3029, 3030, 3032, 3041, 3042, 3043, 3045, 3046},
+					Composed = {
+						[3033] = {3027, 3017}
+					}
+				},
+			},
+			QuestID = 6685,
+			NodeID = 469,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 178644,
+				[ARMORTYPE_MEDIUM] = 178638,
+				[ARMORTYPE_HEAVY] = 178632
 			},
 		},
 	}

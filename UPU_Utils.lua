@@ -234,10 +234,10 @@ function UPU.UpdateAddonData(zoneID)
 
     --------------------------------------------------HOW TO UPDATE THE ADDON WITH NEW DATA--------------------------------------------------
 
-    --1) Get the zoneIDS for the new dungeons (use the LibSets_SetData.xlsx by Baetram in the LibSets addon folder,
+    --1) Get the zoneIDS for the new dungeons (use the LibSets_SetData.xlsx by Baertram in the LibSets addon folder,
     --go to the sheet "ESO zone constants" and get the "ESO internal zoneId" by looking for the dungeon names in the column "Zone Name EN").
     --Use this function to get all the data (except the achievements and the questID) that you can copy/paste into UPU_Data.lua
-    --using PChat addon (left click on message -> Copy channel talk)
+    --using PChat addon (left click on message -> Copy whole chat)
     if LibSets.checkIfSetsAreLoadedProperly() then
         --start from zoneID of the dungeon, for example for dom: 1081
         --UPU.Msg2Chat("zoneId: "..(zoneId))
@@ -350,4 +350,5 @@ function UPU.UpdateAddonData(zoneID)
     --local todayIndex = round(cycleFraction*URGARLAG_CYCLE)
     --print(todayIndex)
     --5) Update UPU.URGARLAG_CYCLE value (new UPU.MAJ_AND_GLIRION_CYCLE = old UPU.MAJ_AND_GLIRION_CYCLE +2)
+    --6) Change UPU.AddonVersion variable in UPU.lua file and the api version in the UndauntedPledgesUtilities.txt file
 end
