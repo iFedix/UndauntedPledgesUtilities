@@ -308,7 +308,8 @@ function UPU.UpdateAddonData(zoneID)
     end
 
     --2) Add the achievements data: dump the achievements data in the saved variables using Dumper addon and copy and paste ids for the related achievements of the new dungeons.
-    --Note: for the achievements,  giving two new dungeons, you ALWAYS need to insert:
+    --NOTE1: I made a python script to parse the needed data for the new dungeons (upu_achievs_reader) from the Dumper lua file
+    --NOTE2: for the achievements,  giving two new dungeons, you ALWAYS need to insert:
     --for d1:
     --a) normal:
     --single -> enter either d1 or d2 for the first time

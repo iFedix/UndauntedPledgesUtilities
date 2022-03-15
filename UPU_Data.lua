@@ -7,25 +7,25 @@ UndauntedPledgesUtilities = UndauntedPledgesUtilities or {}
 local UPU = UndauntedPledgesUtilities
 
 ESO_Dialogs["UPU_TELEPORT"] = {
-    title ={
-        text = GetString(UPU_TELEPORT_TO), -- "Teleport to <<1>>",
-    },
-    mainText ={
-        text = GetString(UPU_TELEPORT_ALERT), -- "Your group is not in veteran mode!",
-    },
-    buttons ={
-        [1] ={
-            text =      GetString(UPU_TELEPORT_ANYWAY), --"Teleport anyway",
-            callback =  function(dialog)
-							--Debug(dialog.data[1],"FastTravelToNode")
-                            FastTravelToNode(dialog.data[1])
-							CHAT_SYSTEM["containers"][1]["currentBuffer"]:AddMessage("|cFFFFFF"..GetString(UPU_TELEPORTING_TO)..dialog.data[2]..GetString(UPU_HAS_COST_YOU).."|r|ccc0a00"..GetRecallCost(194).."|r|cFFFFFF "..GetString(UPU_GOLD).."|r")
-                        end,
-        },
-        [2] ={
-            text =      SI_DIALOG_DECLINE,
-        }
-    }
+	title ={
+		text = GetString(UPU_TELEPORT_TO), -- "Teleport to <<1>>",
+	},
+	mainText ={
+		text = GetString(UPU_TELEPORT_ALERT), -- "Your group is not in veteran mode!",
+	},
+	buttons ={
+		[1] ={
+			text =      GetString(UPU_TELEPORT_ANYWAY), --"Teleport anyway",
+			callback =  function(dialog)
+				--Debug(dialog.data[1],"FastTravelToNode")
+				FastTravelToNode(dialog.data[1])
+				CHAT_SYSTEM["containers"][1]["currentBuffer"]:AddMessage("|cFFFFFF"..GetString(UPU_TELEPORTING_TO)..dialog.data[2]..GetString(UPU_HAS_COST_YOU).."|r|ccc0a00"..GetRecallCost(194).."|r|cFFFFFF "..GetString(UPU_GOLD).."|r")
+			end,
+		},
+		[2] ={
+			text =      SI_DIALOG_DECLINE,
+		}
+	}
 }
 
 local commonAchievements = {709, 753, 754, 710, 711, 749, 750, 751, 752, 691}
@@ -138,15 +138,15 @@ local pledgesData = {
 					}
 				},
 				[DUNGEON_DIFFICULTY_VETERAN] = {
-					Single = {1589, 1590, 1591, 1592, 1593, 1594}, 
+					Single = {1589, 1590, 1591, 1592, 1593, 1594},
 					Composed = {}
 				},
 			},
 			QuestID = 4246,
 			NodeID = 189,
 			HelmetsItemIDS = {
-				[ARMORTYPE_LIGHT] = 94773, 
-				[ARMORTYPE_MEDIUM] = 95045, 
+				[ARMORTYPE_LIGHT] = 94773,
+				[ARMORTYPE_MEDIUM] = 95045,
 				[ARMORTYPE_HEAVY] = 94501
 			},
 		},
@@ -155,12 +155,12 @@ local pledgesData = {
 			Acronym = "s2",
 			Achievements = {
 				[DUNGEON_DIFFICULTY_NORMAL] = {
-					Single = {1571}, 
+					Single = {1571},
 					Composed = {}
 				},
-				[DUNGEON_DIFFICULTY_VETERAN] = 
+				[DUNGEON_DIFFICULTY_VETERAN] =
 				{
-					Single = {854, 855, 448, 446, 421, 1572}, 
+					Single = {854, 855, 448, 446, 421, 1572},
 					Composed = {
 						[1071] = {446}, --Spindleclutch II Assassin
 						[1072] = {448} --Compassionate Hero
@@ -598,7 +598,7 @@ local pledgesData = {
 	},
 	['Urgarlag'] =
 	{
-		[10] = {
+		[8] = {
 			ZoneID = 678, -- "Imperial City Prison" 08/16/2017
 			Acronym = "icp",
 			Achievements = {
@@ -620,7 +620,7 @@ local pledgesData = {
 				[ARMORTYPE_MEDIUM] = 59463,
 				[ARMORTYPE_HEAVY] = 59457},
 		},
-		[11] = {
+		[9] = {
 			ZoneID = 843, -- "Ruins of Mazzatun"
 			Acronym = "rom",
 			Achievements = {
@@ -643,7 +643,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 82176
 			},
 		},
-		[12] = {
+		[10] = {
 			ZoneID = 688, -- "White-Gold Tower"
 			Acronym = "wgt",
 			Achievements = {
@@ -666,7 +666,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 68112
 			},
 		},
-		[13] = {
+		[11] = {
 			ZoneID = 848, -- "Cradle of Shadows"
 			Acronym = "cos",
 			Achievements = {
@@ -689,7 +689,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 82128
 			},
 		},
-		[14] = {
+		[12] = {
 			ZoneID = 973, -- "Bloodroot Forge" 08/14/2017
 			Acronym = "bf",
 			Achievements = {
@@ -712,7 +712,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 127706
 			},
 		},
-		[15] = {
+		[13] = {
 			ZoneID = 974, -- "Falkreath Hold" 08/15/2017
 			Acronym = "fh",
 			Achievements = {
@@ -734,7 +734,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 128309
 			},
 		},
-		[16] = {
+		[14] = {
 			ZoneID = 1009, -- "Fang Lair" 12/02/2018
 			Acronym = "fl",
 			Achievements = {
@@ -757,7 +757,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 129483
 			},
 		},
-		[17] = {
+		[15] = {
 			ZoneID = 1010, -- "Scalecaller Peak" 13/02/2018
 			Acronym = "sp",
 			Achievements = {
@@ -780,7 +780,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 129531
 			},
 		},
-		[18] = {
+		[16] = {
 			ZoneID = 1052, -- "Moon Hunter Keep" 08/13/2018
 			Acronym = "mhk",
 			Achievements = {
@@ -803,7 +803,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 141676
 			},
 		},
-		[19] = {
+		[17] = {
 			ZoneID = 1055, -- "March of Sacrifices" 08/14/2018
 			Acronym = "mos",
 			Achievements = {
@@ -826,7 +826,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 141628
 			},
 		},
-		[20] = {
+		[18] = {
 			ZoneID = 1081, -- "Depths of Malatar" 02/25/2019
 			Acronym = "dom",
 			Achievements = {
@@ -851,7 +851,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 147241
 			},
 		},
-		[21] = {
+		[19] = {
 			ZoneID = 1080, -- "Frostvault" 02/25/2019
 			Acronym = "fv",
 			Achievements = {
@@ -876,7 +876,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 146638
 			},
 		},
-		[0] = {
+		[20] = {
 			ZoneID = 1122, -- "Moongrave Fane" 08/12/2019
 			Acronym = "mf",
 			Achievements = {
@@ -901,7 +901,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 152266
 			},
 		},
-		[1] = {
+		[21] = {
 			ZoneID = 1123, -- "Lair of Maarselok" 08/12/2019
 			Acronym = "lom",
 			Achievements = {
@@ -926,7 +926,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 152314
 			},
 		},
-		[2] = {
+		[22] = {
 			ZoneID = 1152, -- "Icereach" 02/24/2020
 			Acronym = "ir",
 			Achievements = {
@@ -951,7 +951,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 158165
 			},
 		},
-		[3] = {
+		[23] = {
 			ZoneID = 1153, -- "Unhallowed Grave" 02/24/2020
 			Acronym = "ug",
 			Achievements = {
@@ -976,7 +976,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 158227
 			},
 		},
-		[4] = {
+		[0] = {
 			ZoneID = 1197, -- "Stone Garden" 08/24/2020
 			Acronym = "sg",
 			Achievements = {
@@ -1001,7 +1001,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 167040
 			},
 		},
-		[5] = {
+		[1] = {
 			ZoneID = 1201, -- "Castle Thorn" 08/24/2020
 			Acronym = "ct",
 			Achievements = {
@@ -1026,7 +1026,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 167116
 			},
 		},
-		[6] = {
+		[2] = {
 			ZoneID = 1228, -- "Black Drake Villa" 03/08/2021
 			Acronym = "bdv",
 			Achievements = {
@@ -1051,7 +1051,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 171607
 			},
 		},
-		[7] = {
+		[3] = {
 			ZoneID = 1229, -- "The Cauldron" 03/08/2021
 			Acronym = "tc",
 			Achievements = {
@@ -1076,7 +1076,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 171663
 			},
 		},
-		[8] = {
+		[4] = {
 			ZoneID = 1267, --- "Red Petal Bastion" 08/23/2021
 			Acronym = "rpb",
 			Achievements = {
@@ -1102,7 +1102,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 178576
 			},
 		},
-		[9] = {
+		[5] = {
 			ZoneID = 1268, --- "The Dread Cellar" 08/23/2021
 			Acronym = "tdc",
 			Achievements = {
@@ -1126,6 +1126,58 @@ local pledgesData = {
 				[ARMORTYPE_LIGHT] = 178644,
 				[ARMORTYPE_MEDIUM] = 178638,
 				[ARMORTYPE_HEAVY] = 178632
+			},
+		},
+		[6] = {
+			ZoneID = 1301, --- "Coral Aerie" 03/14/2022
+			Acronym = "ca",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {3104, 3109, 3124},
+					Composed = {
+						[3122] = {3104, 3114},
+						[3222] = {3134, 3230}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {3102, 3103, 3105, 3106, 3107, 3108, 3110, 3111, 3123, 3125, 3126, 3127, 3128, 3153, 3225, 3226, 3231},
+					Composed = {
+						[3121] = {3115, 3105}
+					}
+				},
+			},
+			QuestID = 6740,
+			NodeID = 497,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 183756,
+				[ARMORTYPE_MEDIUM] = 183750,
+				[ARMORTYPE_HEAVY] = 183744
+			},
+		},
+		[7] = {
+			ZoneID = 1302, --- "Shipwright's Regret" 03/14/2022
+			Acronym = "sr",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {3114, 3109, 3134},
+					Composed = {
+						[3122] = {3104, 3114},
+						[3222] = {3134, 3230}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {3117, 3112, 3113, 3115, 3116, 3118, 3119, 3120, 3129, 3130, 3131, 3154, 3223, 3224},
+					Composed = {
+						[3121] = {3115, 3105}
+					}
+				},
+			},
+			QuestID = 6742,
+			NodeID = 498,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 183812,
+				[ARMORTYPE_MEDIUM] = 183806,
+				[ARMORTYPE_HEAVY] = 183800
 			},
 		},
 	}
