@@ -8,7 +8,7 @@ UPU = UndauntedPledgesUtilities
 
 UPU.AddonName        	= "UndauntedPledgesUtilities"
 UPU.DisplayName			= "Undaunted Pledges Utilities"
-UPU.AddonVersion    	= "2.2"
+UPU.AddonVersion    	= "2.2.1"
 UPU.Author 				= "iFedix"
 UPU.WebSite 		    = "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html"
 UPU.Donations 			= "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html#donate"
@@ -299,13 +299,24 @@ end
 --check for questname in the dailies array
 function UPU.IsTodaysQuest(questIndex)
 
+	--useless tests below: there is no way right now to get the zoneID info starting from the journalQuestIndex,
+	--local zoneName, objectiveName, zoneIndex, poiIndex = GetJournalQuestLocationInfo(questIndex)
+	--UPU.Msg2Chat("LocationInfo: zoneName->".. zoneName.." objectiveName->"..objectiveName
+	--		.." zoneIndex->" ..tostring(zoneIndex).." poiIndex->"..tostring(poiIndex))
+	--UPU.Msg2Chat("GetJournalQuestZoneStoryZoneId: zoneId->".. tostring(GetJournalQuestZoneStoryZoneId(questIndex)))
+
 	local originalQuestName = GetJournalQuestName(questIndex)
-	--UPU.Msg2Chat("ORIGINAL: ".. modOriginal)
-
 	for _, pledgeGiverData in pairs(UPU.DailyData) do
-		if UPU.ComparePledgeQuestNames(originalQuestName, UPU.GetZoneName(pledgeGiverData.ZoneID)) then return true end
+		if UPU.ComparePledgeQuestNames(originalQuestName, UPU.GetZoneName(pledgeGiverData.ZoneID)) then
+			if UPU.sVars.bDebugMode then
+				UPU.Msg2Chat(GetJournalQuestName(questIndex).." is pledge!")
+			end
+			return true
+		end
 	end
-
+	if UPU.sVars.bDebugMode then
+		UPU.Msg2Chat(GetJournalQuestName(questIndex).. " is NOT pledge!")
+	end
 	return false
 end
 
@@ -316,17 +327,24 @@ function UPU.ComparePledgeQuestNames(originalQuestName, questNameFromData)
 	local modOriginal = string.upper(string.sub(originalQuestName, string.len(GetString(UPU_PLEDGE_PREFIX))+1))
 	local builtQuestName  = string.upper(questNameFromData)
 
+	--to find a word in string and avoid issues with some characters the following solution is used:
+	--https://stackoverflow.com/questions/32291353/lua-string-findx-a-b-c-gives-nil-value
 	local firstCheck=false
-	if UPU.IsWordFoundInSentence(modOriginal,builtQuestName) then
+	if string.find(modOriginal,builtQuestName, 1, true) then
 		if UPU.CheckPledgeQuestNames(builtQuestName,modOriginal) then firstCheck=true end
 	end
 
-	local secondChek=false
-	if UPU.IsWordFoundInSentence(builtQuestName,modOriginal) then
-		if UPU.CheckPledgeQuestNames(modOriginal,builtQuestName) then secondChek=true end
+	local secondCheck=false
+	if string.find(builtQuestName, modOriginal,1, true) then
+		if UPU.CheckPledgeQuestNames(modOriginal,builtQuestName) then secondCheck=true end
 	end
 
-	return secondChek or firstCheck
+	if UPU.sVars.bDebugMode then
+		UPU.Msg2Chat("ORIGINAL: "..originalQuestName.."/FROM_DATA: "..questNameFromData..
+				" -> first check: "..tostring(firstCheck).." - second check: ".. tostring(secondCheck))
+	end
+
+	return secondCheck or firstCheck
 end
 
 --only abandon a quest if it's not complete AND not todays quest

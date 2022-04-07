@@ -61,14 +61,6 @@ function UPU.Colorize( stringToColorize, color )
     end
 end
 
---find word in string
-function UPU.IsWordFoundInSentence(word, sentence)
-    return select(2, sentence:gsub('^' .. word .. '%W+','')) +
-            select(2, sentence:gsub('%W+' .. word .. '$','')) +
-            select(2, sentence:gsub('^' .. word .. '$','')) +
-            select(2, sentence:gsub('%W+' .. word .. '%W+','')) > 0
-end
-
 --DEBUG function for achievs
 function UPU.GetActivityFinderStatusString(num)
     if num==0 then return "ACTIVITY_FINDER_STATUS_NONE" end
@@ -201,7 +193,8 @@ end
 --369:  Artifact
 --370:  Legendary
 function UPU.BuildItemLink(itemId, itemQualitySubType)
-    return string.format("|H1:item:%d:%d:50:0:0:0:0:0:0:0:0:0:0:0:0:%d:%d:0:0:%d:0|h|h", itemId, itemQualitySubType, ITEMSTYLE_NONE, 0, 10000)
+    return string.format("|H1:item:%d:%d:50:0:0:0:0:0:0:0:0:0:0:0:0:%d:%d:0:0:%d:0|h|h",
+            itemId, itemQualitySubType, ITEMSTYLE_NONE, 0, 10000)
 end
 
 --get localized zone name (=dungeon name) from the zoneID
@@ -216,14 +209,17 @@ end
 
 --get category of quest in the journal to check if its a pledge
 function UPU.IsPledge(questIndex)
-    if GetJournalQuestType(questIndex) == QUEST_TYPE_UNDAUNTED_PLEDGE then return true else return false end
+    return GetJournalQuestType(questIndex) == QUEST_TYPE_UNDAUNTED_PLEDGE
 end
 
 --find differences between journal quest name and built quest name
 function UPU.CheckPledgeQuestNames(journalQuestName, builtQuestName)
-    --UPU.Msg2Chat("subJournalName: "..string.sub(journalQuestName,-string.len(builtQuestName)))
-    --UPU.Msg2Chat("builtQuestName: "..builtQuestName)
-    return string.sub(journalQuestName,-string.len(builtQuestName))==builtQuestName
+    local subJournalName = string.sub(journalQuestName,-string.len(builtQuestName))
+    if UPU.sVars.bDebugMode then
+        UPU.Msg2Chat("subJournalName: "..string.sub(journalQuestName,-string.len(builtQuestName)))
+        UPU.Msg2Chat("builtQuestName: "..builtQuestName)
+    end
+    if string.find(builtQuestName, subJournalName,1, true) then return true else return false end
 end
 
 
