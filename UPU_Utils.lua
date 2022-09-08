@@ -226,6 +226,7 @@ end
 
 
 --MAIN FUNCTION TO UPDATE THE ADDON GIVING NEW DUNGEONS ADDED
+--/script d(UPU.UpdateAddonData(zoneID))
 function UPU.UpdateAddonData(zoneID)
 
     --------------------------------------------------HOW TO UPDATE THE ADDON WITH NEW DATA--------------------------------------------------
@@ -304,7 +305,7 @@ function UPU.UpdateAddonData(zoneID)
     end
 
     --2) Add the achievements data: dump the achievements data in the saved variables using Dumper addon and copy and paste ids for the related achievements of the new dungeons.
-    --NOTE1: I made a python script to parse the needed data for the new dungeons (upu_achievs_reader) from the Dumper lua file
+    --NOTE1: I made a python script to parse the needed data for the new dungeons (upu_achievs_reader) from the Dumper lua file (dumped using /achiev in game)
     --NOTE2: for the achievements,  giving two new dungeons, you ALWAYS need to insert:
     --for d1:
     --a) normal:
@@ -346,6 +347,6 @@ function UPU.UpdateAddonData(zoneID)
     --local cyclesCount, cycleFraction = math.modf(daysElapsed/URGARLAG_CYCLE)
     --local todayIndex = round(cycleFraction*URGARLAG_CYCLE)
     --print(todayIndex)
-    --5) Update UPU.URGARLAG_CYCLE value (new UPU.MAJ_AND_GLIRION_CYCLE = old UPU.MAJ_AND_GLIRION_CYCLE +2)
+    --5) Update UPU.URGARLAG_CYCLE value (new UPU.URGARLAG_CYCLE = old UPU.URGARLAG_CYCLE +2)
     --6) Change UPU.AddonVersion variable in UPU.lua file and the api version in the UndauntedPledgesUtilities.txt file
 end
