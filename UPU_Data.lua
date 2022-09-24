@@ -1185,14 +1185,14 @@ local pledgesData = {
 			Acronym = "ere",
 			Achievements = {
 				[DUNGEON_DIFFICULTY_NORMAL] = {
-					Single = {3394, 3411, 3390, 3385, 3525},
+					Single = {3375, 3411, 3390, 3385, 3525},
 					Composed = {
 						[3413] = {3394, 3375},
 						[3414] = {3390, 3409}
 					}
 				},
 				[DUNGEON_DIFFICULTY_VETERAN] = {
-					Single = {3376, 3373, 3374, 3377, 3378, 3379, 3380, 3381, 3382, 3383, 3384, 3386, 3688, 3389, 3391},
+					Single = {3376, 3373, 3374, 3377, 3378, 3379, 3380, 3381, 3382, 3383, 3384, 3386, 3388, 3389, 3391},
 					Composed = {
 						[3412] = {3395, 3376}
 					}
@@ -1211,7 +1211,7 @@ local pledgesData = {
 			Acronym = "gd",
 			Achievements = {
 				[DUNGEON_DIFFICULTY_NORMAL] = {
-					Single = {3375, 3411, 3409, 3406, 3526, 3403},
+					Single = {3394, 3411, 3409, 3406, 3526, 3403},
 					Composed = {
 						[3413] = {3394, 3375},
 						[3414] = {3390, 3409}

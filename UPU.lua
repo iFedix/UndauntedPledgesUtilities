@@ -8,7 +8,7 @@ UPU = UndauntedPledgesUtilities
 
 UPU.AddonName        	= "UndauntedPledgesUtilities"
 UPU.DisplayName			= "Undaunted Pledges Utilities"
-UPU.AddonVersion    	= "2.3"
+UPU.AddonVersion    	= "2.3.2"
 UPU.Author 				= "iFedix"
 UPU.WebSite 		    = "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html"
 UPU.Donations 			= "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html#donate"
