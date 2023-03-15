@@ -1250,7 +1250,7 @@ local pledgesData = {
 					}
 				},
 			},
-			QuestID = 7027,
+			QuestID = 6896,
 			NodeID = 531,
 			HelmetsItemIDS = {
 				[ARMORTYPE_LIGHT] = 193136,
@@ -1276,7 +1276,7 @@ local pledgesData = {
 					}
 				},
 			},
-			QuestID = 7029,
+			QuestID = 7027,
 			NodeID = 532,
 			HelmetsItemIDS = {
 				[ARMORTYPE_LIGHT] = 193695,
