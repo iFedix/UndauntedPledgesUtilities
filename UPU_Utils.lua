@@ -1,12 +1,28 @@
 ----------------------------------------------------------------------------------------------------------------------------------
---	Undaunted Pledges Utilities utils file  	   				    																--
---	Written by @Carter_DC (EU) / coirier.rom1@gmail.com (initial code) and @iFedix (EU) (current dev) / livio4ever@hotmail.it 	--
+--  Undaunted Pledges Utilities utils file                                                                                      --
+--  Written by @Carter_DC (EU) / coirier.rom1@gmail.com (initial code) and @iFedix (EU) (current dev) / livio4ever@hotmail.it   --
 ----------------------------------------------------------------------------------------------------------------------------------
 
 UndauntedPledgesUtilities = UndauntedPledgesUtilities or {}
 local UPU = UndauntedPledgesUtilities
 
-local ORIGIN_TIMESTAMP = 1502690400 --08/14/2017 @ 6:00am (UTC) -> 6:00am UTC = daily pledge reset time
+--get days from the origin timestamp
+function UPU.GetDaysFromOriginTimestamp()
+    --the origin timestamp is used to find the current daily pledge using 
+    --the daily pledge reset time which is different between NA and EU 
+    --since Necrom update (update 38)(EU -> 3:00 AM UTC, NA -> 10:00 AM UTC)
+    originTs = 0
+    local server = GetWorldName()
+    if server == "EU Megaserver" or server == "PTS" then
+        originTs = 1502679600 --08/14/2017 @ 3:00am (UTC)
+    elseif server == "NA Megaserver" then
+        originTs = 1502704800 --08/14/2017 @ 10:00am (UTC)
+    end
+    
+    local secondsSinceStart = GetTimeStamp() - originTs
+    local daysElapsed, dayFraction = math.modf((secondsSinceStart)/86400)
+    return daysElapsed, dayFraction
+end
 
 --return true if value is found in a table
 function UPU.Contains(table, val)
@@ -19,16 +35,16 @@ function UPU.Contains(table, val)
 end
 
 --round to nearest
-function UPU.Round( val, decimal )
-    if ( decimal ) then
-        return math.floor( (val * 10^decimal) + 0.5) / (10^decimal)
+function UPU.Round(val, decimal)
+    if (decimal) then
+        return math.floor((val * 10^decimal) + 0.5) / (10^decimal)
     else
         return math.floor(val+0.5)
     end
 end
 
 --print to chat
-function UPU.Msg2Chat( stringToDisplay )
+function UPU.Msg2Chat(stringToDisplay)
     d(stringToDisplay)
 end
 
@@ -45,8 +61,8 @@ function UPU.ShowNodesIndexes()
 end
 
 --colorize text
-function UPU.Colorize( stringToColorize, color )
-    if ( color ~= nil and color ~="" ) then
+function UPU.Colorize(stringToColorize, color)
+    if (color ~= nil and color ~="") then
         if color == "BLUE" then
             return "|c2020F0"..stringToColorize.."|r"
         elseif color == "WHITE" then
@@ -70,13 +86,6 @@ function UPU.GetActivityFinderStatusString(num)
     if num==4 then return "ACTIVITY_FINDER_STATUS_READY_CHECK" end
     if num==5 then return "ACTIVITY_FINDER_STATUS_FORMING_GROUP" end
     return "errValue"
-end
-
---get days from ORIGIN_TIMESTAMP
-function UPU.GetDaysFromOriginTimestamp()
-    local secondsSinceStart = GetTimeStamp() - ORIGIN_TIMESTAMP
-    local daysElapsed, dayFraction = math.modf((secondsSinceStart)/86400)
-    return daysElapsed, dayFraction
 end
 
 --merge two tables
@@ -340,7 +349,7 @@ function UPU.UpdateAddonData(zoneID)
     -- end
     --end
     --
-    --local ORIGIN_TIMESTAMP = 1502690400 --08/14/2017 @ 6:00am (UTC)
+    --local ORIGIN_TIMESTAMP = 1502679600 --08/14/2017 @ 3:00 AM (UTC)
     --local URGARLAG_CYCLE = NEW_URGARLAG_CYCLE_GOES_HERE
     --local secondsSinceStart = os.time(os.date("!*t"))- ORIGIN_TIMESTAMP
     --local daysElapsed, dayFraction = math.modf((secondsSinceStart)/86400)

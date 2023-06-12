@@ -8,7 +8,7 @@ UPU = UndauntedPledgesUtilities
 
 UPU.AddonName        	= "UndauntedPledgesUtilities"
 UPU.DisplayName			= "Undaunted Pledges Utilities"
-UPU.AddonVersion    	= "2.4.1"
+UPU.AddonVersion    	= "2.4.2"
 UPU.Author 				= "iFedix"
 UPU.WebSite 		    = "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html"
 UPU.Donations 			= "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html#donate"
@@ -453,7 +453,7 @@ end
 --called if player is still online when the new dailies are up
 function UPU.RefreshDailies()
 	UPU.PopulateDailies()
-	UPU.Msg2Chat(GetString(UPU_NEW_DAILIES), "WHITE")
+	UPU.Msg2Chat(UPU.Colorize(GetString(UPU_NEW_DAILIES), "WHITE"))
 	UPU.InitDailiesManagement()
 end
 
@@ -470,8 +470,8 @@ function UPU.InitDailiesManagement()
 		UPU.Msg2Chat(UPU.Colorize(GetString(UPU_UNDAUNTED_DAILES), "BLUE").."\n"..UPU.GetDailies(UPU.DailyData))
 	end
 
-	--function called at pledges at 6:00am UTC = daily pledge reset time
-	_, dayFraction = UPU.GetDaysFromOriginTimestamp()
+	--function called at 3:00 AM UTC (EU)/10:00 AM UTC (NA) (daily pledge reset time)
+	local _, dayFraction = UPU.GetDaysFromOriginTimestamp()
 	local secondsTillNextDailies = 86400 - (dayFraction * 86400)
 	zo_callLater(function() UPU.RefreshDailies() end, secondsTillNextDailies*1000)
 end
