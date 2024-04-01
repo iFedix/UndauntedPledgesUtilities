@@ -8,7 +8,7 @@ UPU = UndauntedPledgesUtilities
 
 UPU.AddonName        	= "UndauntedPledgesUtilities"
 UPU.DisplayName			= "Undaunted Pledges Utilities"
-UPU.AddonVersion    	= "2.4.2"
+UPU.AddonVersion    	= "2.5"
 UPU.Author 				= "iFedix"
 UPU.WebSite 		    = "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html"
 UPU.Donations 			= "https://www.esoui.com/downloads/info2267-UndauntedPledgesUtilities.html#donate"
@@ -47,7 +47,7 @@ UPU.sVars = {}
 
 --pledge cycles: needs to be changed once a new dungeon dlc is released
 UPU.MAJ_AND_GLIRION_CYCLE = 12
-UPU.URGARLAG_CYCLE = 28
+UPU.URGARLAG_CYCLE = 30
 
 --Daily pledges data
 UPU.DailyData = {}
