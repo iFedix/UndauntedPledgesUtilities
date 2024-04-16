@@ -1285,32 +1285,6 @@ local pledgesData = {
 			},
 		},
 		[6] = {
-			ZoneID = 1471, --- "Bedlam Veil" 03/11/2024
-			Acronym = "bv",
-			Achievements = {
-				[DUNGEON_DIFFICULTY_NORMAL] = {
-					Single = {3860, 3861, 3922, 4010, 4029},
-					Composed = {
-						[3829] = {3851, 3810},
-						[4029] = {3866, 3825}
-					}
-				},
-				[DUNGEON_DIFFICULTY_VETERAN] = {
-					Single = {3849, 3850, 3853, 3854, 3855, 3856, 3857, 3858, 3859, 3862, 3863, 3864, 3865, 3867},
-					Composed = {
-						[3828] = {3852, 3811}
-					}
-				},
-			},
-			QuestID = 7155,
-			NodeID = -1, --TODO: still not available through Baertram's data (updated 04/01/2024). Once it's present in its files, launch d(UPU.UpdateAddonData(1471)) and paste here the updated nodeID
-			HelmetsItemIDS = {
-				[ARMORTYPE_LIGHT] = 203051,
-				[ARMORTYPE_MEDIUM] = 203045,
-				[ARMORTYPE_HEAVY] = 203039
-			},
-		},
-		[7] = {
 			ZoneID = 1470, --- "Oathsworn Pit" 03/11/2024
 			Acronym = "op",
 			Achievements = {
@@ -1334,6 +1308,32 @@ local pledgesData = {
 				[ARMORTYPE_LIGHT] = 202492,
 				[ARMORTYPE_MEDIUM] = 202486,
 				[ARMORTYPE_HEAVY] = 202480
+			},
+		},
+		[7] = {
+			ZoneID = 1471, --- "Bedlam Veil" 03/11/2024
+			Acronym = "bv",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {3860, 3861, 3922, 4010, 4029},
+					Composed = {
+						[3829] = {3851, 3810},
+						[4029] = {3866, 3825}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {3849, 3850, 3853, 3854, 3855, 3856, 3857, 3858, 3859, 3862, 3863, 3864, 3865, 3867},
+					Composed = {
+						[3828] = {3852, 3811}
+					}
+				},
+			},
+			QuestID = 7155,
+			NodeID = -1, --TODO: still not available through Baertram's data (updated 04/01/2024). Once it's present in its files, launch d(UPU.UpdateAddonData(1471)) and paste here the updated nodeID
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 203051,
+				[ARMORTYPE_MEDIUM] = 203045,
+				[ARMORTYPE_HEAVY] = 203039
 			},
 		},
 	}
