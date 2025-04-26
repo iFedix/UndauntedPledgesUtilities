@@ -340,7 +340,7 @@ function UPU.UpdateAddonData(zoneID)
     --4) Move the indexes: since two new dungeons are added, the dlc dungeon order is screwed, so:
     --a) go here and find the dlc dungeon that should be the daily one: https://eso-hub.com/en/daily-undaunted-pledges
     --b) Calculate the new index that you need to put in the daily dlc dungeon.
-    --To calculate what index should be today, run this code (https://www.lua.org/cgi-bin/demo):
+    --To calculate what index should be today, run this code (https://onecompiler.com/lua/43fyccnag):
     --function round( val, decimal )
     -- if ( decimal ) then
     --     return math.floor( (val * 10^decimal) + 0.5) / (10^decimal)

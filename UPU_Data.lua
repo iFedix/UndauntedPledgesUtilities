@@ -598,7 +598,7 @@ local pledgesData = {
 	},
 	['Urgarlag'] =
 	{
-		[8] = {
+		[16] = {
 			ZoneID = 678, -- "Imperial City Prison" 08/16/2017
 			Acronym = "icp",
 			Achievements = {
@@ -620,7 +620,7 @@ local pledgesData = {
 				[ARMORTYPE_MEDIUM] = 59463,
 				[ARMORTYPE_HEAVY] = 59457},
 		},
-		[9] = {
+		[17] = {
 			ZoneID = 843, -- "Ruins of Mazzatun"
 			Acronym = "rom",
 			Achievements = {
@@ -643,7 +643,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 82176
 			},
 		},
-		[10] = {
+		[18] = {
 			ZoneID = 688, -- "White-Gold Tower"
 			Acronym = "wgt",
 			Achievements = {
@@ -666,7 +666,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 68112
 			},
 		},
-		[11] = {
+		[19] = {
 			ZoneID = 848, -- "Cradle of Shadows"
 			Acronym = "cos",
 			Achievements = {
@@ -689,7 +689,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 82128
 			},
 		},
-		[12] = {
+		[20] = {
 			ZoneID = 973, -- "Bloodroot Forge" 08/14/2017
 			Acronym = "bf",
 			Achievements = {
@@ -712,7 +712,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 127706
 			},
 		},
-		[13] = {
+		[21] = {
 			ZoneID = 974, -- "Falkreath Hold" 08/15/2017
 			Acronym = "fh",
 			Achievements = {
@@ -734,7 +734,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 128309
 			},
 		},
-		[14] = {
+		[22] = {
 			ZoneID = 1009, -- "Fang Lair" 12/02/2018
 			Acronym = "fl",
 			Achievements = {
@@ -757,7 +757,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 129483
 			},
 		},
-		[15] = {
+		[23] = {
 			ZoneID = 1010, -- "Scalecaller Peak" 13/02/2018
 			Acronym = "sp",
 			Achievements = {
@@ -780,7 +780,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 129531
 			},
 		},
-		[16] = {
+		[24] = {
 			ZoneID = 1052, -- "Moon Hunter Keep" 08/13/2018
 			Acronym = "mhk",
 			Achievements = {
@@ -803,7 +803,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 141676
 			},
 		},
-		[17] = {
+		[25] = {
 			ZoneID = 1055, -- "March of Sacrifices" 08/14/2018
 			Acronym = "mos",
 			Achievements = {
@@ -826,7 +826,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 141628
 			},
 		},
-		[18] = {
+		[26] = {
 			ZoneID = 1081, -- "Depths of Malatar" 02/25/2019
 			Acronym = "dom",
 			Achievements = {
@@ -851,7 +851,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 147241
 			},
 		},
-		[19] = {
+		[27] = {
 			ZoneID = 1080, -- "Frostvault" 02/25/2019
 			Acronym = "fv",
 			Achievements = {
@@ -876,7 +876,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 146638
 			},
 		},
-		[20] = {
+		[28] = {
 			ZoneID = 1122, -- "Moongrave Fane" 08/12/2019
 			Acronym = "mf",
 			Achievements = {
@@ -901,7 +901,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 152266
 			},
 		},
-		[21] = {
+		[29] = {
 			ZoneID = 1123, -- "Lair of Maarselok" 08/12/2019
 			Acronym = "lom",
 			Achievements = {
@@ -926,7 +926,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 152314
 			},
 		},
-		[22] = {
+		[30] = {
 			ZoneID = 1152, -- "Icereach" 02/24/2020
 			Acronym = "ir",
 			Achievements = {
@@ -951,7 +951,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 158165
 			},
 		},
-		[23] = {
+		[31] = {
 			ZoneID = 1153, -- "Unhallowed Grave" 02/24/2020
 			Acronym = "ug",
 			Achievements = {
@@ -976,7 +976,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 158227
 			},
 		},
-		[24] = {
+		[0] = {
 			ZoneID = 1197, -- "Stone Garden" 08/24/2020
 			Acronym = "sg",
 			Achievements = {
@@ -1001,7 +1001,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 167040
 			},
 		},
-		[25] = {
+		[1] = {
 			ZoneID = 1201, -- "Castle Thorn" 08/24/2020
 			Acronym = "ct",
 			Achievements = {
@@ -1026,7 +1026,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 167116
 			},
 		},
-		[26] = {
+		[2] = {
 			ZoneID = 1228, -- "Black Drake Villa" 03/08/2021
 			Acronym = "bdv",
 			Achievements = {
@@ -1051,7 +1051,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 171607
 			},
 		},
-		[27] = {
+		[3] = {
 			ZoneID = 1229, -- "The Cauldron" 03/08/2021
 			Acronym = "tc",
 			Achievements = {
@@ -1076,7 +1076,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 171663
 			},
 		},
-		[28] = {
+		[4] = {
 			ZoneID = 1267, --- "Red Petal Bastion" 08/23/2021
 			Acronym = "rpb",
 			Achievements = {
@@ -1102,7 +1102,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 178576
 			},
 		},
-		[29] = {
+		[5] = {
 			ZoneID = 1268, --- "The Dread Cellar" 08/23/2021
 			Acronym = "tdc",
 			Achievements = {
@@ -1128,7 +1128,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 178632
 			},
 		},
-		[0] = {
+		[6] = {
 			ZoneID = 1301, --- "Coral Aerie" 03/14/2022
 			Acronym = "ca",
 			Achievements = {
@@ -1154,7 +1154,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 183744
 			},
 		},
-		[1] = {
+		[7] = {
 			ZoneID = 1302, --- "Shipwright's Regret" 03/14/2022
 			Acronym = "sr",
 			Achievements = {
@@ -1180,7 +1180,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 183800
 			},
 		},
-		[2] = {
+		[8] = {
 			ZoneID = 1360, --- "Earthen Root Enclave" 08/22/2022
 			Acronym = "ere",
 			Achievements = {
@@ -1206,7 +1206,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 189356
 			},
 		},
-		[3] = {
+		[9] = {
 			ZoneID = 1361, --- "Graven Deep" 08/22/2022
 			Acronym = "gd",
 			Achievements = {
@@ -1232,7 +1232,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 189412
 			},
 		},
-		[4] = {
+		[10] = {
 			ZoneID = 1389, --- "Bal Sunnar" 03/13/2023
 			Acronym = "bs",
 			Achievements = {
@@ -1258,7 +1258,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 193124
 			},
 		},
-		[5] = {
+		[11] = {
 			ZoneID = 1390, --- "Scrivener's Hall" 03/13/2023
 			Acronym = "sh",
 			Achievements = {
@@ -1284,7 +1284,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 193683
 			},
 		},
-		[6] = {
+		[12] = {
 			ZoneID = 1470, --- "Oathsworn Pit" 03/11/2024
 			Acronym = "op",
 			Achievements = {
@@ -1310,7 +1310,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 202480
 			},
 		},
-		[7] = {
+		[13] = {
 			ZoneID = 1471, --- "Bedlam Veil" 03/11/2024
 			Acronym = "bv",
 			Achievements = {
@@ -1334,6 +1334,56 @@ local pledgesData = {
 				[ARMORTYPE_LIGHT] = 203051,
 				[ARMORTYPE_MEDIUM] = 203045,
 				[ARMORTYPE_HEAVY] = 203039
+			},
+		},
+        [14] = {
+			ZoneID = 1496, --- "Exiled Redoubt" 03/10/2025
+			Acronym = "er",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {4117, 4118, 4121, 4124, 4159, 4295},
+					Composed = {
+						[4147] = {4109, 4128}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {4107, 4108, 4112, 4113, 4114, 4115, 4116, 4119, 4120, 4122, 4123, 4125},
+					Composed = {
+						[4146] = {4110, 4129}
+					}
+				},
+			},
+			QuestID = 7235,
+			NodeID = 581,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 213138,
+				[ARMORTYPE_MEDIUM] = 213132,
+				[ARMORTYPE_HEAVY] = 213126
+			},
+		},
+		[15] = {
+			ZoneID = 1497, --- "Lep Seclusa" 03/10/2025
+			Acronym = "ls",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {4135, 4137, 4144, 4160, 4250, 4251, 4252, 4253, 4296},
+					Composed = {
+						[4147] = {4109, 4128}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {4126, 4127, 4130, 4131, 4132, 4133, 4134, 4136, 4138, 4139, 4140, 4141, 4142, 4143},
+					Composed = {
+						[4146] = {4110, 4129}
+					}
+				},
+			},
+			QuestID = 7237,
+			NodeID = 582,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 213697,
+				[ARMORTYPE_MEDIUM] = 213691,
+				[ARMORTYPE_HEAVY] = 213685
 			},
 		},
 	}

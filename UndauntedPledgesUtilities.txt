@@ -1,8 +1,8 @@
 ## Title: Undaunted Pledges Utilities
 ## Description: This addon manages daily Undaunted Pledges
-## Version: 2.5.1
+## Version: 2.6
 ## Author: |@iFedix|r
-## APIVersion: 101041
+## APIVersion: 101045
 ## SavedVariables: UndauntedPledgesUtilities_SavedVariables
 ## DependsOn: LibAddonMenu-2.0 LibSlashCommander
 
