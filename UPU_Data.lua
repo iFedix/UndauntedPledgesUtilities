@@ -976,7 +976,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 158227
 			},
 		},
-		[0] = {
+		[32] = {
 			ZoneID = 1197, -- "Stone Garden" 08/24/2020
 			Acronym = "sg",
 			Achievements = {
@@ -1001,7 +1001,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 167040
 			},
 		},
-		[1] = {
+		[33] = {
 			ZoneID = 1201, -- "Castle Thorn" 08/24/2020
 			Acronym = "ct",
 			Achievements = {
@@ -1026,7 +1026,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 167116
 			},
 		},
-		[2] = {
+		[0] = {
 			ZoneID = 1228, -- "Black Drake Villa" 03/08/2021
 			Acronym = "bdv",
 			Achievements = {
@@ -1051,7 +1051,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 171607
 			},
 		},
-		[3] = {
+		[1] = {
 			ZoneID = 1229, -- "The Cauldron" 03/08/2021
 			Acronym = "tc",
 			Achievements = {
@@ -1076,7 +1076,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 171663
 			},
 		},
-		[4] = {
+		[2] = {
 			ZoneID = 1267, --- "Red Petal Bastion" 08/23/2021
 			Acronym = "rpb",
 			Achievements = {
@@ -1102,7 +1102,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 178576
 			},
 		},
-		[5] = {
+		[3] = {
 			ZoneID = 1268, --- "The Dread Cellar" 08/23/2021
 			Acronym = "tdc",
 			Achievements = {
@@ -1128,7 +1128,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 178632
 			},
 		},
-		[6] = {
+		[4] = {
 			ZoneID = 1301, --- "Coral Aerie" 03/14/2022
 			Acronym = "ca",
 			Achievements = {
@@ -1154,7 +1154,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 183744
 			},
 		},
-		[7] = {
+		[5] = {
 			ZoneID = 1302, --- "Shipwright's Regret" 03/14/2022
 			Acronym = "sr",
 			Achievements = {
@@ -1180,7 +1180,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 183800
 			},
 		},
-		[8] = {
+		[6] = {
 			ZoneID = 1360, --- "Earthen Root Enclave" 08/22/2022
 			Acronym = "ere",
 			Achievements = {
@@ -1206,7 +1206,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 189356
 			},
 		},
-		[9] = {
+		[7] = {
 			ZoneID = 1361, --- "Graven Deep" 08/22/2022
 			Acronym = "gd",
 			Achievements = {
@@ -1232,7 +1232,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 189412
 			},
 		},
-		[10] = {
+		[8] = {
 			ZoneID = 1389, --- "Bal Sunnar" 03/13/2023
 			Acronym = "bs",
 			Achievements = {
@@ -1258,7 +1258,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 193124
 			},
 		},
-		[11] = {
+		[9] = {
 			ZoneID = 1390, --- "Scrivener's Hall" 03/13/2023
 			Acronym = "sh",
 			Achievements = {
@@ -1284,7 +1284,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 193683
 			},
 		},
-		[12] = {
+		[10] = {
 			ZoneID = 1470, --- "Oathsworn Pit" 03/11/2024
 			Acronym = "op",
 			Achievements = {
@@ -1303,14 +1303,14 @@ local pledgesData = {
 				},
 			},
 			QuestID = 7105,
-			NodeID = -1, --TODO: still not available through Baertram's data (updated 04/01/2024). Once it's present in its files, launch d(UPU.UpdateAddonData(1470)) and paste here the updated nodeID
+			NodeID = 556,
 			HelmetsItemIDS = {
 				[ARMORTYPE_LIGHT] = 202492,
 				[ARMORTYPE_MEDIUM] = 202486,
 				[ARMORTYPE_HEAVY] = 202480
 			},
 		},
-		[13] = {
+		[11] = {
 			ZoneID = 1471, --- "Bedlam Veil" 03/11/2024
 			Acronym = "bv",
 			Achievements = {
@@ -1329,14 +1329,14 @@ local pledgesData = {
 				},
 			},
 			QuestID = 7155,
-			NodeID = -1, --TODO: still not available through Baertram's data (updated 04/01/2024). Once it's present in its files, launch d(UPU.UpdateAddonData(1471)) and paste here the updated nodeID
+			NodeID = 565,
 			HelmetsItemIDS = {
 				[ARMORTYPE_LIGHT] = 203051,
 				[ARMORTYPE_MEDIUM] = 203045,
 				[ARMORTYPE_HEAVY] = 203039
 			},
 		},
-        [14] = {
+        [12] = {
 			ZoneID = 1496, --- "Exiled Redoubt" 03/10/2025
 			Acronym = "er",
 			Achievements = {
@@ -1361,7 +1361,7 @@ local pledgesData = {
 				[ARMORTYPE_HEAVY] = 213126
 			},
 		},
-		[15] = {
+		[13] = {
 			ZoneID = 1497, --- "Lep Seclusa" 03/10/2025
 			Acronym = "ls",
 			Achievements = {
@@ -1384,6 +1384,58 @@ local pledgesData = {
 				[ARMORTYPE_LIGHT] = 213697,
 				[ARMORTYPE_MEDIUM] = 213691,
 				[ARMORTYPE_HEAVY] = 213685
+			},
+		},
+		[14] = {
+			ZoneID = 1551, --- "Naj-Caldeesh" 08/18/2025
+			Acronym = "nc",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {4328, 4440, 4441},
+					Composed = {
+						[4330] = {4334, 4311},
+						[4331] = {4349, 4326}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {4309, 4310, 4313, 4314, 4315, 4316, 4317, 4318, 4319, 4320, 4321, 4322, 4323, 4324, 4325, 4327, 4442},
+					Composed = {
+						[4329] = {4335, 4312}
+					}
+				},
+			},
+			QuestID = 7320,
+			NodeID = 606,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 219104,
+				[ARMORTYPE_MEDIUM] = 219098,
+				[ARMORTYPE_HEAVY] = 219092
+			},
+		},
+		[15] = {
+			ZoneID = 1552, --- "Black Gem Foundry" 08/18/2025
+			Acronym = "bgf",
+			Achievements = {
+				[DUNGEON_DIFFICULTY_NORMAL] = {
+					Single = {4351, 4436, 4437, 4443},
+					Composed = {
+						[4330] = {4334, 4311},
+						[4331] = {4349, 4326}
+					}
+				},
+				[DUNGEON_DIFFICULTY_VETERAN] = {
+					Single = {4332, 4336, 4337, 4338, 4339, 4340, 4341, 4342, 4343, 4344, 4345, 4346, 4347, 4348, 4350, 4333},
+					Composed = {
+						[4329] = {4335, 4312}
+					}
+				},
+			},
+			QuestID = 7323,
+			NodeID = 605,
+			HelmetsItemIDS = {
+				[ARMORTYPE_LIGHT] = 219048,
+				[ARMORTYPE_MEDIUM] = 219042,
+				[ARMORTYPE_HEAVY] = 219036
 			},
 		},
 	}
